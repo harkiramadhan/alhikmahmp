@@ -18063,4 +18063,9 @@ footer .pull-center {
   }
 }
 
+.section, .section-image {
+  background-position: 50%;
+  background-size: cover;
+}
+
 /*# sourceMappingURL=kit-free.css.map */
