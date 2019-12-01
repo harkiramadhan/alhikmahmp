@@ -30,10 +30,27 @@ class Ppdb extends CI_Controller{
             $this->load->view('ppdb');
         }
         else{
-            $success = "Silahkan Cek Email <b>".$email."</b> Untuk Melakukan Login";
-            $this->session->set_flashdata('sukses', $success);
-            redirect('ppdb');
-            print_r($this->input->post());
+            $data = [
+                'nik' => $this->input->post('nik', TRUE),
+                'nama' => $this->input->post('nama', TRUE),
+                'nama_panggil' => $this->input->post('nama_panggil', TRUE),
+                'jenkel' => $this->input->post('jenkel', TRUE),
+                'kwn' => $this->input->post('kwn', TRUE),
+                'tl' => $this->input->post('tl', TRUE),
+                'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
+                'email' => $this->input->post('email', TRUE),
+            ];
+
+            $this->db->insert('csiswa', $data);
+
+            if($this->db->affected_rows() > 0){
+                $success = "Silahkan Cek Email <b>".$email."</b> Untuk Melakukan Login";
+                $this->session->set_flashdata('sukses', $success);
+                redirect('ppdb');
+                print_r($this->input->post());
+            }else{
+
+            }
         }
     }
 }
