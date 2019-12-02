@@ -259,7 +259,7 @@
             </button>
             </div>
             <div class="modal-body bg-secondary">
-            <form role="form" action="" method="POST">
+            <form role="form" action="<?= site_url('login/auth') ?>" method="POST">
                 <div class="form-group mb-3">
                 <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">

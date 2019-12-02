@@ -4,13 +4,12 @@ class Ppdb extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('M_Kewarganegaraan');
+        $this->load->model('M_Csiswa');
     }
 
     function index(){
         $data['kewarganegaraan'] = $this->M_Kewarganegaraan->get_All()->result();
         $this->load->view('ppdb', $data);
-        $this->output->enable_profiler(TRUE);
-        
     }
 
     function regis(){
@@ -32,11 +31,7 @@ class Ppdb extends CI_Controller{
         $tgl_lahir = $this->input->post('tgl_lahir', TRUE);
         $email = $this->input->post('email', TRUE);
 
-        $this->db->select('email, nik');
-        $this->db->from('csiswa');
-        $this->db->where('email', $email);
-        $this->db->or_where('nik', $nik);
-        $cek = $this->db->get();
+        $cek = $this->M_Csiswa->cek_NikEmail($email, $nik);
 
         if($cek->num_rows() > 0){
             $error = "Email atau NIK Siswa Sudah Di Daftarkan Sebelumnya, Silahkan Cek <b>".$email."</b> Untuk Melakukan Login.";
