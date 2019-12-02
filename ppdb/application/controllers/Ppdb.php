@@ -44,36 +44,52 @@ class Ppdb extends CI_Controller{
             $this->db->insert('csiswa', $data);
 
             if($this->db->affected_rows() > 0){
-                $this->load->library('PHPMailer_lib');
-                $mail = $this->phpmailer_lib->load();
 
-                $mail->isSMTP();
-                $mail->Host     = 'mail.alhikmahmp.sch.id';
-                $mail->SMTPAuth = true;
-                $mail->Username = 'ppdb@alhikmahmp.sch.id';
-                $mail->Password = 's1mpaud3v';
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port     = 465;
+                $var['email'] = $email;
+                $var['password'] = $nik;
+                $var['nama'] = $nama;
+                $var['tl'] = $tl;
+                $var['tgl_lahir'] = $tgl_lahir;
+                $var['jenkel'] = $jenkel;
+                
+                $config = [
+                    'mailtype'  => 'html',
+                    'charset'   => 'iso-8859-1',
+                    'protocol'  => 'smtp',
+                    'smtp_host' => 'mail.alhikmahmp.sch.id',
+                    'smtp_user' => 'ppdb@alhikmahmp.sch.id',   
+                    'smtp_pass'   => 's1mpaud3v',   
+                    'smtp_crypto' => 'ssl',
+                    'smtp_port'   => 465,
+                ];
 
-                $mail->setFrom('ppdb@alhikmahmp.sch.id', 'PPDB Al Hikmah');
-                $mail->addReplyTo('ppdb@alhikmahmp.sch.id', 'HarkiRamadhan');
-                
-                $mail->addAddress($this->input->post('email', TRUE));
-                
-                $mail->Subject = 'PPDB Online SDIT Al Hikmah';
-                
-                $mail->isHTML(true);
-                $mailContent = "<h1>".$this->input->post('nama', TRUE)."</h1>
-                    <p>This is a test email sending using SMTP mail server with PHPMailer.</p>";
-                $mail->Body = $mailContent;
+                $this->load->library('email', $config);
+                $this->email->from('ppdb@alhikmahmp.sch.id', 'PPDB Online SDIT Al Hikmah');
+                $this->email->to($email);
+                $this->email->subject('PPDB SDIT Al Hikmah');
+                $isi = $this->load->view('mail', $var, true);
+                $this->email->message($isi);
+                // $this->email->message("
+                //     Terimakasih ".$nama." Telah Registrasi PPDB Online SDIT Al Hikmah <br>
+                //     Silahkan Login Pada Halaman Login <br>
+                //     Email : ".$email." <br>
+                //     Password : ".$nik." <br>
+                    
+                // ");
 
-                if($mail->send()){
-                    $success = "Silahkan Cek Email <b>".$email."</b> Untuk Melakukan Login";
+                if ($this->email->send()) {
+                    $success = "Silahkan Cek Email <b>".$email."</b> Untuk Melakukan Login.";
                     $this->session->set_flashdata('sukses', $success);
                     redirect('ppdb');
-                }else{
-                    echo $mail->ErrorInfo;
+                } else {
+                    $this->db->where('id', $this->db->insert_id());
+                    $this->db->delete('csiswa');
+
+                    $error = "Maaf <b>".$nama."</b> Gagal Registrasi, Silahkan Coba Kembali.";
+                    $this->session->set_flashdata('error', $error);
+                    redirect('ppdb');
                 }
+
             }else{
 
             }
