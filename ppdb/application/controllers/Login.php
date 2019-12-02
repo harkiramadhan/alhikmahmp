@@ -11,7 +11,14 @@ class Login extends CI_Controller{
         $cek = $this->M_Csiswa->cek_NikEmail($email, $nik);
 
         if($cek->num_rows() > 0){
-            print_r($cek->result());
+            $data = $cek->row();
+
+            $this->session->set_userdata('masuk', TRUE);
+            $this->session->set_userdata('email', $data->email);
+            $this->session->set_userdata('nik', $data->nik);
+            $this->session->set_userdata('nama', $data->nama);
+
+            redirect('dashboard');
         }else{
             $this->session->set_flashdata('error', "Email atau Password Salah");
             redirect('ppdb');
