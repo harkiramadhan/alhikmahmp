@@ -337,8 +337,9 @@
                     <label for="">Kewarganegaraan</label>
                     <select name="kwn" id="" class="form-control" required>
                     <option value="" disabled selected>- Pilih Kewarganegaraan -</option>
-                    <option value="WNI"> Warga Negara Indonesia </option>
-                    <option value="WNA"> Warga Negara Asing </option>
+                    <?php foreach($kewarganegaraan as $kw){ ?>
+                        <option value="<?= $kw->id ?>"> <?= $kw->short." - ".$kw->kwn ?> </option>
+                    <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">

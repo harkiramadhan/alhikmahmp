@@ -1,7 +1,14 @@
 <?php 
 class Ppdb extends CI_Controller{
+
+    function __construct(){
+        parent::__construct();
+        $this->load->model('M_Kewarganegaraan');
+    }
+
     function index(){
-        $this->load->view('ppdb');
+        $data['kewarganegaraan'] = $this->M_Kewarganegaraan->get_All()->result();
+        $this->load->view('ppdb', $data);
     }
 
     function regis(){
