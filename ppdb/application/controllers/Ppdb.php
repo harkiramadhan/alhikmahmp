@@ -5,6 +5,9 @@ class Ppdb extends CI_Controller{
         parent::__construct();
         $this->load->model('M_Kewarganegaraan');
         $this->load->model('M_Csiswa');
+        if($this->session->userdata('masuk') == TRUE){
+            redirect('dashboard', 'refresh');
+        }
     }
 
     function index(){
@@ -95,9 +98,10 @@ class Ppdb extends CI_Controller{
                         $this->session->set_flashdata('error', $error);
                         redirect('ppdb');
                     }
-    
                 }else{
-    
+                    $error = "Maaf <b>".$nama."</b> Gagal Registrasi, Silahkan Coba Kembali.";
+                    $this->session->set_flashdata('error', $error);
+                    redirect('ppdb');
                 }
             }
         }

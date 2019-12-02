@@ -176,15 +176,15 @@
                 <div class="col px-0">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 text-center">
-                    <!-- <img alt="image" src="<?= base_url('') ?>assets/img/LOGO_WHTLONG.png" style="width: 350px;" class="img-fluid"> -->
+                    <img alt="image" src="<?= base_url('') ?>assets/img/LOGO.png" style="width: 100px;" class="img-fluid">
                     <p class="lead text-white">PPDB Online SDIT Al Hikmah Tahun Ajaran 2020/2021.</p>
                     <div class="btn-wrapper mt-5">
                         <button data-toggle="modal" data-target="#login" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
-                        <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+                        <span class="btn-inner--icon"><i class="ni ni-spaceship"></i></span>
                         <span class="btn-inner--text">Login</span>
                         </button>
                         <button data-toggle="modal" data-target="#register" class="btn btn-lg btn-success btn-icon mb-3 mb-sm-0" target="_blank">
-                        <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
+                        <span class="btn-inner--icon"><i class="ni ni-badge"></i></span>
                         <span class="btn-inner--text">Registrasi</span>
                         </button>
                     </div>
