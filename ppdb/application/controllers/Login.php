@@ -15,8 +15,7 @@ class Login extends CI_Controller{
 
             $this->session->set_userdata('masuk', TRUE);
             $this->session->set_userdata('email', $data->email);
-            $this->session->set_userdata('nik', $data->nik);
-            $this->session->set_userdata('nama', $data->nama);
+            $this->session->set_userdata('idcsiswa', $data->id);
 
             redirect('dashboard');
         }else{
@@ -26,6 +25,8 @@ class Login extends CI_Controller{
     }
 
     function logout(){
-
+        $this->session->sess_destroy();
+        $url = base_url();
+        redirect($url);
     }
 }
