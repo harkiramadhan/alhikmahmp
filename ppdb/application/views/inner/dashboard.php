@@ -92,3 +92,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Konfirmasi Pembayaran -->
+    <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary">
+                    <h3 class="modal-title">Konfirmasi Pembayaran</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="btn btn-sm btn-success btn-block">Upload Bukti Pembayaran</button>
+                </div>
+                <div class="modal-footer bg-secondary">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
