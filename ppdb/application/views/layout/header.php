@@ -89,12 +89,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "anak"){echo "active";} ?>" href="<?= site_url('biodata/anak') ?>">
                             <i class="ni ni-collection text-default"></i> Biodata Anak
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "ortu"){echo "active";} ?>" href="<?= site_url('biodata/ortu') ?>">
                             <i class="ni ni-ruler-pencil text-default"></i> Biodata Orangtua
                         </a>
                     </li>
