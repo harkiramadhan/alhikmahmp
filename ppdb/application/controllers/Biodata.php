@@ -19,7 +19,7 @@ class Biodata extends CI_Controller{
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
 
         $this->load->view('layout/header', $data);
-        // $this->load->view('inner/dashboard');
+        $this->load->view('inner/bio_anak');
         $this->load->view('layout/footer');
     }
 
@@ -28,7 +28,7 @@ class Biodata extends CI_Controller{
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
 
         $this->load->view('layout/header', $data);
-        // $this->load->view('inner/dashboard');
+        $this->load->view('inner/bio_ortu');
         $this->load->view('layout/footer');
     }
 }

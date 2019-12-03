@@ -19,6 +19,7 @@ class Kartu extends CI_Controller{
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
 
         $this->load->view('layout/header', $data);
+        $this->load->view('inner/document', $data);
         $this->load->view('layout/footer');
     }
 }
