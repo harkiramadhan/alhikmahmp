@@ -14,7 +14,9 @@
                     <h5 class="card-title text-uppercase text-muted m-0">Informasi Penting !</h5> 
                 </div>
                 <div class="card-body"> 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium id earum animi qui tenetur? Aliquid sequi magnam accusantium minus sunt maxime cupiditate. Impedit nisi saepe modi vel, iusto tenetur optio?</sma>  
+                    <div class="text-justify">
+                        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium id earum animi qui tenetur? Aliquid sequi magnam accusantium minus sunt maxime cupiditate. Impedit nisi saepe modi vel, iusto tenetur optio?</small>  
+                    </div>
                 </div>
             </div>
         </div>
