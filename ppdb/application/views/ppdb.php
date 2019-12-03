@@ -253,8 +253,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">NIK</label>
-                            <input type="number" name="nik" placeholder="NIK" class="form-control form-control-alternative form-control-sm" required> 
+                            <label for="">NIK Anak</label>
+                            <input type="number" name="nik" placeholder="NIK Anak" class="form-control form-control-alternative form-control-sm" required> 
                         </div>
                         <div class="form-group">
                             <label for="">Nama Lengkap</label>

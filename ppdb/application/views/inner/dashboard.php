@@ -38,7 +38,7 @@
                             <h5 class="card-title text-uppercase text-muted m-0">Nama Lengkap</h5> 
                         </div>
                         <div class="card-body"> 
-                            <h3 class="text-uppercase m-0"><strong><?= $anak->nama." / ".$anak->jenkel ?></strong></h3>  
+                            <h3 class="text-uppercase m-0"><strong><?= $anak->nama." / (".$anak->jenkel.")" ?></strong></h3>  
                         </div>
                     </div>
                 </div>
