@@ -63,6 +63,7 @@
                     <div class="text-justify mb-3">
                         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero unde sit sunt iusto perferendis, accusantium, voluptatem esse, assumenda magni laudantium explicabo qui quos tempora commodi fuga ut repudiandae voluptate tenetur?</small>
                     </div>
+                    <hr class="my-4">
                     <form action="" method="post">
                         <div class="form-group">
                             <select name="" id="" class="form-control form-control-alternative form-control-sm">
@@ -87,6 +88,7 @@
                     <div class="text-justify mb-3">
                         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rem, cumque at facere nam molestiae laudantium, repellendus quae ex necessitatibus consequuntur in. Tempora et provident veniam consequuntur saepe. Dolorem, molestias!</small>
                     </div>
+                    <hr class="my-4">
                     <button class="btn btn-sm btn-block btn-primary" type="btn" data-toggle="modal" data-target="#konfirmasi">Konfirmasi Pembayaran</button>
                 </div>
             </div>
