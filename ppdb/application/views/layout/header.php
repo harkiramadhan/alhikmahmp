@@ -99,7 +99,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "kartu"){echo "active";} ?>" href="<?= site_url('kartu') ?>">
                             <i class="fa fa-print text-default"></i> Cetak Kartu
                         </a>
                     </li>
