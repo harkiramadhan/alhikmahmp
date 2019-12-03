@@ -48,9 +48,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
-                            <span class="avatar avatar-sm rounded-circle">
-                                
-                            </span>
+                            
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -88,6 +86,21 @@
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "dashboard"){echo "active";} ?>" href="<?= site_url('dashboard') ?>">
                             <i class="ni ni-tv-2 text-default"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <i class="ni ni-collection text-default"></i> Biodata Anak
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <i class="ni ni-ruler-pencil text-default"></i> Biodata Orangtua
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <i class="fa fa-print text-default"></i> Cetak Kartu
                         </a>
                     </li>
                 </ul>
