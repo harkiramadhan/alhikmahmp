@@ -11,4 +11,16 @@ class M_General extends CI_Model{
         $this->db->from('tempat_tinggal');
         return $this->db->get();
     }
+
+    function get_pekerjaan(){
+        $this->db->select('*');
+        $this->db->from('pekerjaan');
+        return $this->db->get();
+    }
+
+    function get_penghasilan(){
+        $this->db->select('*');
+        $this->db->from('penghasilan');
+        return $this->db->get();
+    }
 }

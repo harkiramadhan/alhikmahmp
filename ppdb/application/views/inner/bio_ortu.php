@@ -73,6 +73,9 @@
                                     <label for="">Pekerjaan <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Pekerjaan -</option>
+                                        <?php foreach($pekerjaan as $pk){ ?>
+                                            <option value="<?= $pk->id ?>"><?= $pk->pekerjaan ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -89,6 +92,9 @@
                                     <label for="">Penghasilan Perbulan (Rp.) <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Penghasilan Perbulan -</option>
+                                        <?php foreach($penghasilan as $pg){ ?>
+                                            <option value="<?= $pg->id ?>"><?= $pg->penghasilan ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

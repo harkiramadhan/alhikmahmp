@@ -29,6 +29,8 @@ class Biodata extends CI_Controller{
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
         $data['pendidikan'] = $this->M_General->get_pendidikan()->result();
         $data['tempat_tinggal'] = $this->M_General->get_tempat_tinggal()->result();
+        $data['pekerjaan'] = $this->M_General->get_pekerjaan()->result();
+        $data['penghasilan'] = $this->M_General->get_penghasilan()->result();
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/bio_ortu');
