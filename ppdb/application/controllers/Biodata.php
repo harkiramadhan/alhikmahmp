@@ -26,7 +26,7 @@ class Biodata extends CI_Controller{
     }
 
     function ortu(){
-        $data['title'] = "Dashboard PPDB Online Al Hikmah";
+        $data['title'] = "PPDB Online Al Hikmah";
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
         $data['pendidikan'] = $this->M_General->get_pendidikan()->result();
         $data['tempat_tinggal'] = $this->M_General->get_tempat_tinggal()->result();
