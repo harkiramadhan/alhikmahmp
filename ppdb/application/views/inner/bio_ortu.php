@@ -26,6 +26,7 @@
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                        <form action="" method="post">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -44,6 +45,8 @@
                                     <label for="">Tanggal Lahir <small class="text-warning">*</small></label>
                                     <input type="date" class="form-control form-control-alternative form-control-sm" required>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Tempat Tinggal <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
@@ -54,8 +57,6 @@
                                         <option value="">Dinas</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Pendidikan Terakhir <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
@@ -72,6 +73,8 @@
                                         <option value="" selected disabled>- Pilih Pekerjaan -</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama & Alamat Pekerjaan</label>
                                     <textarea name="" id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm"></textarea>
@@ -87,7 +90,11 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-12 text-right mt-2">
+                                <button class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
                         </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                         <p class="description">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
