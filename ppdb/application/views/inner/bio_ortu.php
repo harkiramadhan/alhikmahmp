@@ -51,16 +51,18 @@
                                     <label for="">Tempat Tinggal <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Tempat Tinggal -</option>
-                                        <option value="">Rumah Sendiri</option>
-                                        <option value="">Rumah Orang Tua</option>
-                                        <option value="">Mengontrak</option>
-                                        <option value="">Dinas</option>
+                                        <?php foreach($tempat_tinggal as $t){ ?>
+                                            <option value="<?= $t->id ?>"><?= $t->tempat ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Pendidikan Terakhir <small class="text-warning">*</small></label>
                                     <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Pendidikan Terakhir -</option>
+                                        <?php foreach($pendidikan as $p){ ?>
+                                            <option value="<?= $p->id ?>"><?= $p->short ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
