@@ -66,19 +66,21 @@ class Biodata extends CI_Controller{
             if($cek->num_rows() > 0){
                 $this->db->where('id', $cek->row()->id);
                 $this->db->update('bcortu', $data);
-
                 if($this->db->affected_rows() > 0){
-                    print_r($data);
+                    $this->session->set_flashdata('sukses', "Biodata".$jenis." Berhasil Di Simpan");
+                    redirect($_SERVER['HTTP_REFERER']);
                 }else{
-                    echo "GAGAL";
+                    $this->session->set_flashdata('error', "Biodata ".$jenis." Gagal Di Simpan, Silahkan Coba Lagi");
+                    redirect($_SERVER['HTTP_REFERER']);
                 }
             }else{
                 $this->db->insert('bcortu', $data);
-
                 if($this->db->affected_rows() > 0){
-                    print_r($data);
+                    $this->session->set_flashdata('sukses', "Biodata".$jenis." Berhasil Di Simpan");
+                    redirect($_SERVER['HTTP_REFERER']);
                 }else{
-                    echo "GAGAL";
+                    $this->session->set_flashdata('error', "Biodata ".$jenis." Gagal Di Simpan, Silahkan Coba Lagi");
+                    redirect($_SERVER['HTTP_REFERER']);
                 }
             }
         }
