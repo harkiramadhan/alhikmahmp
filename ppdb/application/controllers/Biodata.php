@@ -33,6 +33,8 @@ class Biodata extends CI_Controller{
         $data['pekerjaan'] = $this->M_General->get_pekerjaan()->result();
         $data['penghasilan'] = $this->M_General->get_penghasilan()->result();
         $data['cekayah'] = $this->M_Biodata->cek_ortu('ayah', $this->idcsiswa());
+        $data['cekibu'] = $this->M_Biodata->cek_ortu('ibu', $this->idcsiswa());
+        $data['cekwali'] = $this->M_Biodata->cek_ortu('wali', $this->idcsiswa());
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/bio_ortu');
@@ -67,7 +69,7 @@ class Biodata extends CI_Controller{
                 $this->db->where('id', $cek->row()->id);
                 $this->db->update('bcortu', $data);
                 if($this->db->affected_rows() > 0){
-                    $this->session->set_flashdata('sukses', "Biodata".$jenis." Berhasil Di Simpan");
+                    $this->session->set_flashdata('sukses', "Biodata ".$jenis." Berhasil Di Simpan");
                     redirect($_SERVER['HTTP_REFERER']);
                 }else{
                     $this->session->set_flashdata('error', "Biodata ".$jenis." Gagal Di Simpan, Silahkan Coba Lagi");
@@ -76,7 +78,7 @@ class Biodata extends CI_Controller{
             }else{
                 $this->db->insert('bcortu', $data);
                 if($this->db->affected_rows() > 0){
-                    $this->session->set_flashdata('sukses', "Biodata".$jenis." Berhasil Di Simpan");
+                    $this->session->set_flashdata('sukses', "Biodata ".$jenis." Berhasil Di Simpan");
                     redirect($_SERVER['HTTP_REFERER']);
                 }else{
                     $this->session->set_flashdata('error', "Biodata ".$jenis." Gagal Di Simpan, Silahkan Coba Lagi");
