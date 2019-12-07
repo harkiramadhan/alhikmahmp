@@ -328,7 +328,100 @@
                     </form>
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
-                        <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                    <form action="<?= site_url('biodata/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="wali">
+                        <?php if($cekwali->num_rows() > 0 ):
+                            $wali = $cekwali->row();    
+                        ?>
+                        <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nama Lengkap <small class="text-warning"><b>*) Tanpa Gelar</b></small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nama Lengkap Wali" name="nama" value="<?= $wali->nama ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tempat Lahir <small class="text-warning">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Tempat Lahir" name="tl" value="<?= $wali->tl ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Lahir <small class="text-warning">*</small></label>
+                                    <input type="date" class="form-control form-control-alternative form-control-sm" name="tgl_lahir" value="<?= $wali->tgl_lahir ?>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Pendidikan Terakhir <small class="text-warning">*</small></label>
+                                    <select id="" class="form-control form-control-alternative form-control-sm" name="idpendidikan" required>
+                                        <option value="" selected disabled>- Pilih Pendidikan Terakhir -</option>
+                                        <?php foreach($pendidikan as $p){ ?>
+                                            <option value="<?= $p->id ?>" <?php if($wali->idpendidikan == $p->id){echo "selected";} ?>><?= $p->short ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Gelar Terakhir</label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="gelar" value="<?= $wali->gelar ?>" placeholder="Gelar Terakhir">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Pekerjaan <small class="text-warning">*</small></label>
+                                    <select id="" class="form-control form-control-alternative form-control-sm" name="idpekerjaan" required>
+                                        <option value="" selected disabled>- Pilih Pekerjaan -</option>
+                                        <?php foreach($pekerjaan as $pk){ ?>
+                                            <option value="<?= $pk->id ?>" <?php if($wali->idpekerjaan == $pk->id){echo "selected";} ?>><?= $pk->pekerjaan ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nama Lengkap <small class="text-warning"><b>*) Tanpa Gelar</b></small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nama Lengkap Wali" name="nama" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tempat Lahir <small class="text-warning">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Tempat Lahir" name="tl" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal Lahir <small class="text-warning">*</small></label>
+                                    <input type="date" class="form-control form-control-alternative form-control-sm" name="tgl_lahir" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Pendidikan Terakhir <small class="text-warning">*</small></label>
+                                    <select id="" class="form-control form-control-alternative form-control-sm" name="idpendidikan" required>
+                                        <option value="" selected disabled>- Pilih Pendidikan Terakhir -</option>
+                                        <?php foreach($pendidikan as $p){ ?>
+                                            <option value="<?= $p->id ?>"><?= $p->short ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Gelar Terakhir</label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="gelar" placeholder="Gelar Terakhir">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Pekerjaan <small class="text-warning">*</small></label>
+                                    <select id="" class="form-control form-control-alternative form-control-sm" name="idpekerjaan" required>
+                                        <option value="" selected disabled>- Pilih Pekerjaan -</option>
+                                        <?php foreach($pekerjaan as $pk){ ?>
+                                            <option value="<?= $pk->id ?>"><?= $pk->pekerjaan ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                    </form>
                     </div>
                 </div>
             </div>
