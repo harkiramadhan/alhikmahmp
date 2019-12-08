@@ -237,6 +237,59 @@
                         </div>
                         </form>
                     </div>
+                    <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                        <form action="<?= site_url('biodata/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="anak4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Status Dalam Keluarga <small class="text-danger">*</small></label>
+                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Status Dalam Keluarga -</option>
+                                        <option value="Kandung">Kandung</option>
+                                        <option value="Tiri">Tiri</option>
+                                        <option value="Angkat">Angkat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Keberadaan Orang Tua <small class="text-danger">*</small></label>
+                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Keberadaan Orang Tua -</option>
+                                        <option value="Lengkap">Lengkap</option>
+                                        <option value="Yatim">Yatim</option>
+                                        <option value="Piatu">Piatu</option>
+                                        <option value="Yatim Piatu">Yatim Piatu</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Yang Membiayai Sekolah <small class="text-danger">*</small></label>
+                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                        <option value="Orang Tua Kandung">Orang Tua Kandung</option>
+                                        <option value="Orang Tua Asuh">Orang Tua Asuh</option>
+                                        <option value="Panti Asuhan">Panti Asuhan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
+                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Kondisi Fisik -</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Berkelainan">Berkelainan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kondisi Mental <small class="text-danger">*</small></label>
+                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Kondisi Mental -</option>
+                                        <option value="Normal">Normal</option>
+                                        <option value="Berkelainan">Berkelainan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </form>             
+                    </div>
                 </div>
             </div>
         </div>
