@@ -72,6 +72,28 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <label for="">Anak Ke - <small class="text-warning">*</small></label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" min="1" name="anak_ke" placeholder="Anak Ke -" value="<?= $anak->anak_ke ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jumlah Kakak</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="kakak" placeholder="Jumlah Kakak" value="<?= $anak->kakak ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jumlah Adik</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="adik" placeholder="Jumlah Adik" value="<?= $anak->adik ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jumlah Saudara Tiri</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="tiri" placeholder="Jumlah Saudara Tiri" value="<?= $anak->tiri ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Jumlah Saudara Angkat</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="angkat" placeholder="Jumlah Saudara Angkat" value="<?= $anak->angkat ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label for="">Hobi</label>
                                     <input type="text" class="form-control form-control-alternative form-control-sm" name="hobi" placeholder="Hobi" value="<?= $anak->hobi ?>">
                                 </div>
@@ -104,28 +126,6 @@
                                             <option value="<?= $kw->id ?>" <?php if($kw->id == $anak->kwn){echo "selected";} ?>><?= $kw->short." - ".$kw->kwn ?></option>
                                         <?php } ?>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Anak Ke - <small class="text-warning">*</small></label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" min="1" name="anak_ke" placeholder="Anak Ke -" value="<?= $anak->anak_ke ?>" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Jumlah Kakak</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="kakak" placeholder="Jumlah Kakak" value="<?= $anak->kakak ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Jumlah Adik</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="adik" placeholder="Jumlah Adik" value="<?= $anak->adik ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Jumlah Saudara Tiri</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="tiri" placeholder="Jumlah Saudara Tiri" value="<?= $anak->tiri ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Jumlah Saudara Angkat</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="angkat" placeholder="Jumlah Saudara Angkat" value="<?= $anak->angkat ?>">
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">
