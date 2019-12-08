@@ -23,4 +23,10 @@ class M_General extends CI_Model{
         $this->db->from('penghasilan');
         return $this->db->get();
     }
+
+    function get_Allkewarganegaraan(){
+        $this->db->select('*');
+        $this->db->from('kewarganegaraan');
+        return $this->db->get();
+    }
 }

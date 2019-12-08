@@ -19,6 +19,7 @@ class Biodata extends CI_Controller{
     function anak(){
         $data['title'] = "Dashboard PPDB Online Al Hikmah";
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
+        $data['kewarganegaraan'] = $this->M_General->get_Allkewarganegaraan()->result();
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/bio_anak');
