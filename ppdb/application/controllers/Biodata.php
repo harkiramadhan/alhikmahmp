@@ -45,8 +45,33 @@ class Biodata extends CI_Controller{
     function simpan(){
         $jenis = $this->input->post('jenis', TRUE);
 
-        if($jenis == "anak"){
+        if($jenis == "anak1"){
+            $data = [
+                'nama' => $this->input->post('nama', TRUE),
+                'nama_panggil' => $this->input->post('nama_panggil', TRUE),
+                'jenkel' => $this->input->post('jenkel', TRUE),
+                'tl' => $this->input->post('tl', TRUE),
+                'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
+                'hobi' => $this->input->post('hobi', TRUE),
+                'cita' => $this->input->post('cita', TRUE),
+                'bahasa' => $this->input->post('bahasa', TRUE),
+                'kwn' => $this->input->post('kwn', TRUE),
+                'anak_ke' => $this->input->post('anak_ke', TRUE),
+                'kakak' => $this->input->post('kakak', TRUE),
+                'adik' => $this->input->post('adik', TRUE),
+                'tiri' => $this->input->post('tiri', TRUE),
+                'angkat' => $this->input->post('angkat', TRUE),
+            ];
+            $this->db->where('id', $this->idcsiswa());
+            $this->db->update('csiswa', $data);
 
+            if($this->db->affected_rows() > 0 ){
+                $this->session->set_flashdata('sukses', "Data Diri ".$this->input->post('nama', TRUE)." Berhasil Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_flashdata('error', "Data Diri ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }else{
             $cek = $this->M_Biodata->cek_ortu($jenis, $this->idcsiswa());
 
