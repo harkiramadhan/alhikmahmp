@@ -21,7 +21,7 @@
                     <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false">Alamat</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-4" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false">Lain Lain</a>
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-4-tab" data-toggle="tab" href="#tabs-icons-text-4" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false">Lain Lain</a>
                 </li>
             </ul>
         </div>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
-                        <input type="hidden" name="jenis" value="anak2">
+                        <input type="hidden" name="jenis" value="anak">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -177,6 +177,60 @@
                                     <textarea name="penyakit" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm"><?= $anak->penyakit ?></textarea>
                                 </div>
                             </div>            
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                        <form action="<?= site_url('biodata/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="anak3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Alamat Rumah Saat Ini <small class="text-warning">*</small></label>
+                                    <textarea name="alamat" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">RT</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rt" placeholder="RT">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">RW</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rw" placeholder="RW">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nomor Rumah</label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="no" placeholder="Nomor Rumah">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Provinsi <small class="text-warning">*</small></label>
+                                    <select name="provinsi" id="provinsi" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="">- Pilih Privinsi -</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kabupaten <small class="text-warning">*</small></label>
+                                    <select name="kabupaten" id="kabupaten" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="">- Pilih Kabupaten -</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kecamatan <small class="text-warning">*</small></label>
+                                    <select name="kecamatan" id="kecamatan" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="">- Pilih Kecamatan -</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kelurahan <small class="text-warning">*</small></label>
+                                    <select name="kelurahan" id="kelurahan" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="">- Pilih Kelurahan -</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-12 text-right mt-2">
                                 <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                             </div>
