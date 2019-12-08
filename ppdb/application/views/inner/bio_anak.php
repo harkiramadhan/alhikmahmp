@@ -132,8 +132,56 @@
                                 <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                        <form action="<?= site_url('biodata/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="anak2">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Berat Badan (Kg) <small class="text-warning">*</small></label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" value="<?= $anak->bb ?>" name="bb" placeholder="Berat Badan (Kg)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tinggi Badan (Cm) <small class="text-warning">*</small></label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" value="<?= $anak->tb ?>" name="tb" placeholder="Tinggi Badan (Cm)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Lingkar Kepala (Cm) <small class="text-warning">*</small></label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" value="<?= $anak->lk ?>" name="lk" placeholder="Lingkar Kepala (Cm)" required>
+                                </div>
+                            </div>  
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Golongan Darah</label>
+                                    <select name="goldar" id="" class="form-control form-control-sm form-control-alternative">
+                                        <?php if($anak->goldar == NULL): ?>
+                                            <option value="" selected disabled>- Pilih Golongan Darah -</option>
+                                            <option value="O">O</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="AB">AB</option>
+                                        <?php else: ?>
+                                            <option value="<?= $anak->goldar ?>" selected><?= $anak->goldar ?></option>
+                                            <option value="" disabled></option>
+                                            <option value="O">O</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="AB">AB</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Penyakit Yang Pernah Di Derita</label>
+                                    <textarea name="penyakit" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm"><?= $anak->penyakit ?></textarea>
+                                </div>
+                            </div>            
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

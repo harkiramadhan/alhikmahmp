@@ -72,6 +72,24 @@ class Biodata extends CI_Controller{
                 $this->session->set_flashdata('error', "Data Diri ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "anak2"){
+            $data = [
+                'bb' => $this->input->post('bb', TRUE),
+                'tb' => $this->input->post('tb', TRUE),
+                'lk' => $this->input->post('lk', TRUE),
+                'goldar' => $this->input->post('goldar', TRUE),
+                'penyakit' => $this->input->post('penyakit', TRUE),
+            ];
+            $this->db->where('id', $this->idcsiswa());
+            $this->db->update('csiswa', $data);
+
+            if($this->db->affected_rows() > 0 ){
+                $this->session->set_flashdata('sukses', "Jasmani ".$this->input->post('nama', TRUE)." Berhasil Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_flashdata('error', "Jasmani ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }else{
             $cek = $this->M_Biodata->cek_ortu($jenis, $this->idcsiswa());
 
