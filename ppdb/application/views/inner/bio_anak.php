@@ -12,7 +12,10 @@
         <div class="nav-wrapper">
             <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Data Diri</a>
+                    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-tab" data-toggle="tab" href="#tabs-icons-text-6" role="tab" aria-controls="tabs-icons-text" aria-selected="true">Asal Sekolah</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Data Diri</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Jasmani</a>
@@ -28,7 +31,45 @@
         <div class="card shadow">
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                    <div class="tab-pane fade show active" id="tabs-icons-text-6" role="tabpanel" aria-labelledby="tabs-icons-text-tab">
+                        <form action="<?= site_url('biodata/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="sekolah">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nomor NPSN (Nomor Pokok Sekolah Nasional)</label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nama TK/TKA/TKQ/TPA <small class="text-warning">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="asal_sekolah" placeholder="Nama TK/TKA/TKQ/TPA" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Alamat Asal Sekolah <small class="text-warning">*</small></label>
+                                    <textarea name="alamat_asalsekolah" id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Lama Belajar <small class="text-warning">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="lama_belajar" placeholder="Lama Belajar" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Kelas <small class="text-warning">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="kelas" placeholder="Kelas" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tanggal <small class="text-warning">*) Sesuai Tanggal Surat Pindah</small></label>
+                                    <input type="date" class="form-control form-control-alternative form-control-sm" name="tanggal_surat" placeholder="Tanggal" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="anak1">
                         <div class="row">
@@ -136,7 +177,7 @@
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
-                        <input type="hidden" name="jenis" value="anak">
+                        <input type="hidden" name="jenis" value="anak2">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
