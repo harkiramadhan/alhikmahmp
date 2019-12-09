@@ -37,6 +37,26 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Jenis Calon Siswa <small class="text-warning">*</small></label>
+                                    <select id="jenis_siswa" class="form-control form-control-alternative form-control-sm" name="jenis_siswa" required>
+                                        <?php if($anak->jenis == ""): ?>
+                                            <option value="" selected disabled>- Pilih Jenis Siswa -</option>
+                                            <option value="lanjutan">Peserta Didik Kelas 1</option>
+                                            <option value="pindahan">Pindahan</option>
+                                        <?php else: ?>
+                                            <?php if($anak->jenis == "lanjutan"): ?>
+                                                <option value="" disabled>- Pilih Jenis Siswa -</option>
+                                                <option value="lanjutan" selected>Peserta Didik Kelas 1</option>
+                                                <option value="pindahan">Pindahan</option>
+                                            <?php elseif($anak->jenis == "pindahan"): ?>
+                                                <option value="" disabled>- Pilih Jenis Siswa -</option>
+                                                <option value="lanjutan">Peserta Didik Kelas 1</option>
+                                                <option value="pindahan" selected>Pindahan</option>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="">Nomor NPSN (Nomor Pokok Sekolah Nasional)</label>
                                     <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn" value="<?= $anak->npsn ?>">
                                 </div>
@@ -54,13 +74,19 @@
                                     <label for="">Lama Belajar <small class="text-warning">*</small></label>
                                     <input type="text" class="form-control form-control-alternative form-control-sm" name="lama_belajar" placeholder="Lama Belajar" value="<?= $anak->lama_belajar ?>" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Kelas <small class="text-warning">*</small></label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="kelas" placeholder="Kelas" value="<?= $anak->kelas ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Tanggal <small class="text-warning">*) Sesuai Tanggal Surat Pindah</small></label>
-                                    <input type="date" id="tanggal_pindah" class="form-control form-control-alternative form-control-sm" name="tanggal_pindah" placeholder="Tanggal" value="<?= $anak->tanggal_pindah ?>" required>
+                                <?php if($anak->jenis == "pindahan"): ?>
+                                <div>
+                                <?php else: ?>
+                                <div id="pindahan">
+                                <?php endif; ?>
+                                    <div class="form-group">
+                                        <label for="">Kelas <small class="text-warning">*</small></label>
+                                        <input type="text" id="kelas" class="form-control form-control-alternative form-control-sm" name="kelas" placeholder="Kelas" value="<?= $anak->kelas ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Tanggal <small class="text-warning">*) Sesuai Tanggal Surat Pindah</small></label>
+                                        <input type="date" id="tanggal_pindah" class="form-control form-control-alternative form-control-sm" name="tanggal_pindah" placeholder="Tanggal" value="<?= $anak->tanggal_pindah ?>">
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">

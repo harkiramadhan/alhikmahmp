@@ -7,6 +7,19 @@
     $('#provinsi').click(function(){
         
     });
+
+    $('#pindahan').hide();
+    $('#jenis_siswa').on('change', function(){
+      if(this.value === "pindahan"){
+         $('#kelas').prop('required',true);
+         $('#tanggal_pindah').prop('required',true);
+         $('#pindahan').show();
+      }else{
+         $('#kelas').prop('required',false);
+         $('#tanggal_pindah').prop('required',false);
+         $('#pindahan').hide();
+      }
+    });
    });
 </script>
 <?php endif; ?>
