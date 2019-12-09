@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tanggal <small class="text-warning">*) Sesuai Tanggal Surat Pindah</small></label>
-                                    <input type="date" id="tanggal_pindah" class="form-control form-control-alternative form-control-sm" name="tanggal_pindah" placeholder="Tanggal" value="<?= $anak->tanggal_surat ?>" required>
+                                    <input type="date" id="tanggal_pindah" class="form-control form-control-alternative form-control-sm" name="tanggal_pindah" placeholder="Tanggal" value="<?= $anak->tanggal_pindah ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">
