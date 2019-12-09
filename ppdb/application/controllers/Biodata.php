@@ -90,6 +90,27 @@ class Biodata extends CI_Controller{
                 $this->session->set_flashdata('error', "Jasmani ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "sekolah"){
+            $data = [
+                'npsn' => $this->input->post('npsn', TRUE),
+                'asal_sekolah' => $this->input->post('asal_sekolah', TRUE),
+                'alamat_asalsekolah' => $this->input->post('alamat_asalsekolah', TRUE),
+                'lama_belajar' => $this->input->post('lama_belajar', TRUE),
+                'kelas' => $this->input->post('kelas', TRUE),
+                'tanggal_pindah' => $this->input->post('tanggal_pindah', TRUE),
+                'jenis' => $this->input->post('jenis_siswa', TRUE)
+            ];
+            
+            $this->db->where('id', $this->idcsiswa());
+            $this->db->update('csiswa', $data);
+
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('sukses', "Data Sekolah Berhasil Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_flashdata('error', "Data Sekolah Gagal Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }else{
             $cek = $this->M_Biodata->cek_ortu($jenis, $this->idcsiswa());
 
