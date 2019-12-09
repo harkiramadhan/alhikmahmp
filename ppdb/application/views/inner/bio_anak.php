@@ -38,29 +38,29 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Nomor NPSN (Nomor Pokok Sekolah Nasional)</label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn">
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn" value="<?= $anak->npsn ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nama TK/TKA/TKQ/TPA <small class="text-warning">*</small></label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="asal_sekolah" placeholder="Nama TK/TKA/TKQ/TPA" required>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="asal_sekolah" placeholder="Nama TK/TKA/TKQ/TPA" value="<?= $anak->asal_sekolah ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Alamat Asal Sekolah <small class="text-warning">*</small></label>
-                                    <textarea name="alamat_asalsekolah" id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" required></textarea>
+                                    <textarea name="alamat_asalsekolah" id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" required><?= $anak->alamat_asalsekolah ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Lama Belajar <small class="text-warning">*</small></label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="lama_belajar" placeholder="Lama Belajar" required>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="lama_belajar" placeholder="Lama Belajar" value="<?= $anak->lama_belajar ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kelas <small class="text-warning">*</small></label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="kelas" placeholder="Kelas" required>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="kelas" placeholder="Kelas" value="<?= $anak->kelas ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tanggal <small class="text-warning">*) Sesuai Tanggal Surat Pindah</small></label>
-                                    <input type="date" class="form-control form-control-alternative form-control-sm" name="tanggal_surat" placeholder="Tanggal" required>
+                                    <input type="date" id="tanggal_pindah" class="form-control form-control-alternative form-control-sm" name="tanggal_pindah" placeholder="Tanggal" value="<?= $anak->tanggal_surat ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">
