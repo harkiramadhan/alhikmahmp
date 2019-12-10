@@ -5,6 +5,7 @@ class Biodata extends CI_Controller{
         $this->load->model('M_Csiswa');
         $this->load->model('M_General');
         $this->load->model('M_Biodata');
+        $this->load->model('M_Indonesia');
         if($this->session->userdata('masuk') != TRUE){
             $url = base_url();
             redirect($url);
@@ -20,6 +21,7 @@ class Biodata extends CI_Controller{
         $data['title'] = "Dashboard PPDB Online Al Hikmah";
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
         $data['kewarganegaraan'] = $this->M_General->get_Allkewarganegaraan()->result();
+        $data['provinsi'] = $this->M_Indonesia->getAll_provinsi()->result();
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/bio_anak');
@@ -199,5 +201,39 @@ class Biodata extends CI_Controller{
                 }
             }
         }
+    }
+
+    // // // AJAX // // //
+    function kabupaten(){
+        $idprop = $this->input->post('idprop', TRUE);
+        $kab = $this->M_Indonesia->getAll_kabupatenByProp($idprop)->result();
+        ?>
+            <option value="" selected disabled>- Pilih Kabupaten -</option>
+            <?php foreach($kab as $k){ ?>
+                <option value="<?= $k->id ?>"><?= $k->nama ?></option>
+            <?php } ?>
+        <?php
+    }
+
+    function kecamatan(){
+        $idkab = $this->input->post('idkab', TRUE);
+        $kec = $this->M_Indonesia->getAll_kecamatanByKab($idkab)->result();
+        ?>
+            <option value="" selected disabled>- Pilih Kecamatan -</option>
+            <?php foreach($kec as $k){ ?>
+                <option value="<?= $k->id ?>"><?= $k->nama ?></option>
+            <?php } ?>
+        <?php
+    }
+
+    function kelurahan(){
+        $idkec = $this->input->post('idkec', TRUE);
+        $kel = $this->M_Indonesia->getAll_kelurahanByKec($idkec)->result();
+        ?>
+            <option value="" selected disabled>- Pilih Kellurahan -</option>
+            <?php foreach($kel as $k){ ?>
+                <option value="<?= $k->id ?>"><?= $k->nama ?></option>
+            <?php } ?>
+        <?php
     }
 }

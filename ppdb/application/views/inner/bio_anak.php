@@ -277,6 +277,9 @@
                                     <label for="">Provinsi <small class="text-warning">*</small></label>
                                     <select name="provinsi" id="provinsi" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="">- Pilih Privinsi -</option>
+                                        <?php foreach($provinsi as $p){ ?>
+                                            <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
