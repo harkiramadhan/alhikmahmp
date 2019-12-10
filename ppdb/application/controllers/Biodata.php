@@ -172,7 +172,33 @@ class Biodata extends CI_Controller{
                 'kecamatan' => $this->input->post('kecamatan', TRUE),
                 'kelurahan' => $this->input->post('kelurahan', TRUE),
             ];
-            print_r($data);
+            $this->db->where('id', $this->idcsiswa());
+            $this->db->update('csiswa', $data);
+
+            if($this->db->affected_rows() > 0){
+                $cek = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>4]);
+                if($cek->num_rows() > 0){
+                    $data2 = [
+                        'idcsiswa' => $this->idcsiswa(),
+                        'idstep' => 4
+                    ];
+                    $this->db->where('id', $cek->row()->id);
+                    $this->db->update('bstep', $data2);
+                }else{
+                    $data2 = [
+                        'idcsiswa' => $this->idcsiswa(),
+                        'idstep' => 4
+                    ];
+                    $this->db->insert('bstep', $data2);
+                }
+
+                $this->session->set_flashdata('sukses', "Data Alamat Berhasil Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_flashdata('error', "Data Alamat Gagal Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+
         }else{
             $cek = $this->M_Biodata->cek_ortu($jenis, $this->idcsiswa());
 
