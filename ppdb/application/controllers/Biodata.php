@@ -161,6 +161,18 @@ class Biodata extends CI_Controller{
                 $this->session->set_flashdata('error', "Data Sekolah Gagal Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "alamat"){
+            $data = [
+                'alamat' => $this->input->post('alamat', TRUE),
+                'rt' => $this->input->post('rt', TRUE),
+                'rw' => $this->input->post('rw', TRUE),
+                'no' => $this->input->post('no', TRUE),
+                'provinsi' => $this->input->post('provinsi', TRUE),
+                'kabupaten' => $this->input->post('kabupaten', TRUE),
+                'kecamatan' => $this->input->post('kecamatan', TRUE),
+                'kelurahan' => $this->input->post('kelurahan', TRUE),
+            ];
+            print_r($data);
         }else{
             $cek = $this->M_Biodata->cek_ortu($jenis, $this->idcsiswa());
 

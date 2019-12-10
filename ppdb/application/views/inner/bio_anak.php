@@ -252,7 +252,7 @@
                     </div>
                     <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
-                        <input type="hidden" name="jenis" value="anak3">
+                        <input type="hidden" name="jenis" value="alamat">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
