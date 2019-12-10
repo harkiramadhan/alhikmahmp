@@ -172,6 +172,7 @@ class Biodata extends CI_Controller{
                 'kecamatan' => $this->input->post('kecamatan', TRUE),
                 'kelurahan' => $this->input->post('kelurahan', TRUE),
             ];
+            print_r($data);
             $this->db->where('id', $this->idcsiswa());
             $this->db->update('csiswa', $data);
 

@@ -257,19 +257,19 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Alamat Rumah Saat Ini <small class="text-warning">*</small></label>
-                                    <textarea name="alamat" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" required></textarea>
+                                    <textarea name="alamat" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" required><?= $anak->alamat ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">RT</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rt" placeholder="RT">
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rt" placeholder="RT" value="<?= $anak->rt ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">RW</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rw" placeholder="RW">
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rw" placeholder="RW" value="<?= $anak->rw ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nomor Rumah</label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="no" placeholder="Nomor Rumah">
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="no" placeholder="Nomor Rumah" value="<?= $anak->no ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -278,26 +278,39 @@
                                     <select name="provinsi" id="provinsi" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="">- Pilih Privinsi -</option>
                                         <?php foreach($provinsi as $p){ ?>
-                                            <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                                            <option value="<?= $p->id ?>" <?php if($anak->provinsi == $p->id){echo "selected";} ?>><?= $p->nama ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="">Kabupaten <small class="text-warning">*</small></label>
                                     <select name="kabupaten" id="kabupaten" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="">- Pilih Kabupaten -</option>
+                                        <?php if($anak->kabupaten != NULL): ?>
+                                            <option value="<?= $anak->kabupaten ?>"><?= $anak->nama_kab ?></option>
+                                        <?php else: ?>
+                                            <option value="">- Pilih Kabupaten -</option>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kecamatan <small class="text-warning">*</small></label>
                                     <select name="kecamatan" id="kecamatan" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="">- Pilih Kecamatan -</option>
+                                        <?php if($anak->kecamatan != NULL): ?>
+                                            <option value="<?= $anak->kecamatan ?>"><?= $anak->nama_kec ?></option>
+                                        <?php else: ?>
+                                            <option value="">- Pilih Kecamatan -</option>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Kelurahan <small class="text-warning">*</small></label>
                                     <select name="kelurahan" id="kelurahan" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="">- Pilih Kelurahan -</option>
+                                        <?php if($anak->kelurahan != NULL): ?>
+                                            <option value="<?= $anak->kelurahan ?>"><?= $anak->nama_kel ?></option>
+                                        <?php else: ?>
+                                            <option value="">- Pilih Kelurahan -</option>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
