@@ -172,7 +172,6 @@ class Biodata extends CI_Controller{
                 'kecamatan' => $this->input->post('kecamatan', TRUE),
                 'kelurahan' => $this->input->post('kelurahan', TRUE),
             ];
-            print_r($data);
             $this->db->where('id', $this->idcsiswa());
             $this->db->update('csiswa', $data);
 
@@ -223,6 +222,30 @@ class Biodata extends CI_Controller{
                 $this->db->where('id', $cek->row()->id);
                 $this->db->update('bcortu', $data);
                 if($this->db->affected_rows() > 0){
+                    if($jenis == "ayah"){
+                        $idstep = 6;
+                    }elseif($jenis == "ibu"){
+                        $idstep = 7;
+                    }elseif($jenis == "wali"){
+                        $idstep = 8;
+                    }
+
+                    $cek2 = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>$idstep]);
+                    if($cek2->num_rows() > 0){
+                        $data2 = [
+                            'idcsiswa' => $this->idcsiswa(),
+                            'idstep' => $idstep
+                        ];
+                        $this->db->where('id', $cek2->row()->id);
+                        $this->db->update('bstep', $data2);
+                    }else{
+                        $data2 = [
+                            'idcsiswa' => $this->idcsiswa(),
+                            'idstep' => $idstep
+                        ];
+                        $this->db->insert('bstep', $data2);
+                    }
+
                     $this->session->set_flashdata('sukses', "Biodata ".$jenis." Berhasil Di Simpan");
                     redirect($_SERVER['HTTP_REFERER']);
                 }else{
