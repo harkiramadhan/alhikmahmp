@@ -223,8 +223,6 @@
                                     <label for="">Lingkar Kepala (Cm) <small class="text-warning">*</small></label>
                                     <input type="number" class="form-control form-control-alternative form-control-sm" value="<?= $anak->lk ?>" name="lk" placeholder="Lingkar Kepala (Cm)" required>
                                 </div>
-                            </div>  
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Golongan Darah</label>
                                     <select name="goldar" id="" class="form-control form-control-sm form-control-alternative">
@@ -244,9 +242,19 @@
                                         <?php endif; ?>
                                     </select>
                                 </div>
+                            </div>  
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Penyakit Yang Pernah Di Derita</label>
-                                    <textarea name="penyakit" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm"><?= $anak->penyakit ?></textarea>
+                                    <textarea name="penyakit" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Penyakit Yang Pernah Di Derita"><?= $anak->penyakit ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Tiga Bulan Terakhir Pernah Dirawat Karena</label>
+                                    <textarea name="rawat" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Tiga Bulan Terakhir Pernah Dirawat Karena"><?= $anak->rawat ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Penyakit Yang Kadang Timbul</label>
+                                    <textarea name="penyakit_timbul" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Penyakit Yang Kadang Timbul"><?= $anak->penyakit_timbul ?></textarea>
                                 </div>
                             </div>            
                             <div class="col-md-12 text-right mt-2">
