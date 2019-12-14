@@ -57,12 +57,12 @@
                                         <option value="wafat" <?php if($ayah->status == "wafat"){echo "selected";} ?>>Wafat</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
                                 <div class="form-group" id="formWafatAyah">
                                     <label for="">Tanggal Wafat Ayah <small class="text-warning">*</small></label>
                                     <input type="date" class="form-control form-control-sm form-control-alternative" name="tanggal_wafat" id="inputWafatAyah" value="<?= $ayah->tanggal_wafat ?>">
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Tempat Tinggal <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idtempat" required>
@@ -94,12 +94,12 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama & Alamat Pekerjaan</label>
                                     <textarea id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" name="alamat_pekerjaan"><?= $ayah->alamat_pekerjaan ?></textarea>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Penghasilan Perbulan (Rp.) <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idpenghasilan" required>
@@ -149,12 +149,12 @@
                                         <option value="wafat">Wafat</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
                                 <div class="form-group" id="formWafatAyah">
                                     <label for="">Tanggal Wafat Ayah <small class="text-warning">*</small></label>
                                     <input type="date" class="form-control form-control-sm form-control-alternative" name="tanggal_wafat" id="inputWafatAyah">
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Tempat Tinggal <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idtempat" required>
@@ -186,12 +186,12 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nama & Alamat Pekerjaan</label>
                                     <textarea id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" name="alamat_pekerjaan"></textarea>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Penghasilan Perbulan (Rp.) <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idpenghasilan" required>
@@ -241,6 +241,18 @@
                                     <label for="">Tanggal Lahir <small class="text-warning">*</small></label>
                                     <input type="date" class="form-control form-control-alternative form-control-sm" name="tgl_lahir" value="<?= $ibu->tgl_lahir ?>" required>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Status Ibu <small class="text-warning">*</small></label>
+                                    <select class="form-control form-control-alternative form-control-sm" name="status" id="statusibu" required>
+                                        <option value="" disabled>- Pilih Status -</option>>
+                                        <option value="ada" <?php if($ibu->status == "ada"){echo "selected";} ?>>Ada</option>
+                                        <option value="wafat" <?php if($ibu->status == "wafat"){echo "selected";} ?>>Wafat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="formWafatIbu">
+                                    <label for="">Tanggal Wafat Ibu <small class="text-warning">*</small></label>
+                                    <input type="date" class="form-control form-control-sm form-control-alternative" name="tanggal_wafat" id="inputWafatIbu" value="<?= $ibu->tanggal_wafat ?>">
+                                </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -266,15 +278,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" class="form-control form-control-alternative form-control-sm" name="email" value="<?= $ibu->email ?>" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Nama & Alamat Pekerjaan</label>
                                     <textarea id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" name="alamat_pekerjaan"><?= $ibu->alamat_pekerjaan ?></textarea>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Penghasilan Perbulan (Rp.) <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idpenghasilan" required>
@@ -283,6 +291,14 @@
                                             <option value="<?= $pg->id ?>" <?php if($ibu->idpenghasilan == $pg->id){echo "selected";} ?>><?= $pg->penghasilan ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="email" class="form-control form-control-alternative form-control-sm" name="email" value="<?= $ibu->email ?>" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Whatsapp</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="wa" placeholder="Whatsapp" value="<?= $ibu->wa ?>">
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">
@@ -307,6 +323,18 @@
                                 <div class="form-group">
                                     <label for="">Tanggal Lahir <small class="text-warning">*</small></label>
                                     <input type="date" class="form-control form-control-alternative form-control-sm" name="tgl_lahir" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Status Ibu <small class="text-warning">*</small></label>
+                                    <select class="form-control form-control-alternative form-control-sm" name="status" id="statusibu" required>
+                                        <option value="" disabled>- Pilih Status -</option>>
+                                        <option value="ada">Ada</option>
+                                        <option value="wafat">Wafat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="formWafatIbu">
+                                    <label for="">Tanggal Wafat Ibu <small class="text-warning">*</small></label>
+                                    <input type="date" class="form-control form-control-sm form-control-alternative" name="tanggal_wafat" id="inputWafatIbu">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -333,15 +361,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="email" class="form-control form-control-alternative form-control-sm" name="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
                                     <label for="">Nama & Alamat Pekerjaan</label>
                                     <textarea id="" cols="30" rows="5" class="form-control form-control-alternative form-control-sm" name="alamat_pekerjaan"></textarea>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Penghasilan Perbulan (Rp.) <small class="text-warning">*</small></label>
                                     <select id="" class="form-control form-control-alternative form-control-sm" name="idpenghasilan" required>
@@ -350,6 +374,14 @@
                                             <option value="<?= $pg->id ?>"><?= $pg->penghasilan ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="email" class="form-control form-control-alternative form-control-sm" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Whatsapp</label>
+                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="wa" placeholder="Whatsapp">
                                 </div>
                             </div>
                             <div class="col-md-12 text-right mt-2">
