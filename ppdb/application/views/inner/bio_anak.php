@@ -391,6 +391,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12 text-right mt-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div>
                         </div>
                         </form>             
                     </div>

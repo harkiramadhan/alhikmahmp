@@ -21,7 +21,6 @@ $(document).ready(function(){
         $('#inputBiaya').show();
     }else{
         $('#biaya').prop('required', true);
-        $('#biaya').prop('selectedIndex',0);
         $('#formBiaya').show();
         $('#inputTextBiaya').prop('required', false);
         $('#inputBiaya').hide();
@@ -45,7 +44,6 @@ $(document).ready(function(){
         $('#formKondisiFisikText').show();
     }else{
         $('#selectFisik').prop('required', true);
-        $('#selectFisik').prop('selectedIndex',0);
         $('#formKondisiFisikSelect').show();
         $('#inputFisik').prop('required', false);
         $('#formKondisiFisikText').hide();
@@ -69,7 +67,6 @@ $(document).ready(function(){
         $('#formKondisiMentalText').show();
     }else{
         $('#selectMental').prop('required', true);
-        $('#selectMental').prop('selectedIndex',0);
         $('#formKondisiMentalSelect').show();
         $('#inputMental').prop('required', false);
         $('#formKondisiMentalText').hide();
