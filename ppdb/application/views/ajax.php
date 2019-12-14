@@ -46,4 +46,7 @@
       });
    });
 </script>
+
+<?php elseif($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "ortu"): ?>
+<script src="<?= base_url('') ?>assets/inner/js/ortuStyle.js"></script>
 <?php endif; ?>

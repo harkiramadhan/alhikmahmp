@@ -261,7 +261,10 @@ class Biodata extends CI_Controller{
                 'idpekerjaan' => $this->input->post('idpekerjaan', TRUE),
                 'alamat_pekerjaan' => htmlspecialchars($this->input->post('alamat_pekerjaan', TRUE)),
                 'email' => $this->input->post('email', TRUE),
-                'idpenghasilan' => $this->input->post('idpenghasilan', TRUE)
+                'idpenghasilan' => $this->input->post('idpenghasilan', TRUE),
+                'wa' => $this->input->post('wa', TRUE),
+                'status' => $this->input->post('status', TRUE),
+                'tanggal_wafat' => $this->input->post('tanggal_wafat', TRUE),
             ];
 
             if($cek->num_rows() > 0){
