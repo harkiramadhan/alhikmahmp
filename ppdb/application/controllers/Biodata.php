@@ -126,6 +126,50 @@ class Biodata extends CI_Controller{
                 $this->session->set_flashdata('error', "Jasmani ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "anak4"){
+            $data = [
+                'status_keluarga'   => $this->input->post('status_keluarga', TRUE),
+                'biaya_anak'        => $this->input->post('biaya_anak', TRUE),
+                'fisik'             => $this->input->post('fisik', TRUE),
+                'mental'            => $this->input->post('mental', TRUE),
+                'kebiasaan'         => $this->input->post('kebiasaan', TRUE),
+                'alasan'            => $this->input->post('alasan', TRUE),
+                'pembinaan_anak'    => $this->input->post('pembinaan_anak', TRUE),
+                'masalah'           => $this->input->post('masalah', TRUE),
+                'keahlian_ortu'     => $this->input->post('keahlian_ortu', TRUE),
+                'internet'          => $this->input->post('internet', TRUE),
+                'internet_anak'     => $this->input->post('internet_anak', TRUE),
+                'pantau'            => $this->input->post('pantau', TRUE),
+                'teman'             => $this->input->post('teman', TRUE),
+                'kakak_sdit'        => $this->input->post('kakak_sdit', TRUE),
+                'nama_kakak'        => $this->input->post('nama_kakak', TRUE),
+            ];
+            $this->db->where('id', $this->idcsiswa());
+            $this->db->update('csiswa', $data);
+
+            if($this->db->affected_rows() > 0 ){
+                $cek = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>5]);
+                if($cek->num_rows() > 0){
+                    $data2 = [
+                        'idcsiswa' => $this->idcsiswa(),
+                        'idstep' => 5
+                    ];
+                    $this->db->where('id', $cek->row()->id);
+                    $this->db->update('bstep', $data2);
+                }else{
+                    $data2 = [
+                        'idcsiswa' => $this->idcsiswa(),
+                        'idstep' => 5
+                    ];
+                    $this->db->insert('bstep', $data2);
+                }
+
+                $this->session->set_flashdata('sukses', "Data Lainnya ".$this->input->post('nama', TRUE)." Berhasil Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_flashdata('error', "Data Lainnya ".$this->input->post('nama', TRUE)." Gagal Di Simpan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }elseif($jenis == "sekolah"){
             $data = [
                 'npsn' => $this->input->post('npsn', TRUE),

@@ -29,7 +29,7 @@
             </ul>
         </div>
         <div class="card shadow">
-            <div class="card-body">
+            <div class="card-body bg-secondary">
                 <div class="tab-content" id="myTabContent">
                     <!-- Asal Sekolah -->
                     <div class="tab-pane fade show active" id="tabs-icons-text-6" role="tabpanel" aria-labelledby="tabs-icons-text-tab">
@@ -341,11 +341,15 @@
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="anak4">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Status Dalam Keluarga <small class="text-danger">*</small></label>
-                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="status_keluarga" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <?php if($anak->status_keluarga != NULL || $anak->status_keluarga != ""): ?>
+                                        <option value="<?= $anak->status_keluarga ?>" selected><?= $anak->status_keluarga ?></option>
+                                        <?php else: ?>
                                         <option value="" selected disabled>- Pilih Status Dalam Keluarga -</option>
+                                        <?php endif; ?>
                                         <option value="Kandung">Kandung</option>
                                         <option value="Tiri">Tiri</option>
                                         <option value="Angkat">Angkat</option>
@@ -353,24 +357,50 @@
                                 </div>
                                 <div class="form-group" id="formBiaya">
                                     <label for="">Yang Membiayai Sekolah <small class="text-danger">*</small></label>
-                                    <select name="" id="biaya" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="" selected disabled>- Pilih Yang Membiayai Sekolah -</option>
-                                        <option value="Orang Tua Kandung">Orang Tua Kandung</option>
-                                        <option value="Orang Tua Asuh">Orang Tua Asuh</option>
-                                        <option value="Panti Asuhan">Panti Asuhan</option>
-                                        <option value="lain">Lainnya</option>
+                                    <select name="biaya_anak" id="biaya" class="form-control form-control-alternative form-control-sm" required>
+                                        <?php if($anak->biaya_anak == ""): ?>
+                                            <option value="" selected disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                            <option value="Orang Tua Kandung">Orang Tua Kandung</option>
+                                            <option value="Orang Tua Asuh">Orang Tua Asuh</option>
+                                            <option value="Panti Asuhan">Panti Asuhan</option>
+                                            <option value="lain">Lainnya</option>
+                                        <?php elseif($anak->biaya_anak == "Orang Tua Kandung"): ?>
+                                            <option value="" disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                            <option value="Orang Tua Kandung" selected>Orang Tua Kandung</option>
+                                            <option value="Orang Tua Asuh">Orang Tua Asuh</option>
+                                            <option value="Panti Asuhan">Panti Asuhan</option>
+                                            <option value="lain">Lainnya</option>
+                                        <?php elseif($anak->biaya_anak == "Orang Tua Asuh"): ?>
+                                            <option value="" disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                            <option value="Orang Tua Kandung">Orang Tua Kandung</option>
+                                            <option value="Orang Tua Asuh" selected>Orang Tua Asuh</option>
+                                            <option value="Panti Asuhan">Panti Asuhan</option>
+                                            <option value="lain">Lainnya</option>
+                                        <?php elseif($anak->biaya_anak == "Panti Asuhan"): ?>
+                                            <option value="" disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                            <option value="Orang Tua Kandung">Orang Tua Kandung</option>
+                                            <option value="Orang Tua Asuh">Orang Tua Asuh</option>
+                                            <option value="Panti Asuhan" selected>Panti Asuhan</option>
+                                            <option value="lain">Lainnya</option>
+                                        <?php else: ?>
+                                            <option value="" disabled>- Pilih Yang Membiayai Sekolah -</option>
+                                            <option value="Orang Tua Kandung">Orang Tua Kandung</option>
+                                            <option value="Orang Tua Asuh">Orang Tua Asuh</option>
+                                            <option value="Panti Asuhan">Panti Asuhan</option>
+                                            <option value="lain" selected>Lainnya</option>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                                 <div class="form-group" id="inputBiaya">
                                     <label for="">Yang Membiayai Sekolah <small class="text-danger">*</small></label>
                                     <div style="display: flex">
-                                        <input type="text" id="inputTextBiaya" class="form-control form-control-alternative form-control-sm" name=""placeholder="Yang Membiayai Sekolah">
+                                        <input type="text" id="inputTextBiaya" class="form-control form-control-alternative form-control-sm" name="" placeholder="Yang Membiayai Sekolah" value="<?= $anak->biaya_anak ?>">
                                         <button type="button" class="btn btn-sm btn-danger ml-1" id="batalBiaya"><i class="fa fa-times"></i> Batal</button>
                                     </div>
                                 </div>
                                 <div class="form-group" id="formKondisiFisikSelect">
                                     <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
-                                    <select name="" id="selectFisik" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="fisik" id="selectFisik" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Fisik -</option>
                                         <option value="Normal">Normal</option>
                                         <option value="Berkelainan">Berkelainan</option>
@@ -379,13 +409,13 @@
                                 <div class="form-group" id="formKondisiFisikText">
                                     <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
                                     <div style="display: flex">
-                                        <input type="text" id="inputFisik" class="form-control form-control-alternative form-control-sm" placeholder="Input Kondisi Fisik">
+                                        <input type="text" id="inputFisik" class="form-control form-control-alternative form-control-sm" name="fisik" placeholder="Input Kondisi Fisik" value="<?= $anak->fisik ?>">
                                         <button type="button" class="btn btn-sm btn-danger ml-1" id="batalFisik"><i class="fa fa-times"></i> Batal</button>
                                     </div>
                                 </div>
                                 <div class="form-group" id="formKondisiMentalSelect">
                                     <label for="">Kondisi Mental <small class="text-danger">*</small></label>
-                                    <select name="" id="selectMental" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="mental" id="selectMental" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Mental -</option>
                                         <option value="Normal">Normal</option>
                                         <option value="Berkelainan">Berkelainan</option>
@@ -394,10 +424,85 @@
                                 <div class="form-group" id="formKondisiMentalText">
                                     <label for="">Kondisi Mental <small class="text-danger">*</small></label>
                                     <div style="display: flex">
-                                        <input type="text" id="inputMental" class="form-control form-control-alternative form-control-sm" placeholder="Input Kondisi Mental">
+                                        <input type="text" id="inputMental" class="form-control form-control-alternative form-control-sm" name="mental" placeholder="Input Kondisi Mental" value="<?= $anak->mental ?>">
                                         <button type="button" class="btn btn-sm btn-danger ml-1" id="batalMental"><i class="fa fa-times"></i> Batal</button>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Kebiasaan Anak Dirumah</label>
+                                    <textarea name="kebiasaan" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Kebiasaan Anak Dirumah"><?= $anak->kebiasaan ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Alasan dan Motivasi Memasukkan Anak Ke SDIT Al Hikmah <small class="text-danger">*</small></label>
+                                    <textarea name="alasan" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Alasan dan Motivasi Memasukkan Anak Ke SDIT Al Hikmah" required><?= $anak->alasan ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ? <small class="text-danger">*</small></label>
+                                    <input class="form-control form-control-alternative form-control-sm" name="pembinaan_anak" value="<?= $anak->pembinaan_anak ?>" placeholder="Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ?" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ? <small class="text-danger">*</small></label>
+                                    <textarea name="masalah" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ?" required><?= $anak->masalah ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ? <small class="text-danger">*</small></label>
+                                    <textarea name="keahlian_ortu" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ?" required><?= $anak->keahlian_ortu ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Apakah Anak Dapat Membuka Internet? <small class="text-danger">*</small></label>
+                                    <div class="input-group">
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input name="internet" class="custom-control-input" id="customRadio3" type="radio" value="Ya" <?php if($anak->internet == "Ya"){echo "checked";} ?> required>
+                                            <label class="custom-control-label" for="customRadio3">Ya</label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-3 ml-2">
+                                            <input name="internet" class="custom-control-input" id="customRadio4" type="radio" value="Tidak" <?php if($anak->internet == "Tidak"){echo "checked";} ?> required>
+                                            <label class="custom-control-label" for="customRadio4">Tidak</label>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-group" id="internet_dimana">
+                                    <label for="">Dimana Anak Membuka Internet ? <small class="text-danger">*</small></label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="internet_anak" id="internet_anak" placeholder="Dimana Anak Membuka Internet ?">
+                                </div>    
+                                <div class="form-group">
+                                    <label for="">Apakah Bapak/Ibu Dapat Memantaunya ? <small class="text-danger">*</small></label>
+                                    <div class="input-group">
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input name="pantau" class="custom-control-input" id="customRadio1" type="radio" value="Ya" <?php if($anak->pantau == "Ya"){echo "checked";} ?> required>
+                                            <label class="custom-control-label" for="customRadio1">Ya</label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-3 ml-2">
+                                            <input name="pantau" class="custom-control-input" id="customRadio2" type="radio" value="Tidak" <?php if($anak->pantau == "Tidak"){echo "checked";} ?> required>
+                                            <label class="custom-control-label" for="customRadio2">Tidak</label>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <label for="">Saat Bapak/Ibu Tidak Di Rumah, Anak Di Temani Oleh Siapa ?<small class="text-danger">*</small></label>
+                                    <input class="form-control form-control-alternative form-control-sm" name="teman" placeholder="Saat Bapak/Ibu Tidak Di Rumah, Anak Di Temani Oleh Siapa ?" value="<?= $anak->teman ?>" required>
+                                </div>     
+                                <div class="form-group">
+                                    <label for="">Mempunyai Kakak Di SDIT Al Hikmah ? <small class="text-danger">*</small></label>
+                                    <div class="input-group">
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input name="kakak_sdit" class="custom-control-input" id="radioKakak1" type="radio" value="Ya" <?php if($anak->kakak_sdit == "Ya"){echo "checked";} ?> required>
+                                            <label class="custom-control-label" for="radioKakak1">Ya</label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-3 ml-2">
+                                            <input name="kakak_sdit" class="custom-control-input" id="radioKakak" type="radio" value="Tidak" <?php if($anak->kakak_sdit == "Tidak"){echo "checked";;} ?> required>
+                                            <label class="custom-control-label" for="radioKakak">Tidak</label>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-group" id="form_kakak">
+                                    <label for="">Nama Kakak dan Kelas Di Al Hikmah<small class="text-danger">*</small></label>
+                                    <input class="form-control form-control-alternative form-control-sm" name="nama_kakak" id="nama_kakak" placeholder="Nama Kakak dan Kelas Di Al Hikmah" value="<?= $anak->nama_kakak ?>">
+                                </div> 
+                            </div>
+                            <div class="col-md-6">
                             </div>
                             <div class="col-md-12 text-right mt-2">
                                 <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
