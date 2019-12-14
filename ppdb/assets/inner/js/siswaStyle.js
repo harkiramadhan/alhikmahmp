@@ -17,15 +17,10 @@ $(document).ready(function(){
     if(this.value === "lain"){
         $('#biaya').prop('required', false);
         $('#formBiaya').hide();
+        $('#inputTextBiaya').attr('value', '');
         $('#inputTextBiaya').attr('name', 'biaya_anak');
         $('#inputTextBiaya').prop('required', true);
         $('#inputBiaya').show();
-    }else{
-        $('#biaya').prop('required', true);
-        $('#formBiaya').show();
-        $('#inputTextBiaya').attr('name', '');
-        $('#inputTextBiaya').prop('required', false);
-        $('#inputBiaya').hide();
     }
     });
 
@@ -33,6 +28,8 @@ $(document).ready(function(){
         $('#biaya').prop('required', true);
         $('#biaya').prop('selectedIndex',0);
         $('#formBiaya').show();
+        $('#inputTextBiaya').attr('value', '');
+        $('#inputTextBiaya').attr('name', '');
         $('#inputTextBiaya').prop('required', false);
         $('#inputBiaya').hide();
     });
@@ -42,13 +39,10 @@ $(document).ready(function(){
     if(this.value === "Berkelainan"){
         $('#selectFisik').prop('required', false);
         $('#formKondisiFisikSelect').hide();
+        $('#inputFisik').attr('value', '');
+        $('#inputFisik').attr('name', 'fisik');
         $('#inputFisik').prop('required', true);
         $('#formKondisiFisikText').show();
-    }else{
-        $('#selectFisik').prop('required', true);
-        $('#formKondisiFisikSelect').show();
-        $('#inputFisik').prop('required', false);
-        $('#formKondisiFisikText').hide();
     }
     });
 
@@ -56,6 +50,8 @@ $(document).ready(function(){
         $('#selectFisik').prop('required', true);
         $('#selectFisik').prop('selectedIndex',0);
         $('#formKondisiFisikSelect').show();
+        $('#inputFisik').attr('value', '');
+        $('#inputFisik').attr('name', '');
         $('#inputFisik').prop('required', false);
         $('#formKondisiFisikText').hide();
     });
@@ -66,12 +62,9 @@ $(document).ready(function(){
         $('#selectMental').prop('required', false);
         $('#formKondisiMentalSelect').hide();
         $('#inputMental').prop('required', true);
+        $('#inputMental').attr('value', '');
+        $('#inputMental').attr('name', 'mental');
         $('#formKondisiMentalText').show();
-    }else{
-        $('#selectMental').prop('required', true);
-        $('#formKondisiMentalSelect').show();
-        $('#inputMental').prop('required', false);
-        $('#formKondisiMentalText').hide();
     }
     });
 
@@ -79,6 +72,8 @@ $(document).ready(function(){
         $('#selectMental').prop('required', true);
         $('#selectMental').prop('selectedIndex',0);
         $('#formKondisiMentalSelect').show();
+        $('#inputMental').attr('value', '');
+        $('#inputMental').attr('name', '');
         $('#inputMental').prop('required', false);
         $('#formKondisiMentalText').hide();
     });
@@ -107,24 +102,6 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    var kakak = $("input[type=radio][name='kakak_sdit']:checked").val();
-    if (kakak == 'Ya') {
-        $('#nama_kakak').prop('required', true);
-        $('#form_kakak').show();
-    }else{
-        $('#nama_kakak').prop('required', false);
-        $('#form_kakak').hide();
-    }
-
-    var internet = $("input[type=radio][name='internet']:checked").val();
-    if (internet == 'Ya') {
-        $('#internet_anak').prop('required', true);
-        $('#internet_dimana').show();
-    }else{
-        $('#internet_anak').prop('required', false);
-        $('#internet_dimana').hide();
-    }
-
     var biaya = $( "#biaya option:selected" ).text();
     if(biaya === "Lainnya"){
         $('#biaya').prop('required', false);
@@ -138,5 +115,53 @@ $(document).ready(function(){
         $('#inputTextBiaya').attr('name', '');
         $('#inputTextBiaya').prop('required', false);
         $('#inputBiaya').hide();
+    }
+
+    var fisik = $( "#selectFisik option:selected" ).text();
+    if(fisik === "Berkelainan"){
+        $('#selectFisik').prop('required', false);
+        $('#formKondisiFisikSelect').hide();
+        $('#inputFisik').attr('name', 'fisik');
+        $('#inputFisik').prop('required', true);
+        $('#formKondisiFisikText').show();
+    }else{
+        $('#selectFisik').prop('required', true);
+        $('#formKondisiFisikSelect').show();
+        $('#inputFisik').attr('name', '');
+        $('#inputFisik').prop('required', false);
+        $('#formKondisiFisikText').hide();
+    }
+
+    var mental = $( "#selectMental option:selected" ).text();
+    if(mental === "Berkelainan"){
+        $('#selectMental').prop('required', false);
+        $('#formKondisiMentalSelect').hide();
+        $('#inputMental').attr('name', 'mental');
+        $('#inputMental').prop('required', true);
+        $('#formKondisiMentalText').show();
+    }else{
+        $('#selectMental').prop('required', true);
+        $('#formKondisiMentalSelect').show();
+        $('#inputMental').attr('name', '');
+        $('#inputMental').prop('required', false);
+        $('#formKondisiMentalText').hide();
+    }
+
+    var internet = $("input[type=radio][name='internet']:checked").val();
+    if (internet == 'Ya') {
+        $('#internet_anak').prop('required', true);
+        $('#internet_dimana').show();
+    }else{
+        $('#internet_anak').prop('required', false);
+        $('#internet_dimana').hide();
+    }
+    
+    var kakak = $("input[type=radio][name='kakak_sdit']:checked").val();
+    if (kakak == 'Ya') {
+        $('#nama_kakak').prop('required', true);
+        $('#form_kakak').show();
+    }else{
+        $('#nama_kakak').prop('required', false);
+        $('#form_kakak').hide();
     }
 });

@@ -401,15 +401,15 @@
                                 <div class="form-group" id="formKondisiFisikSelect">
                                     <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
                                     <select name="fisik" id="selectFisik" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="" selected disabled>- Pilih Kondisi Fisik -</option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Berkelainan">Berkelainan</option>
+                                        <option value="" disabled>- Pilih Kondisi Fisik -</option>
+                                        <option value="Normal" <?php if($anak->fisik == "Normal" && $anak->fisik != NULL){echo "selected";} ?>>Normal</option>
+                                        <option value="Berkelainan" <?php if($anak->fisik != "Normal" && $anak->fisik != NULL){echo "selected";} ?>>Berkelainan</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="formKondisiFisikText">
                                     <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
                                     <div style="display: flex">
-                                        <input type="text" id="inputFisik" class="form-control form-control-alternative form-control-sm" name="fisik" placeholder="Input Kondisi Fisik" value="<?= $anak->fisik ?>">
+                                        <input type="text" id="inputFisik" class="form-control form-control-alternative form-control-sm" name="" placeholder="Input Kondisi Fisik" value="<?= $anak->fisik ?>">
                                         <button type="button" class="btn btn-sm btn-danger ml-1" id="batalFisik"><i class="fa fa-times"></i> Batal</button>
                                     </div>
                                 </div>
@@ -417,14 +417,14 @@
                                     <label for="">Kondisi Mental <small class="text-danger">*</small></label>
                                     <select name="mental" id="selectMental" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Mental -</option>
-                                        <option value="Normal">Normal</option>
-                                        <option value="Berkelainan">Berkelainan</option>
+                                        <option value="Normal" <?php if($anak->mental == "Normal" && $anak->mental != NULL){echo "selected";} ?>>Normal</option>
+                                        <option value="Berkelainan" <?php if($anak->mental != "Normal" && $anak->mental != NULL){echo "selected";} ?>>Berkelainan</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="formKondisiMentalText">
                                     <label for="">Kondisi Mental <small class="text-danger">*</small></label>
                                     <div style="display: flex">
-                                        <input type="text" id="inputMental" class="form-control form-control-alternative form-control-sm" name="mental" placeholder="Input Kondisi Mental" value="<?= $anak->mental ?>">
+                                        <input type="text" id="inputMental" class="form-control form-control-alternative form-control-sm" name="" placeholder="Input Kondisi Mental" value="<?= $anak->mental ?>">
                                         <button type="button" class="btn btn-sm btn-danger ml-1" id="batalMental"><i class="fa fa-times"></i> Batal</button>
                                     </div>
                                 </div>
@@ -440,12 +440,12 @@
                                     <label for="">Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ? <small class="text-danger">*</small></label>
                                     <input class="form-control form-control-alternative form-control-sm" name="pembinaan_anak" value="<?= $anak->pembinaan_anak ?>" placeholder="Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ?" required>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ? <small class="text-danger">*</small></label>
                                     <textarea name="masalah" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ?" required><?= $anak->masalah ?></textarea>
                                 </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ? <small class="text-danger">*</small></label>
                                     <textarea name="keahlian_ortu" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ?" required><?= $anak->keahlian_ortu ?></textarea>
@@ -465,7 +465,7 @@
                                 </div> 
                                 <div class="form-group" id="internet_dimana">
                                     <label for="">Dimana Anak Membuka Internet ? <small class="text-danger">*</small></label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="internet_anak" id="internet_anak" placeholder="Dimana Anak Membuka Internet ?">
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="internet_anak" id="internet_anak" placeholder="Dimana Anak Membuka Internet ?" value="<?= $anak->internet_anak ?>">
                                 </div>    
                                 <div class="form-group">
                                     <label for="">Apakah Bapak/Ibu Dapat Memantaunya ? <small class="text-danger">*</small></label>
