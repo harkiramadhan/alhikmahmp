@@ -31,6 +31,7 @@
         <div class="card shadow">
             <div class="card-body">
                 <div class="tab-content" id="myTabContent">
+                    <!-- Asal Sekolah -->
                     <div class="tab-pane fade show active" id="tabs-icons-text-6" role="tabpanel" aria-labelledby="tabs-icons-text-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="sekolah">
@@ -95,6 +96,8 @@
                         </div>
                         </form>
                     </div>
+
+                    <!-- Data Diri -->
                     <div class="tab-pane fade" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="anak1">
@@ -201,6 +204,8 @@
                         </div>
                         </form>
                     </div>
+
+                    <!-- Jasmani -->
                     <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="anak2">
@@ -250,6 +255,8 @@
                         </div>
                         </form>
                     </div>
+
+                    <!-- Alamat -->
                     <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="alamat">
@@ -320,6 +327,8 @@
                         </div>
                         </form>
                     </div>
+
+                    <!-- Lain Lain -->
                     <div class="tab-pane fade" id="tabs-icons-text-4" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                         <form action="<?= site_url('biodata/simpan') ?>" method="post">
                         <input type="hidden" name="jenis" value="anak4">
@@ -334,40 +343,52 @@
                                         <option value="Angkat">Angkat</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Keberadaan Orang Tua <small class="text-danger">*</small></label>
-                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="" selected disabled>- Pilih Keberadaan Orang Tua -</option>
-                                        <option value="Lengkap">Lengkap</option>
-                                        <option value="Yatim">Yatim</option>
-                                        <option value="Piatu">Piatu</option>
-                                        <option value="Yatim Piatu">Yatim Piatu</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
+                                <div class="form-group" id="formBiaya">
                                     <label for="">Yang Membiayai Sekolah <small class="text-danger">*</small></label>
-                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="" id="biaya" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Yang Membiayai Sekolah -</option>
                                         <option value="Orang Tua Kandung">Orang Tua Kandung</option>
                                         <option value="Orang Tua Asuh">Orang Tua Asuh</option>
                                         <option value="Panti Asuhan">Panti Asuhan</option>
+                                        <option value="lain">Lainnya</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="inputBiaya">
+                                    <label for="">Yang Membiayai Sekolah <small class="text-danger">*</small></label>
+                                    <div style="display: flex">
+                                        <input type="text" id="inputTextBiaya" class="form-control form-control-alternative form-control-sm" name=""placeholder="Yang Membiayai Sekolah">
+                                        <button type="button" class="btn btn-sm btn-danger ml-1" id="batalBiaya"><i class="fa fa-times"></i> Batal</button>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="formKondisiFisikSelect">
                                     <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
-                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="" id="selectFisik" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Fisik -</option>
                                         <option value="Normal">Normal</option>
                                         <option value="Berkelainan">Berkelainan</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="formKondisiFisikText">
+                                    <label for="">Kondisi Fisik <small class="text-danger">*</small></label>
+                                    <div style="display: flex">
+                                        <input type="text" id="inputFisik" class="form-control form-control-alternative form-control-sm" placeholder="Input Kondisi Fisik">
+                                        <button type="button" class="btn btn-sm btn-danger ml-1" id="batalFisik"><i class="fa fa-times"></i> Batal</button>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="formKondisiMentalSelect">
                                     <label for="">Kondisi Mental <small class="text-danger">*</small></label>
-                                    <select name="" id="" class="form-control form-control-alternative form-control-sm" required>
+                                    <select name="" id="selectMental" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Mental -</option>
                                         <option value="Normal">Normal</option>
                                         <option value="Berkelainan">Berkelainan</option>
                                     </select>
+                                </div>
+                                <div class="form-group" id="formKondisiMentalText">
+                                    <label for="">Kondisi Mental <small class="text-danger">*</small></label>
+                                    <div style="display: flex">
+                                        <input type="text" id="inputMental" class="form-control form-control-alternative form-control-sm" placeholder="Input Kondisi Mental">
+                                        <button type="button" class="btn btn-sm btn-danger ml-1" id="batalMental"><i class="fa fa-times"></i> Batal</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 <?php if($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "anak"): ?>
+<script src="<?= base_url('') ?>assets/inner/js/siswaStyle.js"></script>
 <script>
    $(document).ready(function(){
       $("#kabupaten").prop("disabled", true);
@@ -42,19 +43,6 @@
                $("#kelurahan").html(response);
             }
          });
-      });
-
-      $('#pindahan').hide();
-      $('#jenis_siswa').on('change', function(){
-         if(this.value === "pindahan"){
-            $('#kelas').prop('required',true);
-            $('#tanggal_pindah').prop('required',true);
-            $('#pindahan').show();
-         }else{
-            $('#kelas').prop('required',false);
-            $('#tanggal_pindah').prop('required',false);
-            $('#pindahan').hide();
-         }
       });
    });
 </script>
