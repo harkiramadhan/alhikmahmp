@@ -19,7 +19,13 @@
                 <div class="card-body">
                     <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" >
                     <label for="imageUpload" class="m-0"></label>
+                    <?php if($cek_foto->num_rows() > 0):
+                        $foto = $cek_foto->row();    
+                    ?>
+                    <img id="image-preview" class="rounded" src="<?= base_url('upload/img/'.$foto->img) ?>" alt="image preview" style="width:100%;"/> 
+                    <?php else: ?>
                     <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>    
+                    <?php endif; ?>
                 </div>
                 <div class="card-footer bg-secondary">
                     <button type="submit" class="btn btn-sm btn-success btn-block">Simpan</button>
@@ -37,7 +43,13 @@
                 <div class="card-body">
                     <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source2" onchange="previewImage2();" accept=".png, .jpg, .jpeg" >
                     <label for="imageUpload" class="m-0"></label>
+                    <?php if($cek_ktp->num_rows() > 0):
+                        $ktp = $cek_ktp->row();
+                    ?>
+                    <img id="image-preview2" class="rounded" src="<?= base_url('upload/img/'.$ktp->img) ?>" alt="image preview" style="width:100%;"/>
+                    <?php else: ?>
                     <img id="image-preview2" class="rounded d-none" alt="image preview" style="width:100%;"/>    
+                    <?php endif; ?>
                 </div>
                 <div class="card-footer bg-secondary">
                     <button type="submit" class="btn btn-sm btn-success btn-block">Simpan</button>
@@ -55,7 +67,13 @@
                 <div class="card-body">
                     <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source3" onchange="previewImage3();" accept=".png, .jpg, .jpeg" >
                     <label for="imageUpload" class="m-0"></label>
+                    <?php if($cek_kk->num_rows()>0):
+                        $kk = $cek_kk->row();
+                    ?>
+                     <img id="image-preview3" class="rounded" src="<?= base_url('upload/img/'.$kk->img) ?>" alt="image preview" style="width:100%;"/> 
+                    <?php else: ?>   
                     <img id="image-preview3" class="rounded d-none" alt="image preview" style="width:100%;"/>    
+                    <?php endif; ?>
                 </div>
                 <div class="card-footer bg-secondary">
                     <button type="submit" class="btn btn-sm btn-success btn-block">Simpan</button>
@@ -73,7 +91,13 @@
                 <div class="card-body">
                     <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source4" onchange="previewImage4();" accept=".png, .jpg, .jpeg" >
                     <label for="imageUpload" class="m-0"></label>
-                    <img id="image-preview4" class="rounded d-none" alt="image preview" style="width:100%;"/>    
+                    <?php if($cek_akta->num_rows() > 0): 
+                        $akta = $cek_akta->row();
+                    ?>
+                    <img id="image-preview4" class="rounded" src="<?= base_url('upload/img/'.$akta->img) ?>" alt="image preview" style="width:100%;"/> 
+                    <?php else: ?>
+                    <img id="image-preview4" class="rounded d-none" alt="image preview" style="width:100%;"/> 
+                    <?php endif; ?>   
                 </div>
                 <div class="card-footer bg-secondary">
                     <button type="submit" class="btn btn-sm btn-success btn-block">Simpan</button>
