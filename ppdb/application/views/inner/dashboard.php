@@ -92,6 +92,10 @@
                         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus rem, cumque at facere nam molestiae laudantium, repellendus quae ex necessitatibus consequuntur in. Tempora et provident veniam consequuntur saepe. Dolorem, molestias!</small>
                     </div>
                     <hr class="my-4">
+                    <?php if($anak->konfirmasi_pembayaran != NULL): ?>
+                            <img class="rounded" src="<?= base_url('upload/img/'.$anak->konfirmasi_pembayaran) ?>" style="width:100%;"/>
+                    <?php endif; ?>
+                    <hr class="my-4">
                     <button class="btn btn-sm btn-block btn-primary" type="btn" data-toggle="modal" data-target="#konfirmasi">Konfirmasi Pembayaran</button>
                 </div>
             </div>
