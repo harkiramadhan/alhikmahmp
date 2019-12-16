@@ -64,22 +64,25 @@
                         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero unde sit sunt iusto perferendis, accusantium, voluptatem esse, assumenda magni laudantium explicabo qui quos tempora commodi fuga ut repudiandae voluptate tenetur?</small>
                     </div>
                     <hr class="my-4">
-                    <form action="" method="post">
+                    <form action="<?= site_url('dashboard/simpan') ?>" method="post">
+                        <input type="hidden" name="jenis" value="pilih">
                         <div class="form-group">
-                            <select name="" id="" class="form-control form-control-alternative form-control-sm">
+                            <select name="metode" id="selectMetode" class="form-control form-control-alternative form-control-sm">
                                 <option value="" selected disabled>- Pilih Metode Pembayaran -</option>
-                                <option value="">Transfer</option>
-                                <option value="">Bayar Di Sekolah</option>
+                                <option value="transfer" <?php if($anak->metode_pembayaran == "transfer"){echo "selected";} ?>>Transfer</option>
+                                <option value="cash" <?php if($anak->metode_pembayaran == "cash"){echo "selected";} ?>>Bayar Di Sekolah</option>
                             </select>
                         </div>
                         <div class="text-right">
-                            <button class="btn btn-sm btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+
+        <?php if($anak->metode_pembayaran == "transfer"): ?>
+        <div class="col-xl-6" id="modalKonfirmasi">
             <div class="card shadow card-stats mb-4 text-center">
                 <div class="card-header bg-secondary">
                     <h5 class="card-title text-uppercase text-muted m-0">Konfirmasi Pembayaran</h5> 
@@ -93,25 +96,25 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Modal Konfirmasi Pembayaran -->
-    <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-secondary">
-                    <h3 class="modal-title">Konfirmasi Pembayaran</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <button class="btn btn-sm btn-success btn-block">Upload Bukti Pembayaran</button>
-                </div>
-                <div class="modal-footer bg-secondary">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+        <!-- Modal Konfirmasi Pembayaran -->
+        <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-secondary">
+                        <h3 class="modal-title">Konfirmasi Pembayaran</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <button class="btn btn-sm btn-success btn-block">Upload Bukti Pembayaran</button>
+                    </div>
+                    <div class="modal-footer bg-secondary">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
