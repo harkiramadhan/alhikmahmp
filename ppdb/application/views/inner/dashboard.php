@@ -106,13 +106,22 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <form action="<?= site_url('dashboard/simpan') ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="jenis" value="konfirmasi">
                     <div class="modal-body">
-                        <button class="btn btn-sm btn-success btn-block">Upload Bukti Pembayaran</button>
+                        <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" >
+                        <label for="imageUpload" class="m-0"></label>
+                        <?php if($anak->konfirmasi_pembayaran != NULL): ?>
+                            <img id="image-preview" class="rounded" src="<?= base_url('upload/img/'.$anak->konfirmasi_pembayaran) ?>" alt="image preview" style="width:100%;"/>
+                        <?php else: ?>
+                            <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>
+                        <?php endif; ?>
                     </div>
                     <div class="modal-footer bg-secondary">
-                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

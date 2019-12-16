@@ -49,6 +49,48 @@ class Dashboard extends CI_Controller{
                 $this->session->set_flashdata('sukses', "Metode Pembayaran Berhasil Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "konfirmasi"){
+            $config['upload_path']      = './upload/img';
+            $config['allowed_types']    = 'jpeg|jpg|png';
+            $config['remove_spaces']    = TRUE;
+            $config['file_name']        = $jenis."_".$this->idcsiswa();
+            $config['overwrite']        = TRUE;
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('img');
+
+            $upload_data = $this->upload->data();
+            $fileImport = $upload_data['file_name'];
+            
+            if(!$this->upload->do_upload('img')){
+                $this->session->set_flashdata('error', "File Belum Di Pilih");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $cek = $this->db->get_where('bstep', ['idcsiswa'=> $this->idcsiswa(), 'idstep'=>15]);
+                
+                $data = [
+                    'konfirmasi_pembayaran' => $fileImport
+                ];
+                $this->db->where('id', $this->idcsiswa());
+                $this->db->update('csiswa', $data);
+
+                if($this->db->affected_rows() > 0){
+                    $data2 = [
+                        'idcsiswa' => $this->idcsiswa(),
+                        'idstep' => 15
+                    ];
+    
+                    if($cek->num_rows() > 0){
+                        $this->db->where('id', $cek->row()->id);
+                        $this->db->update('bstep', $data2);
+                    }else{
+                        $this->db->insert('bstep', $data2);
+                    }
+
+                    $this->session->set_flashdata('sukses', "Konfirmasi Pembayaran Berhasil Di Simpan");
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
         }
     }
 }
