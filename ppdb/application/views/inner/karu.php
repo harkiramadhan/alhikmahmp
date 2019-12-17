@@ -33,7 +33,7 @@
 		}
 		.qrcode {
             margin-left: 283.8px;
-            margin-top: 30.6px;
+            margin-top: 16.6px;
 		}
 	</style>
 
@@ -46,7 +46,10 @@
             <div style="height: 3cm; width: 2cm; margin-left: 15.2px; overflow: hidden; position: fixed; margin-top: 25.3px; border-radius: 5px;">
                 <img style="position: absolute; left: -1000%; right: -1000%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto) ?>">
             </div>
-            <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b><br><?= $siswa->asal_sekolah ?></div>
+            <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b>
+                <br><?= $siswa->asal_sekolah ?>
+                <br>No Peserta : <b>1234576</b>    
+            </div>
             <div class="qrcode"> <barcode code="<?= site_url('ppdb/status/'.$idcsiswa) ?>" type="QR" error="Q" size="0.4" border="0" disableborder="1" /></div>
         </div>
 
