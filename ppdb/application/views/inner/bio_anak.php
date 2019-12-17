@@ -294,46 +294,74 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="">Provinsi <small class="text-warning">*</small></label>
+                                            <select name="provinsi" id="provinsi" class="form-control form-control-alternative form-control-sm" required>
+                                                <option value="">- Pilih Privinsi -</option>
+                                                <?php foreach($provinsi as $p){ ?>
+                                                    <option value="<?= $p->id ?>" <?php if($anak->provinsi == $p->id){echo "selected";} ?>><?= $p->nama ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="">Kabupaten <small class="text-warning">*</small></label>
+                                            <select name="kabupaten" id="kabupaten" class="form-control form-control-alternative form-control-sm" required>
+                                                <?php if($anak->kabupaten != NULL): ?>
+                                                    <option value="<?= $anak->kabupaten ?>"><?= $anak->nama_kab ?></option>
+                                                <?php else: ?>
+                                                    <option value="">- Pilih Kabupaten -</option>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="">Kecamatan <small class="text-warning">*</small></label>
+                                            <select name="kecamatan" id="kecamatan" class="form-control form-control-alternative form-control-sm" required>
+                                                <?php if($anak->kecamatan != NULL): ?>
+                                                    <option value="<?= $anak->kecamatan ?>"><?= $anak->nama_kec ?></option>
+                                                <?php else: ?>
+                                                    <option value="">- Pilih Kecamatan -</option>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group">
+                                            <label for="">Kelurahan <small class="text-warning">*</small></label>
+                                            <select name="kelurahan" id="kelurahan" class="form-control form-control-alternative form-control-sm" required>
+                                                <?php if($anak->kelurahan != NULL): ?>
+                                                    <option value="<?= $anak->kelurahan ?>"><?= $anak->nama_kel ?></option>
+                                                <?php else: ?>
+                                                    <option value="">- Pilih Kelurahan -</option>
+                                                <?php endif; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Provinsi <small class="text-warning">*</small></label>
-                                    <select name="provinsi" id="provinsi" class="form-control form-control-alternative form-control-sm" required>
-                                        <option value="">- Pilih Privinsi -</option>
-                                        <?php foreach($provinsi as $p){ ?>
-                                            <option value="<?= $p->id ?>" <?php if($anak->provinsi == $p->id){echo "selected";} ?>><?= $p->nama ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="">Kabupaten <small class="text-warning">*</small></label>
-                                    <select name="kabupaten" id="kabupaten" class="form-control form-control-alternative form-control-sm" required>
-                                        <?php if($anak->kabupaten != NULL): ?>
-                                            <option value="<?= $anak->kabupaten ?>"><?= $anak->nama_kab ?></option>
-                                        <?php else: ?>
-                                            <option value="">- Pilih Kabupaten -</option>
-                                        <?php endif; ?>
-                                    </select>
+                                    <label for="">Jarak Tempat Tinggal Ke SDIT Al Hikmah (Km) <small class="text-warning">*</small></label>
+                                    <input type="number" name="jarak" id="" class="form-control form-control-alternative form-control-sm" value="<?= $anak->jarak ?>" placeholder="Jarak Tempat Tinggal Ke SDIT Al Hikmah (Km)" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Kecamatan <small class="text-warning">*</small></label>
-                                    <select name="kecamatan" id="kecamatan" class="form-control form-control-alternative form-control-sm" required>
-                                        <?php if($anak->kecamatan != NULL): ?>
-                                            <option value="<?= $anak->kecamatan ?>"><?= $anak->nama_kec ?></option>
-                                        <?php else: ?>
-                                            <option value="">- Pilih Kecamatan -</option>
-                                        <?php endif; ?>
-                                    </select>
+                                    <label for="">Waktu Tempuh (Menit) <small class="text-warning">*</small></label>
+                                    <input type="number" name="waktu" id="" class="form-control form-control-alternative form-control-sm" value="<?= $anak->waktu ?>" placeholder="Waktu Tempuh (Menit)" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Kelurahan <small class="text-warning">*</small></label>
-                                    <select name="kelurahan" id="kelurahan" class="form-control form-control-alternative form-control-sm" required>
-                                        <?php if($anak->kelurahan != NULL): ?>
-                                            <option value="<?= $anak->kelurahan ?>"><?= $anak->nama_kel ?></option>
-                                        <?php else: ?>
-                                            <option value="">- Pilih Kelurahan -</option>
-                                        <?php endif; ?>
+                                    <label for="">Alat Transportasi Ke Sekolah <small class="text-warning">*</small></label>
+                                    <select name="transportasi" id="" class="form-control form-control-alternative form-control-sm" required>
+                                        <option value="" selected disabled>- Pilih Transportasi -</option>
+                                        <option value="Sepeda" <?php if($anak->transportasi == "Sepeda"){echo "selected";} ?>>Sepeda</option>
+                                        <option value="Motor" <?php if($anak->transportasi == "Motor"){echo "selected";} ?>>Motor</option>
+                                        <option value="Mobil" <?php if($anak->transportasi == "Mobil"){echo "selected";} ?>>Mobil</option>
+                                        <option value="Kendaraan Umum" <?php if($anak->transportasi == "Kendaraan Umum"){echo "selected";} ?>>Kendaraan Umum</option>
+                                        <option value="Jalan Kaki" <?php if($anak->transportasi == "Jalan Kaki"){echo "selected";} ?>>Jalan Kaki</option>
                                     </select>
                                 </div>
                             </div>
