@@ -48,7 +48,7 @@
             </div>
             <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b>
                 <br><?= $siswa->asal_sekolah ?>
-                <br>No Peserta : <b>1234576</b>    
+                <br>No Peserta : <b>20xxx</b>    
             </div>
             <div class="qrcode"> <barcode code="<?= site_url('ppdb/status/'.$idcsiswa) ?>" type="QR" error="Q" size="0.4" border="0" disableborder="1" /></div>
         </div>
