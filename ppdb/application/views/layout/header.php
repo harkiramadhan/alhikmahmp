@@ -47,9 +47,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="media align-items-center">
-                            
-                        </div>
+                        <span class="mb-0 text-sm text-dark font-weight-bold"><?= $anak->nama ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                         <div class=" dropdown-header noti-title">
@@ -69,8 +67,8 @@
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href="./index.html">
-                            
+                            <a href="<?= site_url(''); ?>">
+                                PPDB Online
                             </a>
                         </div>
                         <div class="col-6 collapse-close">

@@ -12,7 +12,7 @@
         <div class="col-xl-12">
             <div class="card shadow card-stats mb-4 text-center">
                 <div class="card-header bg-secondary">
-                    <h5 class="card-title text-uppercase text-muted m-0">Informasi Penting !</h5> 
+                    <h5 class="card-title text-uppercase text-muted m-0">Cetak Kartu Ujian</h5> 
                 </div>
                 <div class="card-body"> 
                     <div class="text-right">
