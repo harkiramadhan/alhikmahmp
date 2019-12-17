@@ -54,11 +54,11 @@
         </div>
 
 		<h3 style="color:red">Penting!</h3>
-		<p><b>Kartu Ujian : </b> Ini adalah kartu ujian anda, Ada dua buah kartu ujian yang diperuntukkan bagi orangtua dan anak. </p>
-		<p><b>Registrasi Kedatangan : </b> Registrasi kedatangan dilakukan setiap kali mengikuti ujian, siapkan kartu ujian dengan QR Code yang telah di print. </p>
+		<p><b>Kartu Ujian : </b> Ini adalah kartu ujian anda, kartu ujian yang diperuntukkan bagi anak. </p>
+		<p><b>Registrasi Kedatangan : </b> Registrasi kedatangan dilakukan saat mengikuti ujian, siapkan kartu ujian dengan QR Code yang telah di print. </p>
 		<p><b>Perlengkapan : </b> Bawalah alat tulis dan Papan jalan, 
 		<p><b>Lokasi Ujian : </b> SDIT Al Hikmah
-		<p><b>Waktu Ujian : </b> Ujian Akademik, Qur'an dan Wawancara pukul 07.30 WIB s/d Selesai
+		<p><b>Waktu Ujian : </b> Ujian pukul 07.30 WIB s/d Selesai
 	</div>
 </body>
 </html>

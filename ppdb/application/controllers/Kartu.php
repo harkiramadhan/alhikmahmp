@@ -29,13 +29,19 @@ class Kartu extends CI_Controller{
         $data['siswa']          = $this->db->get_where('csiswa', ['id'=> $this->idcsiswa()])->row();
         $data['foto']           = $this->db->get_where('cdocument', ['idcsiswa'=>$this->idcsiswa(), 'jenis'=> "anak"])->row()->img;
 		
-		//this the the PDF filename that user will get to download
         $pdfFilePath = "Kartu Ujian PPDB SDIT Al Hikmah - ".$data['siswa']->nama.".pdf";
         
-        // $this->load->view('inner/karu',$data);
-        $mpdf = new \Mpdf\Mpdf();
-		$html = $this->load->view('inner/karu',$data,true);
-		$mpdf->WriteHTML($html);
-		$mpdf->Output($pdfFilePath, "D");
+        try{
+            $mpdf = new \Mpdf\Mpdf();
+            $html = $this->load->view('inner/karu',$data,true);
+            $mpdf->useSubstitutions = false; 
+            $mpdf->simpleTables = true;
+            $mpdf->WriteHTML($html);
+            $mpdf->Output($pdfFilePath, "D");
+        }catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception 
+            //       name used for catch
+            // Process the exception, log, print etc.
+            echo $e->getMessage();
+            }
     }
 }
