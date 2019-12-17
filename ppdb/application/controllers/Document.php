@@ -79,27 +79,25 @@ class Document extends CI_Controller{
                 $this->db->where('id', $cek->row()->id);
                 $this->db->update('cdocument', $data);
 
-                if($this->db->affected_rows() > 0){
-                    if($cek->num_rows() > 0){
-                        $this->db->where('id', $cek2->row()->id);
-                        $this->db->update('bstep', $data2);
-                    }else{
-                        $this->db->insert('bstep', $data2);
-                    }
+                if($cek2->num_rows() > 0){
+                    $this->db->where('id', $cek2->row()->id);
+                    $this->db->update('bstep', $data2);
+                }else{
+                    $this->db->insert('bstep', $data2);
                 }
+
                 $this->session->set_flashdata('sukses', "Dokumen Berhasil Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }else{
                 $this->db->insert('cdocument', $data);
 
-                if($this->db->affected_rows() > 0){
-                    if($cek->num_rows() > 0){
-                        $this->db->where('id', $cek2->row()->id);
-                        $this->db->update('bstep', $data2);
-                    }else{
-                        $this->db->insert('bstep', $data2);
-                    }
+                if($cek2->num_rows() > 0){
+                    $this->db->where('id', $cek2->row()->id);
+                    $this->db->update('bstep', $data2);
+                }else{
+                    $this->db->insert('bstep', $data2);
                 }
+                
                 $this->session->set_flashdata('sukses', "Dokumen Berhasil Di Simpan");
                 redirect($_SERVER['HTTP_REFERER']);
             }

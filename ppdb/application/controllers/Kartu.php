@@ -41,18 +41,34 @@ class Kartu extends CI_Controller{
         $data['idcsiswa']       = $this->idcsiswa();
         $data['siswa']          = $this->db->get_where('csiswa', ['id'=> $this->idcsiswa()])->row();
         $data['foto']           = $this->db->get_where('cdocument', ['idcsiswa'=>$this->idcsiswa(), 'jenis'=> "anak"])->row()->img;
-		
-        $pdfFilePath = "Kartu Ujian PPDB SDIT Al Hikmah - ".$data['siswa']->nama.".pdf";
         
-        try{
-            $mpdf = new \Mpdf\Mpdf();
-            $html = $this->load->view('inner/karu',$data,true);
-            $mpdf->useSubstitutions = false; 
-            $mpdf->simpleTables = true;
-            $mpdf->WriteHTML($html);
-            $mpdf->Output($pdfFilePath, "D");
-        }catch (\Mpdf\MpdfException $e){
-            echo $e->getMessage();  
+        $get = $this->M_Step->get_all()->result();
+        $i = 1;
+        foreach($get as $g){
+            $get2 = $this->M_Step->cekStep($this->idcsiswa(), $g->id);
+            if($get2->num_rows() > 0){
+                $i++;
+            }else{
+                $gs[] = $g->step;
+            }
+        }
+        
+        if($i == 12){
+            $pdfFilePath = "Kartu Ujian PPDB SDIT Al Hikmah - ".$data['siswa']->nama.".pdf";
+        
+            try{
+                $mpdf = new \Mpdf\Mpdf();
+                $html = $this->load->view('inner/karu',$data,true);
+                $mpdf->useSubstitutions = false; 
+                $mpdf->simpleTables = true;
+                $mpdf->WriteHTML($html);
+                $mpdf->Output($pdfFilePath, "D");
+            }catch (\Mpdf\MpdfException $e){
+                echo $e->getMessage();  
+            }
+        }else{
+            $this->session->set_flashdata('gagal', $gs);
+            redirect('dashboard');
         }
     }
 }

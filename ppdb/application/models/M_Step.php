@@ -5,6 +5,7 @@ class M_Step extends CI_Model{
         $this->db->where(['show'=> 1]);
         return $this->db->get('step');
     }
+
     function cekStep($idcsiswa, $idstep){
         $this->db->select('*');
         $this->db->from('bstep');
