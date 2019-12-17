@@ -44,7 +44,7 @@
 	<h3><span style="color:red;">PRINT A4</span>, Gunting dan laminating / gunakan name tag lalu bawa ketika akan melaksanakan ujian.</h3>
 		<div class="kartuujian">
             <div style="height: 3cm; width: 2cm; margin-left: 15.2px; overflow: hidden; position: fixed; margin-top: 25.3px; border-radius: 5px;">
-                <img style="position: absolute; left: -1000%; right: -1000%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto) ?>">
+                <img style="position: absolute; left: -1000%; right: -1000%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
             </div>
             <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b>
                 <br><?= $siswa->asal_sekolah ?>

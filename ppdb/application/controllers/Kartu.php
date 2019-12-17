@@ -40,7 +40,7 @@ class Kartu extends CI_Controller{
         $data['title']          = "Cetak Kartu Ujian ";
         $data['idcsiswa']       = $this->idcsiswa();
         $data['siswa']          = $this->db->get_where('csiswa', ['id'=> $this->idcsiswa()])->row();
-        $data['foto']           = $this->db->get_where('cdocument', ['idcsiswa'=>$this->idcsiswa(), 'jenis'=> "anak"])->row()->img;
+        $data['foto']           = $this->db->get_where('cdocument', ['idcsiswa'=>$this->idcsiswa(), 'jenis'=> "anak"])->row();
         
         $get = $this->M_Step->get_all()->result();
         $i = 1;
