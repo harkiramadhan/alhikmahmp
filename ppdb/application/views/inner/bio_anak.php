@@ -274,17 +274,25 @@
                                     <label for="">Alamat Rumah Saat Ini <small class="text-warning">*</small></label>
                                     <textarea name="alamat" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" required><?= $anak->alamat ?></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="">RT</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rt" placeholder="RT" value="<?= $anak->rt ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">RW</label>
-                                    <input type="number" class="form-control form-control-alternative form-control-sm" name="rw" placeholder="RW" value="<?= $anak->rw ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Nomor Rumah</label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" name="no" placeholder="Nomor Rumah" value="<?= $anak->no ?>">
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="form-group">
+                                            <label for="">RT</label>
+                                            <input type="number" class="form-control form-control-alternative form-control-sm" name="rt" placeholder="RT" value="<?= $anak->rt ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div class="form-group">
+                                            <label for="">RW</label>
+                                            <input type="number" class="form-control form-control-alternative form-control-sm" name="rw" placeholder="RW" value="<?= $anak->rw ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div class="form-group">
+                                            <label for="">Nomor Rumah</label>
+                                            <input type="text" class="form-control form-control-alternative form-control-sm" name="no" placeholder="Nomor Rumah" value="<?= $anak->no ?>">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
