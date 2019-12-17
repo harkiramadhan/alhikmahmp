@@ -17,10 +17,10 @@ class Document extends CI_Controller{
     function index(){
         $data['title'] = "Dashboard PPDB Online Al Hikmah";
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
-        $data['cek_foto'] = $this->db->get_where('cdocument', ['jenis'=> "anak"]);
-        $data['cek_ktp'] = $this->db->get_where('cdocument', ['jenis'=> "ktp"]);
-        $data['cek_kk'] = $this->db->get_where('cdocument', ['jenis'=> "kk"]);
-        $data['cek_akta'] = $this->db->get_where('cdocument', ['jenis'=> "akta"]);
+        $data['cek_foto'] = $this->db->get_where('cdocument', ['jenis'=> "anak", 'idcsiswa'=>$this->idcsiswa()]);
+        $data['cek_ktp'] = $this->db->get_where('cdocument', ['jenis'=> "ktp", 'idcsiswa'=>$this->idcsiswa()]);
+        $data['cek_kk'] = $this->db->get_where('cdocument', ['jenis'=> "kk", 'idcsiswa'=>$this->idcsiswa()]);
+        $data['cek_akta'] = $this->db->get_where('cdocument', ['jenis'=> "akta", 'idcsiswa'=>$this->idcsiswa()]);
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/document', $data);
