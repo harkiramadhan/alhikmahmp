@@ -3,6 +3,7 @@ class Kartu extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('M_Csiswa');
+        $this->load->model('M_Step');
         if($this->session->userdata('masuk') != TRUE){
             $url = base_url();
             redirect($url);
@@ -16,7 +17,19 @@ class Kartu extends CI_Controller{
 
     function index(){
         $data['title'] = "Dashboard PPDB Online Al Hikmah";
+        $data['step'] = $this->M_Step->get_all()->result();
         $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
+        $data['cekSekolah'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>1]);
+        $data['cekDataDiri'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>2]);
+        $data['cekJasmani'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>3]);
+        $data['cekAlamat'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>4]);
+        $data['cekLain'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>5]);
+        $data['cekAyah'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>6]);
+        $data['cekIbu'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>7]);
+        $data['cekFoto'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>9]);
+        $data['cekKtp'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>10]);
+        $data['cekKk'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>11]);
+        $data['cekAkta'] = $this->db->get_where('bstep', ['idcsiswa'=>$this->idcsiswa(), 'idstep'=>12]);
 
         $this->load->view('layout/header', $data);
         $this->load->view('inner/cetak_kartu', $data);
@@ -38,10 +51,8 @@ class Kartu extends CI_Controller{
             $mpdf->simpleTables = true;
             $mpdf->WriteHTML($html);
             $mpdf->Output($pdfFilePath, "D");
-        }catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception 
-            //       name used for catch
-            // Process the exception, log, print etc.
-            echo $e->getMessage();
-            }
+        }catch (\Mpdf\MpdfException $e){
+            echo $e->getMessage();  
+        }
     }
 }
