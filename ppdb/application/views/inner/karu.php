@@ -11,15 +11,30 @@
 
     <title><?=$title?></title>
 
-
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+		@page {
+			size: A4;
+			margin: 100;
+		}
+		@media print {
+			html, body {
+				width: 210mm;
+				height: 297mm;
+			}
+		}
+		*{
+			font-family: 'Open Sans', sans-serif;
+			line-height: 1.5;
+		}
 		.nama {
 			font-size: 70%;
             /* width: 188px; */
             margin-left: 110px;
-            margin-top: -69px;
+            margin-top: -75px;
             font-family: verdana;
-            position: absolute;
+            position: relative;
 		}
 		.kartuujian {
 			border: 1px solid gray;
@@ -43,8 +58,8 @@
 	<div class="container">
 	<h3><span style="color:red;">PRINT A4</span>, Gunting dan laminating / gunakan name tag lalu bawa ketika akan melaksanakan ujian.</h3>
 		<div class="kartuujian">
-            <div style="height: 3cm; width: 2cm; margin-left: 15.2px; overflow: hidden; position: fixed; margin-top: 25.3px; border-radius: 5px;">
-                <img style="position: absolute; left: -1000%; right: -1000%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
+            <div style="height: 3cm; width: 2cm; margin-left: 15.2px; overflow: hidden; position: relative;margin-top: 25.3px; border-radius: 5px;">
+                <img style="position: absolute; left: -1090.8%; right: -1092%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
             </div>
             <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b>
                 <br><?= $siswa->asal_sekolah ?>
