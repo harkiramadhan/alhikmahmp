@@ -54,19 +54,19 @@ class Kartu extends CI_Controller{
         }
         
         if($i == 12){
-            $this->load->view('inner/karu', $data);
-            // $pdfFilePath = "Kartu Ujian PPDB SDIT Al Hikmah - ".$data['siswa']->nama.".pdf";
+            // $this->load->view('inner/karu', $data);
+            $pdfFilePath = "Kartu Ujian PPDB SDIT Al Hikmah - ".$data['siswa']->nama.".pdf";
         
-            // try{
-            //     $mpdf = new \Mpdf\Mpdf();
-            //     $html = $this->load->view('inner/karu',$data,true);
-            //     $mpdf->useSubstitutions = false; 
-            //     $mpdf->simpleTables = true;
-            //     $mpdf->WriteHTML($html);
-            //     $mpdf->Output($pdfFilePath, "D");
-            // }catch (\Mpdf\MpdfException $e){
-            //     echo $e->getMessage();  
-            // }
+            try{
+                $mpdf = new \Mpdf\Mpdf();
+                $html = $this->load->view('inner/karu',$data,true);
+                $mpdf->useSubstitutions = false; 
+                $mpdf->simpleTables = true;
+                $mpdf->WriteHTML($html);
+                $mpdf->Output($pdfFilePath, "D");
+            }catch (\Mpdf\MpdfException $e){
+                echo $e->getMessage();  
+            }
         }else{
             $this->session->set_flashdata('gagal', $gs);
             redirect('dashboard');

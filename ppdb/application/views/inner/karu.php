@@ -24,31 +24,40 @@
 				height: 297mm;
 			}
 		}
-		*{
-			font-family: 'Open Sans', sans-serif;
-			line-height: 1.5;
+		.noujian {
+			font-size: 170%;
+            margin-top: 9px;
+            font-family: verdana;
 		}
 		.nama {
-			font-size: 70%;
-            /* width: 188px; */
-            margin-left: 110px;
-            margin-top: -75px;
+			font-size: 100%;
             font-family: verdana;
-            position: relative;
+		}
+		.asal-sekolah {
+			font-size: 100%;
+			margin-top: 2px;
+            font-family: verdana;
 		}
 		.kartuujian {
-			border: 1px solid gray;
-			height:5.5cm;
+			border: 1px solid white;
+			height:14cm;
 			padding:0 0 0 0;
-			/* position:relative; */
-			width:8.9cm;
+			width:10cm;
 			background-image:url('<?= base_url('') ?>assets/img/bg-kartu-ujian.png');
 			background-size:100%;
             background-repeat: no-repeat;
+			text-align: center;
 		}
-		.qrcode {
-            margin-left: 283.8px;
-            margin-top: 16.6px;
+		.potong {
+			position: relative;
+			margin-left: 25%;
+			border: 1px dashed black;
+			height:14.07cm;
+			width:10.07cm;
+		}
+		.cut {
+			margin-left: 24%;
+			margin-bottom: -2px;
 		}
 	</style>
 
@@ -56,17 +65,18 @@
 
 <body>
 	<div class="container">
-	<h3><span style="color:red;">PRINT A4</span>, Gunting dan laminating / gunakan name tag lalu bawa ketika akan melaksanakan ujian.</h3>
-		<div class="kartuujian">
-            <div style="height: 3cm; width: 2cm; margin-left: 15.2px; overflow: hidden; position: relative;margin-top: 25.3px; border-radius: 5px;">
-                <img style="position: absolute; left: -1090.8%; right: -1092%; top: -1000%; bottom: -1000%; margin: auto; height: 3cm; width: 2cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
-            </div>
-            <div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b>
-                <br><?= $siswa->asal_sekolah ?>
-                <br>No Peserta : <b>20xxx</b>    
-            </div>
-            <div class="qrcode"> <barcode code="<?= site_url('ppdb/status/'.$idcsiswa) ?>" type="QR" error="Q" size="0.4" border="0" disableborder="1" /></div>
-        </div>
+	<h3><span style="color:red;">PRINT A4</span>, Gunting pada garis putus-putus dan laminating / gunakan name tag lalu bawa ketika akan melaksanakan ujian.</h3>
+		<img src="<?= base_url('assets/img/cut.png') ?>" alt="" class="cut">
+		<div class="potong">
+			<div class="kartuujian">
+				<div style="height: 4cm; width: 3cm; margin-left: 132.3px; overflow: hidden; position: relative;margin-top: 214.3px; border-radius: 5px;">
+					<img style="position: absolute; left: -1090.8%; right: -1092%; top: -1000%; bottom: -1000%; margin: auto; height: 4cm; width: 3cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
+				</div>
+				<div class="noujian"><b>20XXX</b></div>
+				<div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b></div>
+				<div class="asal-sekolah"><b><?= $siswa->asal_sekolah ?></b></div>
+			</div>
+		</div>
 
 		<h3 style="color:red">Penting!</h3>
 		<p><b>Kartu Ujian : </b> Ini adalah kartu ujian anda, kartu ujian yang diperuntukkan bagi anak. </p>
