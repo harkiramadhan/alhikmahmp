@@ -185,18 +185,6 @@
         </div>
     </footer>
 
-    <!-- Core -->
-    <script src="<?= base_url('') ?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('') ?>assets/vendor/popper/popper.min.js"></script>
-    <script src="<?= base_url('') ?>assets/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="<?= base_url('') ?>assets/vendor/headroom/headroom.min.js"></script>
-    <!-- Optional JS -->
-    <script src="<?= base_url('') ?>assets/vendor/onscreen/onscreen.min.js"></script>
-    <script src="<?= base_url('') ?>assets/vendor/nouislider/js/nouislider.min.js"></script>
-    <script src="<?= base_url('') ?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <!-- Argon JS -->
-    <script src="<?= base_url('') ?>assets/js/argon.js?v=1.1.0"></script>
-
     <!-- Modal Login -->
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -222,12 +210,12 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Password" type="password" name="password" required>
+                            <input class="form-control" placeholder="Password" id="password" name="password" required>
                         </div>
                     </div>
                     <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                        <label class="custom-control-label" for=" customCheckLogin"><span>Remember me</span></label>
+                        <input class="custom-control-input" id="customCheckLogin" type="checkbox" name="show">
+                        <label class="custom-control-label" for="customCheckLogin"><span>Show Password</span></label>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary my-4 ml-auto">Sign in</button>
@@ -309,6 +297,30 @@
             </div>
         </div>
     </div>
-</body>
+    <!-- Core -->
+    <script src="<?= base_url('') ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('') ?>assets/vendor/popper/popper.min.js"></script>
+    <script src="<?= base_url('') ?>assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="<?= base_url('') ?>assets/vendor/headroom/headroom.min.js"></script>
+    <!-- Optional JS -->
+    <script src="<?= base_url('') ?>assets/vendor/onscreen/onscreen.min.js"></script>
+    <script src="<?= base_url('') ?>assets/vendor/nouislider/js/nouislider.min.js"></script>
+    <script src="<?= base_url('') ?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- Argon JS -->
+    <script src="<?= base_url('') ?>assets/js/argon.js?v=1.1.0"></script>
 
+    <script>
+        $(document).ready(function(){
+            $("#password").prop("type", "password");
+            $('#customCheckLogin').click(function(){
+                if($(this).prop("checked") == true){
+                    $("#password").prop("type", "text");
+                }
+                else if($(this).prop("checked") == false){
+                    $("#password").prop("type", "password");
+                }
+            });
+        }); 
+    </script>
+</body>
 </html>
