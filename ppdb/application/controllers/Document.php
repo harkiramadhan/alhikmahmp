@@ -32,6 +32,7 @@ class Document extends CI_Controller{
 
         $config['upload_path']      = './upload/img';
         $config['allowed_types']    = 'jpeg|jpg|png';
+        $config['max_size']         = '8192‬';
         $config['remove_spaces']    = TRUE;
         $config['file_name']        = $jenis."_".$this->idcsiswa();
         $config['overwrite']        = TRUE;
@@ -43,7 +44,7 @@ class Document extends CI_Controller{
         $fileImport = $upload_data['file_name'];
         
         if(!$this->upload->do_upload('img')){
-            $this->session->set_flashdata('error', "File Belum Di Pilih");
+            $this->session->set_flashdata('error', "File Belum Di Pilih Atau File Lebih Dari 8Mb");
             redirect($_SERVER['HTTP_REFERER']);
         }else{
             
