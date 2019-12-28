@@ -79,18 +79,18 @@
 		</div>
 
 		<h1 style="color:red">Penting!</h1>
-		<h3><b style="color:red">Name Tag Plastik Akan Diberikan Ketika Registrasi Saat Hari Pelaksanaan Ujian</b> <br><br>
+		<h3><b style="color:red">Name Tag Plastik Akan Diberikan Ketika Registrasi Saat Hari Pelaksanaan Seleksi</b> <br><br>
 		<u>Harap Konfirmasi Kedatangan Pada WhatsApp Berikut : <b style="color:red">0878-8331-0048</b> dan <b style="color:red">0812-8346-1881</b></u> <br><br>
-		<b>Perlengkapan : </b> <br>
+		<b>Perlengkapan Yang Harus Dibawa : </b> <br>
 			<ul>
-				<li>1. Pensil</li>
-				<li>2. Pensil Warna (Krayon)</li>
-				<li>3. Penghapus</li>
-				<li>4. Rautan</li>
+				<li> Pensil</li>
+				<li> Pensil Warna (Krayon)</li>
+				<li> Penghapus</li>
+				<li> Rautan</li>
 			</ul>  
 		<b>Pakaian 		: </b> Seragam TK atau Bebas (Menutupi Aurat) <br>
-		<b>Lokasi Ujian : </b> SDIT Al Hikmah <br>
-		<b>Waktu Ujian 	: </b> Ujian pukul 07.30 WIB s/d 11.00 WIB</h3>
+		<b>Lokasi Seleksi : </b> SDIT Al Hikmah <br>
+		<b>Waktu Seleksi 	: </b> Pukul 07.30 WIB s/d 11.00 WIB</h3>
 	</div>
 </body>
 </html>
