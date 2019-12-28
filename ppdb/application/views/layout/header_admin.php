@@ -28,6 +28,11 @@
     <link href="<?= base_url('') ?>assets/inner/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="<?= base_url('') ?>assets/inner/css/argon.css?v=1.1.0" rel="stylesheet">
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="<?= base_url('') ?>assets/inner/vendor/datatables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('') ?>assets/inner/vendor/datatables/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('') ?>assets/inner/vendor/datatables/css/select.bootstrap4.min.css">
 </head>
 
 <body>

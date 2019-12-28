@@ -59,4 +59,32 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-12 mt-3">
+            <div class="card">
+                <div class="form-group-sm">
+                    <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Cari ..." id="myInput">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-12 mt-2">
+            <div class="card shadow">
+                <div class="table-responsive">
+                    <table class="table table align-items-center table-flush table-hover table-sm" id="csiswa">
+                        <thead class="thead-light">
+                            <tr>
+                                <th width="10px;">No</th>
+                                <th>Nama</th>
+                                <th width="10px;">L/P</th>
+                                <th>Asal Sekolah</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
