@@ -15,12 +15,21 @@ class Dashboard extends CI_Controller{
     }
 
     function index(){
-        $data['title'] = "Dashboard PPDB Online Al Hikmah";
-        $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
+        if($this->idcsiswa() == TRUE){
+            $data['title'] = "Dashboard PPDB Online Al Hikmah";
+            $data['anak'] = $this->M_Csiswa->get_byId($this->idcsiswa());
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('inner/dashboard');
-        $this->load->view('layout/footer');
+            $this->load->view('layout/header', $data);
+            $this->load->view('inner/dashboard');
+            $this->load->view('layout/footer');
+        }else{
+            $data['title'] = "Dashboard PPDB Online Al Hikmah";
+            $data['email'] = $this->session->userdata('email');
+
+            $this->load->view('layout/header_admin', $data);
+            $this->load->view('inner/dashboard_admin', $data);
+            $this->load->view('layout/footer_admin', $data);
+        }
     }
 
     function simpan(){

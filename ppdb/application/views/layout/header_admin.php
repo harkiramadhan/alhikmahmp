@@ -47,11 +47,11 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mb-0 text-sm text-dark font-weight-bold"><?= $anak->nama ?></span>
+                        <span class="mb-0 text-sm text-dark font-weight-bold"><?= $email ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                         <div class=" dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome! <?= $anak->nama ?></h6>
+                            <h6 class="text-overflow m-0">Welcome! <?= $email ?></h6>
                         </div>
                         <div class="dropdown-divider"></div>
                         <a href="<?= site_url('login/logout') ?>" class="dropdown-item">
@@ -84,26 +84,6 @@
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "dashboard"){echo "active";} ?>" href="<?= site_url('dashboard') ?>">
                             <i class="ni ni-tv-2 text-default"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "anak"){echo "active";} ?>" href="<?= site_url('biodata/anak') ?>">
-                            <i class="ni ni-collection text-default"></i> Biodata Anak
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if($this->uri->segment(1) == "biodata" && $this->uri->segment(2) == "ortu"){echo "active";} ?>" href="<?= site_url('biodata/ortu') ?>">
-                            <i class="ni ni-ruler-pencil text-default"></i> Biodata Orangtua
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if($this->uri->segment(1) == "document"){echo "active";} ?>" href="<?= site_url('document') ?>">
-                            <i class="ni ni-folder-17 text-default"></i> Scan Dokumen
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if($this->uri->segment(1) == "kartu"){echo "active";} ?>" href="<?= site_url('kartu') ?>">
-                            <i class="fa fa-print text-default"></i> Cetak Kartu
                         </a>
                     </li>
                 </ul>
@@ -142,20 +122,6 @@
                 </div>
             </div>
             <?php } ?>
-            <?php
-            $data3 = $this->session->flashdata('gagal');
-            if($data3!=""){?>
-            <div class="sticky-top col-md-12 alert">
-                <div class="alert alert-warning" role="alert">
-                    <span class="alert-inner--icon"><i class="ni ni-notification-70"></i></span>
-                    <span class="alert-inner--text"><strong> &nbsp Error! </strong>Silahkan Lengkapi Document : <?php
-                        foreach($data3 as $g){
-                            echo $g.", ";
-                        }
-                    ?></span>
-                </div>
-            </div>
-            <?php } ?>
             <div class="container-fluid">
                 <!-- User -->
                 <ul class="navbar-nav align-items-center d-none d-md-flex ml-auto">
@@ -163,13 +129,13 @@
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="media align-items-center">
                                 <div class="media-body ml-2 d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold"><?= $anak->nama ?></span>
+                                    <span class="mb-0 text-sm  font-weight-bold"><?= $email ?></span>
                                 </div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                             <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome! <?= $anak->nama ?></h6>
+                                <h6 class="text-overflow m-0">Welcome! <?= $email ?></h6>
                             </div>
                             <div class="dropdown-divider"></div>
                             <a href="<?= site_url('login/logout') ?>" class="dropdown-item">
