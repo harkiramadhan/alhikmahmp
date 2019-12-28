@@ -21,6 +21,7 @@
                     <thead class="thead-light">
                         <tr>
                             <th width="10px;">No</th>
+                            <th width="10px;">Noujian</th>
                             <th>Nama</th>
                             <th width="10px;">L/P</th>
                             <th width="10px;">Asal Sekolah</th>

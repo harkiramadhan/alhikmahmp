@@ -127,6 +127,7 @@ class Dashboard extends CI_Controller{
 
             $data[] = [
                 $no++,
+                $row->noujian,
                 "<strong>".$row->nama."</strong>",
                 $row->jenkel,
                 $row->asal_sekolah,

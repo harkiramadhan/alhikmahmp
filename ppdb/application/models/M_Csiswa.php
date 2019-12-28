@@ -25,6 +25,7 @@ class M_Csiswa extends CI_Model{
         $this->db->join('wilayah_kabupaten', 'csiswa.kabupaten = wilayah_kabupaten.id', 'left');
         $this->db->join('wilayah_kecamatan', 'csiswa.kecamatan = wilayah_kecamatan.id', 'left');
         $this->db->join('wilayah_desa', 'csiswa.kelurahan = wilayah_desa.id', 'left');
+        $this->db->order_by('csiswa.nama', 'ASC');
         return $this->db->get();
     }
 }
