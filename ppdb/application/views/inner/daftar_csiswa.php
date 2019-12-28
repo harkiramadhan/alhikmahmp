@@ -6,14 +6,16 @@
     </div>
 </div>
 <!-- Page content -->
-<div class="container-fluid mt--4">
+<div class="container-fluid mt--5">
+    <div class="col-xl-12 mt-3">
+        <div class="card">
+            <div class="form-group-sm">
+                <input type="text" class="form-control form-control-md form-control-alternative" placeholder="Cari ..." id="search">
+            </div>
+        </div>
+    </div>
     <div class="col-xl-12 mt-2">
         <div class="card shadow">
-            <div class="col-xl-12">
-                <div class="form-group-sm m-3">
-                    <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Cari ..." id="search">
-                </div>
-            </div>
             <div class="table-responsive">
                 <table class="table table align-items-center table-flush table-hover table-sm" id="csiswa">
                     <thead class="thead-light">
@@ -23,6 +25,7 @@
                             <th width="10px;">L/P</th>
                             <th width="10px;">Asal Sekolah</th>
                             <th width="10px;" class="text-center">Status</th>
+                            <th width="10px;" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
