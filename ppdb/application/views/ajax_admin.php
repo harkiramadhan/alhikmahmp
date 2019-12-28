@@ -2,33 +2,6 @@
 <script>
     $('#csiswa').dataTable({
     bPaginate:      false,
-    dom: 'Bflrtip',
-    buttons: [ 
-        {
-        extend: "copy",
-        text: "<i class='fas fa-copy'></i> Copy",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-        {
-        extend: "csv",
-        text: "<i class='fas fa-file-excel'></i> Csv",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-        {
-        extend: "print",
-        text: "<i class='fas fa-print'></i> Print",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-    ],
         ajax:           '<?= site_url('dashboard/list/') ?>',
         scrollY:        250,
         deferRender:    true,
