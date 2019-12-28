@@ -40,9 +40,9 @@
 		}
 		.kartuujian {
 			border: 1px solid white;
-			height:14cm;
+			height:12cm;
 			padding:0 0 0 0;
-			width:10cm;
+			width:8.5cm;
 			background-image:url('<?= base_url('') ?>assets/img/bg-kartu-ujian.png');
 			background-size:100%;
             background-repeat: no-repeat;
@@ -52,8 +52,8 @@
 			position: relative;
 			margin-left: 25%;
 			border: 1px dashed black;
-			height:14.07cm;
-			width:10.07cm;
+			height: 12.07cm;
+			width: 8.57cm;
 		}
 		.cut {
 			margin-left: 24%;
@@ -65,25 +65,32 @@
 
 <body>
 	<div class="container">
-	<h3><span style="color:red;">PRINT A4</span>, Gunting pada garis putus-putus dan laminating / gunakan name tag lalu bawa ketika akan melaksanakan ujian.</h3>
+	<h3><span style="color:red;">PRINT A4</span>, Gunting Garis Putus-Putus, Dibawa Ketika Mengikuti Seleksi.</h3>
 		<img src="<?= base_url('assets/img/cut.png') ?>" alt="" class="cut">
 		<div class="potong">
 			<div class="kartuujian">
-				<div style="height: 4cm; width: 3cm; margin-left: 132.3px; overflow: hidden; position: relative;margin-top: 214.3px; border-radius: 5px;">
+				<div style="height: 4cm; width: 3cm; margin-left: 104.4px; overflow: hidden; position: relative;margin-top: 182.6px; border-radius: 5px;">
 					<img style="position: absolute; left: -1090.8%; right: -1092%; top: -1000%; bottom: -1000%; margin: auto; height: 4cm; width: 3cm; border-radius: 5px;" src="<?= base_url('upload/img/'.$foto->img) ?>">
 				</div>
-				<div class="noujian"><b>20XXX</b></div>
+				<div class="noujian"><b><?= $siswa->noujian ?></b></div>
 				<div class="nama"><b><?= $siswa->nama." / ".$siswa->jenkel ?></b></div>
 				<div class="asal-sekolah"><b><?= $siswa->asal_sekolah ?></b></div>
 			</div>
 		</div>
 
-		<h3 style="color:red">Penting!</h3>
-		<p><b>Kartu Ujian : </b> Ini adalah kartu ujian anda, kartu ujian yang diperuntukkan bagi anak. </p>
-		<p><b>Registrasi Kedatangan : </b> Registrasi kedatangan dilakukan saat mengikuti ujian, siapkan kartu ujian dengan QR Code yang telah di print. </p>
-		<p><b>Perlengkapan : </b> Bawalah alat tulis dan Papan jalan, 
-		<p><b>Lokasi Ujian : </b> SDIT Al Hikmah
-		<p><b>Waktu Ujian : </b> Ujian pukul 07.30 WIB s/d Selesai
+		<h1 style="color:red">Penting!</h1>
+		<h3><b style="color:red">Name Tag Plastik Akan Diberikan Ketika Registrasi Saat Hari Pelaksanaan Ujian</b> <br><br>
+		<u>Harap Konfirmasi Kedatangan Pada WhatsApp Berikut : <b style="color:red">0878-8331-0048</b> dan <b style="color:red">0812-8346-1881</b></u> <br><br>
+		<b>Perlengkapan : </b> <br>
+			<ul>
+				<li>1. Pensil</li>
+				<li>2. Pensil Warna (Krayon)</li>
+				<li>3. Penghapus</li>
+				<li>4. Rautan</li>
+			</ul>  
+		<b>Pakaian 		: </b> Seragam TK atau Bebas (Menutupi Aurat) <br>
+		<b>Lokasi Ujian : </b> SDIT Al Hikmah <br>
+		<b>Waktu Ujian 	: </b> Ujian pukul 07.30 WIB s/d 11.00 WIB</h3>
 	</div>
 </body>
 </html>

@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+        <!-- <div class="col-xl-6">
             <div class="card shadow card-stats mb-4 text-center">
                 <div class="card-header bg-secondary">
                     <h5 class="card-title text-uppercase text-muted m-0">Metode Pembayaran</h5> 
@@ -79,10 +79,10 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <?php if($anak->metode_pembayaran == "transfer"): ?>
-        <div class="col-xl-6" id="modalKonfirmasi">
+        <?php //if($anak->metode_pembayaran == "transfer"): ?>
+        <!-- <div class="col-xl-6" id="modalKonfirmasi">
             <div class="card shadow card-stats mb-4 text-center">
                 <div class="card-header bg-secondary">
                     <h5 class="card-title text-uppercase text-muted m-0">Konfirmasi Pembayaran</h5> 
@@ -99,9 +99,9 @@
                     <button class="btn btn-sm btn-block btn-primary" type="btn" data-toggle="modal" data-target="#konfirmasi">Konfirmasi Pembayaran</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Modal Konfirmasi Pembayaran -->
-        <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-secondary">
@@ -128,6 +128,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-        <?php endif; ?>
+        </div> -->
+        <?php //endif; ?>
     </div>
