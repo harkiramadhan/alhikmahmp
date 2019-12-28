@@ -30,12 +30,20 @@
         },
     ],
         ajax:           '<?= site_url('dashboard/list/') ?>',
-        scrollY:        400,
+        scrollY:        250,
         deferRender:    true,
         scroller:       true,
         searching:      true,
         info:           false,
     });
     $('.buttons-html5').removeClass('btn-secondary');
+    $('.dt-buttons').addClass("mt-3 ml-3 mb-2 text-right");
+    $(".dataTables_filter").addClass("d-none");
+
+    var table = $('#csiswa').DataTable();
+    
+    $('#search').on( 'keyup', function () {
+        table.search( this.value ).draw();
+    } );
 </script>
 <?php endif; ?>

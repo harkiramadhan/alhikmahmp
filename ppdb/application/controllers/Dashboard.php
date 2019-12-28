@@ -121,15 +121,15 @@ class Dashboard extends CI_Controller{
 
             if($row->konfirmasi == "done"){
                 $status = "<div class='text-center'><span class='badge badge-success'>Sudah Konfirmasi</span></div>";
-                $action = "Cancel";
+                $action = "<div class='text-center'><button class='btn btn-sm btn-warning btn-block'>Cancel</button></div>";
             }else{
                 $status = "<div class='text-center'><span class='badge badge-warning'>Belum Konfirmasi</span></div>";
-                $action = "ACC";
+                $action = "<div class='text-center'><button class='btn btn-sm btn-success btn-block'>Konfirmasi</button></div>";
             }
 
             $data[] = [
                 $no++,
-                $row->nama,
+                "<strong>".$row->nama."</strong>",
                 $row->jenkel,
                 $row->asal_sekolah,
                 $status,

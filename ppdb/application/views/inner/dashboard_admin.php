@@ -62,7 +62,7 @@
         <div class="col-xl-12 mt-3">
             <div class="card">
                 <div class="form-group-sm">
-                    <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Cari ..." id="myInput">
+                    <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Cari ..." id="search">
                 </div>
             </div>
         </div>
@@ -75,9 +75,9 @@
                                 <th width="10px;">No</th>
                                 <th>Nama</th>
                                 <th width="10px;">L/P</th>
-                                <th>Asal Sekolah</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Action</th>
+                                <th width="10px;">Asal Sekolah</th>
+                                <th width="10px;" class="text-center">Status</th>
+                                <th width="10px;" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
