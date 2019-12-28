@@ -91,6 +91,11 @@
                             <i class="ni ni-tv-2 text-default"></i> Dashboard
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "csiswa"){echo "active";} ?>" href="<?= site_url('csiswa') ?>">
+                            <i class="ni ni-circle-08 text-default"></i> Pendaftaran
+                        </a>
+                    </li>
                 </ul>
                 <hr class="my-2">
                 <ul class="navbar-nav">

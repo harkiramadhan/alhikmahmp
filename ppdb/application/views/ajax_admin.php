@@ -1,34 +1,7 @@
 <?php if($this->uri->segment(1) == "dashboard" && $this->uri->segment(2) == ""): ?>
 <script>
     $('#csiswa').dataTable({
-    bPaginate:      false,
-    dom: 'Bflrtip',
-    buttons: [ 
-        {
-        extend: "copy",
-        text: "<i class='fas fa-copy'></i> Copy",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-        {
-        extend: "csv",
-        text: "<i class='fas fa-file-excel'></i> Csv",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-        {
-        extend: "print",
-        text: "<i class='fas fa-print'></i> Print",
-        className: "btn-sm btn-default",
-        exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5 ]
-        }
-        },
-    ],
+        bPaginate:      false,
         ajax:           '<?= site_url('dashboard/list/') ?>',
         scrollY:        250,
         deferRender:    true,
@@ -36,8 +9,6 @@
         searching:      true,
         info:           false,
     });
-    $('.buttons-html5').removeClass('btn-secondary');
-    $('.dt-buttons').addClass("mt-3 ml-3 mb-2 text-right");
     $(".dataTables_filter").addClass("d-none");
 
     var table = $('#csiswa').DataTable();
