@@ -46,6 +46,13 @@ class Ppdb extends CI_Controller{
                 $this->session->set_flashdata('error', $error);
                 $this->load->view('ppdb');
             }else{
+                $cek = $this->db->order_by('noujian', "DESC")->get_where('csiswa', ['noujian !='=>NULL]);
+                if($cek->num_rows() > 0){
+                    $nomor = $cek->row()->noujian;
+                    $noujian = $nomor + 1;
+                }else{
+                    $noujian = 200001;
+                }
                 $data = [
                     'nik' => $this->input->post('nik', TRUE),
                     'nama' => $this->input->post('nama', TRUE),
@@ -55,6 +62,7 @@ class Ppdb extends CI_Controller{
                     'tl' => $this->input->post('tl', TRUE),
                     'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
                     'email' => $this->input->post('email', TRUE),
+                    'noujian' => $noujian
                 ];
     
                 $this->db->insert('csiswa', $data);
