@@ -25,6 +25,9 @@ class Dashboard extends CI_Controller{
         }else{
             $data['title'] = "Dashboard PPDB Online Al Hikmah";
             $data['email'] = $this->session->userdata('email');
+            $data['daftar'] = $this->db->get('csiswa')->num_rows();
+            $data['konfirmasi'] = $this->db->get_where('csiswa', ['konfirmasi'=> "done"])->num_rows();
+            $data['belum_konfirmasi'] = $this->db->get_where('csiswa', ['konfirmasi'=> NULL])->num_rows();
 
             $this->load->view('layout/header_admin', $data);
             $this->load->view('inner/dashboard_admin', $data);
