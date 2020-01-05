@@ -8,7 +8,7 @@
 <!-- Page content -->
 <div class="container-fluid mt--4">
     <div class="row justify-content-center">
-        <div class="col-xl-12">
+        <!-- <div class="col-xl-12">
             <div class="card shadow card-stats mb-4 text-center">
                 <div class="card-header bg-secondary">
                     <h5 class="card-title text-uppercase text-muted m-0">Informasi Penting !</h5> 
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-xl-12">
             <div class="row">
                 <div class="col-xl-3">
