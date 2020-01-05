@@ -483,8 +483,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ? <small class="text-danger">*</small></label>
-                                    <textarea name="keahlian_ortu" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Pembelajaran Anak Di Sekolah ?" required><?= $anak->keahlian_ortu ?></textarea>
+                                    <label for="">Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Kegiatan Belajar Mengajar Di Sekolah ? <small class="text-danger">*</small></label>
+                                    <textarea name="keahlian_ortu" id="" cols="30" rows="3" class="form-control form-control-alternative form-control-sm" placeholder="Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Kegiatan Belajar Mengajar Di Sekolah ?" required><?= $anak->keahlian_ortu ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Apakah Anak Dapat Membuka Internet? <small class="text-danger">*</small></label>
