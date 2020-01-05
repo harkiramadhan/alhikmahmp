@@ -439,7 +439,7 @@
                                     <select name="fisik" id="selectFisik" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" disabled>- Pilih Kondisi Fisik -</option>
                                         <option value="Normal" <?php if($anak->fisik == "Normal" && $anak->fisik != NULL){echo "selected";} ?>>Normal</option>
-                                        <option value="Berkelainan" <?php if($anak->fisik != "Normal" && $anak->fisik != NULL){echo "selected";} ?>>Berkelainan</option>
+                                        <option value="Berkelainan" <?php if($anak->fisik != "Normal" && $anak->fisik != NULL){echo "selected";} ?>>Berkebutuhan Khusus</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="formKondisiFisikText">
@@ -454,7 +454,7 @@
                                     <select name="mental" id="selectMental" class="form-control form-control-alternative form-control-sm" required>
                                         <option value="" selected disabled>- Pilih Kondisi Mental -</option>
                                         <option value="Normal" <?php if($anak->mental == "Normal" && $anak->mental != NULL){echo "selected";} ?>>Normal</option>
-                                        <option value="Berkelainan" <?php if($anak->mental != "Normal" && $anak->mental != NULL){echo "selected";} ?>>Berkelainan</option>
+                                        <option value="Berkelainan" <?php if($anak->mental != "Normal" && $anak->mental != NULL){echo "selected";} ?>>Berkebutuhan Khusus</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="formKondisiMentalText">

@@ -118,7 +118,7 @@ $(document).ready(function(){
     }
 
     var fisik = $( "#selectFisik option:selected" ).text();
-    if(fisik === "Berkelainan"){
+    if(fisik === "Berkebutuhan Khusus"){
         $('#selectFisik').prop('required', false);
         $('#formKondisiFisikSelect').hide();
         $('#inputFisik').attr('name', 'fisik');
@@ -133,7 +133,7 @@ $(document).ready(function(){
     }
 
     var mental = $( "#selectMental option:selected" ).text();
-    if(mental === "Berkelainan"){
+    if(mental === "Berkebutuhan Khusus"){
         $('#selectMental').prop('required', false);
         $('#formKondisiMentalSelect').hide();
         $('#inputMental').attr('name', 'mental');
