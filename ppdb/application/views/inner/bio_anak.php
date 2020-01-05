@@ -58,12 +58,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Nomor NPSN (Nomor Pokok Sekolah Nasional)</label>
-                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn" value="<?= $anak->npsn ?>">
-                                </div>
-                                <div class="form-group">
                                     <label for="">Nama TK/TKA/TKQ/TPA <small class="text-warning">*</small></label>
                                     <input type="text" class="form-control form-control-alternative form-control-sm" name="asal_sekolah" placeholder="Nama TK/TKA/TKQ/TPA" value="<?= $anak->asal_sekolah ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Nomor NPSN (Nomor Pokok Sekolah Nasional)</label>
+                                    <input type="text" class="form-control form-control-alternative form-control-sm" placeholder="Nomor NPSN (Nomor Pokok Sekolah Nasional)" name="npsn" value="<?= $anak->npsn ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Alamat Asal Sekolah <small class="text-warning">*</small></label>
