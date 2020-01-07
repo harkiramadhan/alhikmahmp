@@ -78,9 +78,9 @@
 			</div>
 		</div>
 
-		<h1 style="color:red">Penting!</h1>
+		<h2 style="color:red">Penting!</h2>
 		<h3><b style="color:red">Name Tag Plastik Akan Diberikan Ketika Registrasi Saat Hari Pelaksanaan Seleksi</b> <br><br>
-		<u>Harap Konfirmasi Kedatangan Pada WhatsApp Berikut : <b style="color:red">0878-8331-0048</b> dan <b style="color:red">0812-8346-1881</b></u> <br><br>
+		<u>Harap Konfirmasi Telah Mendaftar Pada WhatsApp Berikut : <b style="color:red">0878-8331-0048</b> dan <b style="color:red">0812-8346-1881</b></u> <br><br>
 		<b>Perlengkapan Yang Harus Dibawa : </b> <br>
 			<ul>
 				<li> Pensil</li>
@@ -89,6 +89,7 @@
 				<li> Rautan</li>
 			</ul>  
 		<b>Pakaian 		: </b> Seragam TK atau Bebas (Menutupi Aurat) <br>
+		<b>Tanggal Pelaksanaan Seleksi : </b> 8 Februari 2019  <br>
 		<b>Lokasi Seleksi : </b> SDIT Al Hikmah <br>
 		<b>Waktu Seleksi 	: </b> Pukul 07.30 WIB s/d 11.00 WIB</h3>
 	</div>
