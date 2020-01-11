@@ -25,23 +25,12 @@ class M_Csiswa extends CI_Model{
         return $this->db->get();
     }
 
-    function get_allBiodataOrtu($idcsiswa, $jenis){
-        $this->db->select('
-            o.nama nama_ayah, o.nik nik_ayah, o.tl tl_ayah, o.tgl_lahir tgl_lahir_ayah, o.status status_ayah, o.tanggal_wafat tanggal_wafat_ayah, o.gelar gelar_ayah, o.alamat_pekerjaan alamat_pekerjaan_ayah, o.email email_ayah, o.wa wa_ayah,
-            t.tempat tmpt,
-            p.short pend,
-            pk.pekerjaan kerja, 
-            pg.penghasilan hasil,
-        ');
-
-        $this->db->from('bcortu o');
-        $this->db->join('tempat_tinggal t', "o.idtempat = t.id", "left");
-        $this->db->join('pendidikan p', "o.idpendidikan = p.id", "left");
-        $this->db->join('pekerjaan pk', "o.idpekerjaan = pk.id", "left");
-        $this->db->join('penghasilan pg', "o.idpenghasilan = pg.id", "left");
+    function get_BiodataOrtu($idcsiswa, $jenis){
+        $this->db->select('*');
+        $this->db->from('view_ortu');
         $this->db->where([
-            'o.idcsiswa' => $idcsiswa,
-            'o.jenis' => $jenis
+            'idcsiswa' => $idcsiswa,
+            'jenis' => $jenis
         ]);
         return $this->db->get();
     }

@@ -95,14 +95,22 @@ class Csiswa extends CI_Controller{
             ],
         ); 
         
-        $spreadsheet->getActiveSheet()->getStyle('B2:AW2')->applyFromArray($styleHeader);
+        $spreadsheet->getActiveSheet()->getStyle('B2:CA2')->applyFromArray($styleHeader);
         $sheetStyle = $spreadsheet->getActiveSheet();  
         foreach(range('B','Z') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)
                 ->setAutoSize(true);
         }
-        foreach(range('A','W') as $columnID) {
+        foreach(range('A','Z') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension("A".$columnID)
+                ->setAutoSize(true);
+        }
+        foreach(range('A','Z') as $columnID) {
+            $spreadsheet->getActiveSheet()->getColumnDimension("B".$columnID)
+                ->setAutoSize(true);
+        }
+        foreach(range('A','A') as $columnID) {
+            $spreadsheet->getActiveSheet()->getColumnDimension("C".$columnID)
                 ->setAutoSize(true);
         }
 
@@ -155,6 +163,42 @@ class Csiswa extends CI_Controller{
         $sheetStyle->setCellValue('AV2','Nama Kakak dan Kelas Di Al Hikmah');
         $sheetStyle->setCellValue('AW2','Email');
 
+        // Ayah
+        $sheetStyle->setCellValue('AX2','Nik Ayah');
+        $sheetStyle->setCellValue('AY2','Nama Ayah');
+        $sheetStyle->setCellValue('AZ2','TTL Ayah');
+        $sheetStyle->setCellValue('BA2','Status Ayah');
+        $sheetStyle->setCellValue('BB2','Tanggal Wafat Ayah');
+        $sheetStyle->setCellValue('BC2','Tempat Tinggal Ayah');
+        $sheetStyle->setCellValue('BD2','Pendidikan Terakhir Ayah');
+        $sheetStyle->setCellValue('BE2','Gelar Terakhir Ayah');
+        $sheetStyle->setCellValue('BF2','Pekerjaan Ayah');
+        $sheetStyle->setCellValue('BG2','Nama & Alamat Pekerjaan Ayah');
+        $sheetStyle->setCellValue('BH2','Penghasilan Perbulan Ayah');
+        $sheetStyle->setCellValue('BI2','Email Ayah');
+        $sheetStyle->setCellValue('BJ2','WhatsApp Ayah');
+
+        // Ibu
+        $sheetStyle->setCellValue('BK2','Nik Ibu');
+        $sheetStyle->setCellValue('BL2','Nama Ibu');
+        $sheetStyle->setCellValue('BM2','TTL Ibu');
+        $sheetStyle->setCellValue('BN2','Status Ibu');
+        $sheetStyle->setCellValue('BO2','Tanggal Wafat Ibu');
+        $sheetStyle->setCellValue('BP2','Pendidikan Terakhir Ibu');
+        $sheetStyle->setCellValue('BQ2','Gelar Terakhir Ibu');
+        $sheetStyle->setCellValue('BR2','Pekerjaan Ibu');
+        $sheetStyle->setCellValue('BS2','Nama & Alamat Pekerjaan Ibu');
+        $sheetStyle->setCellValue('BT2','Penghasilan Perbulan Ibu');
+        $sheetStyle->setCellValue('BU2','Email Ibu');
+        $sheetStyle->setCellValue('BV2','WhatsApp Ibu');
+
+        // Wali
+        $sheetStyle->setCellValue('BW2','Nama Wali');
+        $sheetStyle->setCellValue('BX2','TTL Wali');
+        $sheetStyle->setCellValue('BY2','Pendidikan Terakhir Wali');
+        $sheetStyle->setCellValue('BZ2','Gelar Terakhir Wali');
+        $sheetStyle->setCellValue('CA2','Pekerjaan Wali');
+
         if($jenis == "all"){
             // Query Get All Pendaftaran
             $get = $this->M_Csiswa->get_allCsiswa();
@@ -170,6 +214,10 @@ class Csiswa extends CI_Controller{
         $no         = 1;
 
         foreach($get->result() as $row){
+            $getAyah = $this->M_Csiswa->get_BiodataOrtu($row->id, 'ayah');
+            $getIbu = $this->M_Csiswa->get_BiodataOrtu($row->id, 'ibu');
+            $getWali = $this->M_Csiswa->get_BiodataOrtu($row->id, 'wali');
+
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $no++);
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->noujian);
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->nama);
@@ -220,6 +268,48 @@ class Csiswa extends CI_Controller{
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row->kakak_sdit);
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row->nama_kakak);
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row->email);
+
+            if($getAyah->num_rows() > 0){
+                $ayah = $getAyah->row();
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, $ayah->nik);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $ayah->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(52, $excel_row, $ayah->tl.", ".$ayah->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(53, $excel_row, $ayah->status);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(54, $excel_row, $ayah->tanggal_wafat);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(55, $excel_row, $ayah->tmpt);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(56, $excel_row, $ayah->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(57, $excel_row, $ayah->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(58, $excel_row, $ayah->kerja);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(59, $excel_row, $ayah->alamat_pekerjaan);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(60, $excel_row, $ayah->hasil);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(61, $excel_row, $ayah->email);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(62, $excel_row, $ayah->wa);
+            }
+
+            if($getIbu->num_rows() > 0){
+                $ibu = $getIbu->row();
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(63, $excel_row, $ibu->nik);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(64, $excel_row, $ibu->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(65, $excel_row, $ibu->tl.", ".$ibu->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(66, $excel_row, $ibu->status);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(67, $excel_row, $ibu->tanggal_wafat);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(68, $excel_row, $ibu->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(69, $excel_row, $ibu->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(70, $excel_row, $ibu->kerja);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(71, $excel_row, $ibu->alamat_pekerjaan);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(72, $excel_row, $ibu->hasil);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(73, $excel_row, $ibu->email);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(74, $excel_row, $ibu->wa);
+            }
+
+            if($getWali->num_rows() > 0){
+                $wali = $getWali->row();
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(75, $excel_row, $wali->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(76, $excel_row, $wali->tl.", ".$wali->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(77, $excel_row, $wali->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(78, $excel_row, $wali->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(79, $excel_row, $wali->kerja);
+            }
             
             $excel_row++;
         }
@@ -236,10 +326,12 @@ class Csiswa extends CI_Controller{
     }
 
     function test(){
-        // $get = $this->M_Csiswa->get_allBiodata()->result();
-        // // echo "<pre>"; print_r($get) ;echo "</pre>";
-        // header('Content-Type: application/json');
-        // echo json_encode($get);
+        $get = $this->M_Csiswa->get_BiodataOrtu()->result();
+        // echo "<pre>"; print_r($get) ;echo "</pre>";
+        header('Content-Type: application/json');
+        echo json_encode($get);
+        // $this->output->enable_profiler(TRUE);
+        
     }
 
     // // //  AJAX // // //
