@@ -60,8 +60,7 @@ class Csiswa extends CI_Controller{
     }
 
     function export(){
-        $jenis = "all";
-        // $jenis = $this->input->post('jenis', TRUE);
+        $jenis = $this->input->post('jenis', TRUE);
 
         $spreadsheet = new Spreadsheet();  
         $Excel_writer = new Xlsx($spreadsheet);

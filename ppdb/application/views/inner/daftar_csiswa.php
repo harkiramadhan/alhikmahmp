@@ -9,10 +9,22 @@
 <div class="container-fluid mt--5">
     <div class="row justify-content-center">
         <div class="col-xl-12 mt-3">
-            <div class="card">
-                <div class="form-group-sm">
-                    <input type="text" class="form-control form-control-md form-control-alternative" placeholder="Cari ..." id="search">
+            <div class="row">
+                <div class="col-xl-10">
+                    <div class="card">
+                        <div class="form-group-sm">
+                            <input type="text" class="form-control form-control-sm form-control-alternative" placeholder="Cari ..." id="search">
+                        </div>
+                    </div>
                 </div>
+                <div class="col-xl-2">
+                    <form action="<?= site_url('csiswa/export') ?>" method="post">
+                        <input type="hidden" name="jenis" value="all">
+                        <div class="form-group-sm">
+                            <button class="btn btn-sm btn-block btn-secondary"><i class="fa fa-print"></i>&nbsp;Download .Xlsx</button>
+                        </div>
+                    </form>
+                 </div>
             </div>
         </div>
         <div class="col-xl-12 mt-2">
