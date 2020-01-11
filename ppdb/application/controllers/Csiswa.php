@@ -315,7 +315,7 @@ class Csiswa extends CI_Controller{
 
         header('Content-Type: application/vnd.ms-excel');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        header('Content-Disposition: attachment;filename="test.Xlsx'); 
+        header('Content-Disposition: attachment;filename="PPDB Online - SDIT Al Hikmah.Xlsx'); 
         header('Cache-Control: max-age=0');
         ob_end_clean();
         $Excel_writer->save('php://output', 'Xlsx');
