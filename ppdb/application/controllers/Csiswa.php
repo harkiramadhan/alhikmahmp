@@ -313,15 +313,27 @@ class Csiswa extends CI_Controller{
             $excel_row++;
         }
 
-        header('Content-Type: application/vnd.ms-excel');
-        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
-        header('Content-Disposition: attachment;filename="PPDB Online - SDIT Al Hikmah.Xlsx"'); 
+        // header('Content-Type: application/vnd.ms-excel');
+        // header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+        // header('Content-Disposition: attachment;filename="PPDB Online - SDIT Al Hikmah.Xlsx"'); 
+        // header('Cache-Control: max-age=0');
+        // ob_end_clean();
+        // $Excel_writer->save('php://output', 'Xlsx');
+        // exit;
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="PPDB Online - SDIT Al Hikmah.xlsx"');
         header('Cache-Control: max-age=0');
-        ob_end_clean();
-        $Excel_writer->save('php://output', 'Xlsx');
+        header('Cache-Control: max-age=1');
+        header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); 
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+        header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header('Pragma: public'); // HTTP/1.0
+
+        $Excel_writer->save('php://output');
         exit;
 
-        redirect($_SERVER['HTTP_REFERER']);
+        // redirect($_SERVER['HTTP_REFERER']);
     }
 
     function test(){
