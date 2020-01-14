@@ -10,7 +10,7 @@
              <div class="container">
                <div class="row">
                  <div class="col-md-6">
-                   <h1 class="title">SDIT AL-HIKMAH</h1>
+                   <h1 class="title"><?= $jenjang ?></h1>
                  </div>
                </div>
              </div>
@@ -21,7 +21,7 @@
              <div class="container">
                <div class="row">
                  <div class="col-md-6">
-                   <h1 class="title">SDIT AL-HIKMAH</h1>
+                   <h1 class="title"><?= $jenjang ?></h1>
                  </div>
                </div>
              </div>
@@ -32,7 +32,7 @@
              <div class="container">
                <div class="row">
                  <div class="col-md-6">
-                   <h1 class="title">SDIT AL-HIKMAH</h1>
+                   <h1 class="title"><?= $jenjang ?></h1>
                  </div>
                </div>
              </div>

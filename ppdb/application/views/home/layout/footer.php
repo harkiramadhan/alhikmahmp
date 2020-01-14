@@ -3,17 +3,17 @@
        <nav class="float-left">
          <ul>
            <li>
-             <a href="https://www.instagram.com/sdit.alhikmah/">
+             <a href="<?= sosmed("instagram") ?>">
                <h4><b><i class="fa fa-instagram"></i></b></h4>
              </a>
            </li>
            <li>
-             <a href="https://www.youtube.com/channel/UCqOuYg6t0fi34z6nxBACQKw">
+             <a href="<?= sosmed("youtube") ?>">
                <h4><b><i class="fa fa-youtube"></i></b></h4>
              </a>
            </li>
            <li>
-             <a href="#">
+             <a href="<?= sosmed("facebook") ?>">
                <h4><b><i class="fa fa-facebook"></i></b></h4>
              </a>
            </li>

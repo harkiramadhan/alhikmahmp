@@ -32,7 +32,7 @@
  
  <?php 
  $uri = $this->uri->segment(1);
- if($uri == "home"){
+ if($uri == "home" || $uri == ""){
      $p = "index-page";
  }elseif($uri == "profile"){
      $p = "profile-page";
@@ -56,23 +56,23 @@
            </div>
            <div class="collapse navbar-collapse">
            <ul class="navbar-nav ml-auto">
-               <li class="nav-item active">
-                   <a class="nav-link" href="<?= site_url('home') ?>">
+               <li class="nav-item <?php if($uri == "" || $uri == "home"){echo "active";} ?>">
+                   <a class="nav-link" href="<?= site_url('') ?>">
                        <i class="material-icons">home</i> Beranda
                    </a>
                </li>
-               <li class="nav-item">
+               <li class="nav-item <?php if($uri == "profile"){echo "active";} ?>">
                    <a class="nav-link" href="<?= site_url('profile') ?>">
                        <i class="material-icons">account_balance</i> Profil
                    </a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="<?= site_url('gallery') ?>">
+               <a class="nav-link <?php if($uri == "gallery"){echo "active";} ?>" href="<?= site_url('gallery') ?>">
                    <i class="material-icons">insert_photo</i> Gallery
                </a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="<?= site_url('kontak') ?>">
+               <a class="nav-link <?php if($uri == "kontak"){echo "active";} ?>" href="<?= site_url('kontak') ?>">
                    <i class="material-icons">speaker_notes</i> Kontak
                </a>
                </li>
