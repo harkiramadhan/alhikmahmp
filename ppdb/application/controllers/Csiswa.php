@@ -10,9 +10,9 @@ class Csiswa extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('M_Csiswa');
-        // if($this->session->userdata('role') != TRUE){
-        //     redirect('dashboard');
-        // }
+        if($this->session->userdata('role') != TRUE){
+            redirect('dashboard');
+        }
     }
 
     function index(){
@@ -93,8 +93,18 @@ class Csiswa extends CI_Controller{
                 ],
             ],
         ); 
+        $styleHeader2 = array (
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => [
+                    'argb' => 'f5f542',
+                ],
+            ],
+        ); 
         
-        $spreadsheet->getActiveSheet()->getStyle('B2:CA2')->applyFromArray($styleHeader);
+        $spreadsheet->getActiveSheet()->getStyle('B2:CD2')->applyFromArray($styleHeader);
+        $spreadsheet->getActiveSheet()->getStyle('CD2')->applyFromArray($styleHeader2);
+
         $sheetStyle = $spreadsheet->getActiveSheet();  
         foreach(range('B','Z') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)
@@ -108,95 +118,98 @@ class Csiswa extends CI_Controller{
             $spreadsheet->getActiveSheet()->getColumnDimension("B".$columnID)
                 ->setAutoSize(true);
         }
-        foreach(range('A','A') as $columnID) {
+        foreach(range('A','D') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension("C".$columnID)
                 ->setAutoSize(true);
         }
 
         $sheetStyle->setCellValue('B2','No');
         $sheetStyle->setCellValue('C2','Noujian');
-        $sheetStyle->setCellValue('D2','Nama Lengkap');
-        $sheetStyle->setCellValue('E2','L/P');
-        $sheetStyle->setCellValue('F2','TTL');
-        $sheetStyle->setCellValue('G2','Alamat');
-        $sheetStyle->setCellValue('H2','Jarak Rumah Ke Sekolah');
-        $sheetStyle->setCellValue('I2','Waktu Yang Di Tempuh');
-        $sheetStyle->setCellValue('J2','Transportasi Yang Di Gunakan');
-        $sheetStyle->setCellValue('K2','Hobi');
-        $sheetStyle->setCellValue('L2','Cita Cita');
-        $sheetStyle->setCellValue('M2','Kewarganegaraan');
-        $sheetStyle->setCellValue('N2','Anak Ke');
-        $sheetStyle->setCellValue('O2','Jumlah Kakak');
-        $sheetStyle->setCellValue('P2','Jumlah Adik');
-        $sheetStyle->setCellValue('Q2','Jumlah Saudara Tiri');
-        $sheetStyle->setCellValue('R2','Jumlah Saudara Angkat');
-        $sheetStyle->setCellValue('S2','Bahasa Sehari Hari');
-        $sheetStyle->setCellValue('T2','Berat Badan');
-        $sheetStyle->setCellValue('U2','Tinggi Badan');
-        $sheetStyle->setCellValue('V2','Lingkar Kepala');
-        $sheetStyle->setCellValue('W2','Golongan Darah');
-        $sheetStyle->setCellValue('X2','Penyakit Yang Pernah Diderita');
-        $sheetStyle->setCellValue('Y2','Dirawat Karena');
-        $sheetStyle->setCellValue('Z2','Penyakit Yang Kadang Timbul');
-        $sheetStyle->setCellValue('AA2','Jenis Peserta');
-        $sheetStyle->setCellValue('AB2','NPSN');
-        $sheetStyle->setCellValue('AC2','Asal Sekolah');
-        $sheetStyle->setCellValue('AD2','Alamat Asal Sekolah');
-        $sheetStyle->setCellValue('AE2','Lama Belajar');
-        $sheetStyle->setCellValue('AF2','Kelas');
-        $sheetStyle->setCellValue('AG2','Tanggal Pindah');
-        $sheetStyle->setCellValue('AH2','Status Dalam Keluarga');
-        $sheetStyle->setCellValue('AI2','Yang Membiayai Sekolah');
-        $sheetStyle->setCellValue('AJ2','Kondisi Fisik');
-        $sheetStyle->setCellValue('AK2','Kondisi Mental');
-        $sheetStyle->setCellValue('AL2','Kebiasaan Anak Dirumah');
-        $sheetStyle->setCellValue('AM2','Alasan & Motivasi Memasukkan Anak Ke SDIT Al Hikmah');
-        $sheetStyle->setCellValue('AN2','Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ? ');
-        $sheetStyle->setCellValue('AO2','Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Kegiatan Belajar Mengajar Di Sekolah ?');
-        $sheetStyle->setCellValue('AP2','Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ?');
-        $sheetStyle->setCellValue('AQ2','Apakah Anak Dapat Membuka Internet?');
-        $sheetStyle->setCellValue('AR2','Dimana Anak Membuka Internet ?');
-        $sheetStyle->setCellValue('AS2','Apakah Bapak/Ibu Dapat Memantaunya ?');
-        $sheetStyle->setCellValue('AT2','Saat Bapak/Ibu Tidak Di Rumah, Anak Di Temani Oleh Siapa ?');
-        $sheetStyle->setCellValue('AU2','Mempunyai Kakak Di SDIT Al Hikmah ? ');
-        $sheetStyle->setCellValue('AV2','Nama Kakak dan Kelas Di Al Hikmah');
-        $sheetStyle->setCellValue('AW2','Email');
+        $sheetStyle->setCellValue('D2','NIK');
+        $sheetStyle->setCellValue('E2','Nama Lengkap');
+        $sheetStyle->setCellValue('F2','Nama Panggilan');
+        $sheetStyle->setCellValue('G2','L/P');
+        $sheetStyle->setCellValue('H2','TTL');
+        $sheetStyle->setCellValue('I2','Alamat');
+        $sheetStyle->setCellValue('J2','Jarak Rumah Ke Sekolah');
+        $sheetStyle->setCellValue('K2','Waktu Yang Di Tempuh');
+        $sheetStyle->setCellValue('L2','Transportasi Yang Di Gunakan');
+        $sheetStyle->setCellValue('M2','Hobi');
+        $sheetStyle->setCellValue('N2','Cita Cita');
+        $sheetStyle->setCellValue('O2','Kewarganegaraan');
+        $sheetStyle->setCellValue('P2','Anak Ke');
+        $sheetStyle->setCellValue('Q2','Jumlah Kakak');
+        $sheetStyle->setCellValue('R2','Jumlah Adik');
+        $sheetStyle->setCellValue('S2','Jumlah Saudara Tiri');
+        $sheetStyle->setCellValue('T2','Jumlah Saudara Angkat');
+        $sheetStyle->setCellValue('U2','Bahasa Sehari Hari');
+        $sheetStyle->setCellValue('V2','Berat Badan');
+        $sheetStyle->setCellValue('W2','Tinggi Badan');
+        $sheetStyle->setCellValue('X2','Lingkar Kepala');
+        $sheetStyle->setCellValue('Y2','Golongan Darah');
+        $sheetStyle->setCellValue('Z2','Penyakit Yang Pernah Diderita');
+        $sheetStyle->setCellValue('AA2','Dirawat Karena');
+        $sheetStyle->setCellValue('AB2','Penyakit Yang Kadang Timbul');
+        $sheetStyle->setCellValue('AC2','Jenis Peserta');
+        $sheetStyle->setCellValue('AD2','NPSN');
+        $sheetStyle->setCellValue('AE2','Asal Sekolah');
+        $sheetStyle->setCellValue('AF2','Alamat Asal Sekolah');
+        $sheetStyle->setCellValue('AG2','Lama Belajar');
+        $sheetStyle->setCellValue('AH2','Kelas');
+        $sheetStyle->setCellValue('AI2','Tanggal Pindah');
+        $sheetStyle->setCellValue('AJ2','Status Dalam Keluarga');
+        $sheetStyle->setCellValue('AK2','Yang Membiayai Sekolah');
+        $sheetStyle->setCellValue('AL2','Kondisi Fisik');
+        $sheetStyle->setCellValue('AM2','Kondisi Mental');
+        $sheetStyle->setCellValue('AN2','Kebiasaan Anak Dirumah');
+        $sheetStyle->setCellValue('AO2','Alasan & Motivasi Memasukkan Anak Ke SDIT Al Hikmah');
+        $sheetStyle->setCellValue('AP2','Jika Ada Permasalahan Dengan Anak Di Sekolah, Langkah Apa Yang Bapak/Ibu Tempuh ? ');
+        $sheetStyle->setCellValue('AQ2','Keahlian Apa Yang Bapak/Ibu Miliki Yang Dapat Di Sinergikan Dengan Kegiatan Belajar Mengajar Di Sekolah ?');
+        $sheetStyle->setCellValue('AR2','Bersediakah Bapak/Ibu Membantu Program "Pembinaan Akhlak" Di Rumah ?');
+        $sheetStyle->setCellValue('AS2','Apakah Anak Dapat Membuka Internet?');
+        $sheetStyle->setCellValue('AT2','Dimana Anak Membuka Internet ?');
+        $sheetStyle->setCellValue('AU2','Apakah Bapak/Ibu Dapat Memantaunya ?');
+        $sheetStyle->setCellValue('AV2','Saat Bapak/Ibu Tidak Di Rumah, Anak Di Temani Oleh Siapa ?');
+        $sheetStyle->setCellValue('AW2','Mempunyai Kakak Di SDIT Al Hikmah ? ');
+        $sheetStyle->setCellValue('AX2','Nama Kakak dan Kelas Di Al Hikmah');
+        $sheetStyle->setCellValue('AY2','Email');
 
         // Ayah
-        $sheetStyle->setCellValue('AX2','Nik Ayah');
-        $sheetStyle->setCellValue('AY2','Nama Ayah');
-        $sheetStyle->setCellValue('AZ2','TTL Ayah');
-        $sheetStyle->setCellValue('BA2','Status Ayah');
-        $sheetStyle->setCellValue('BB2','Tanggal Wafat Ayah');
-        $sheetStyle->setCellValue('BC2','Tempat Tinggal Ayah');
-        $sheetStyle->setCellValue('BD2','Pendidikan Terakhir Ayah');
-        $sheetStyle->setCellValue('BE2','Gelar Terakhir Ayah');
-        $sheetStyle->setCellValue('BF2','Pekerjaan Ayah');
-        $sheetStyle->setCellValue('BG2','Nama & Alamat Pekerjaan Ayah');
-        $sheetStyle->setCellValue('BH2','Penghasilan Perbulan Ayah');
-        $sheetStyle->setCellValue('BI2','Email Ayah');
-        $sheetStyle->setCellValue('BJ2','WhatsApp Ayah');
+        $sheetStyle->setCellValue('AZ2','Nik Ayah');
+        $sheetStyle->setCellValue('BA2','Nama Ayah');
+        $sheetStyle->setCellValue('BB2','TTL Ayah');
+        $sheetStyle->setCellValue('BC2','Status Ayah');
+        $sheetStyle->setCellValue('BD2','Tanggal Wafat Ayah');
+        $sheetStyle->setCellValue('BE2','Tempat Tinggal Ayah');
+        $sheetStyle->setCellValue('BF2','Pendidikan Terakhir Ayah');
+        $sheetStyle->setCellValue('BG2','Gelar Terakhir Ayah');
+        $sheetStyle->setCellValue('BH2','Pekerjaan Ayah');
+        $sheetStyle->setCellValue('BI2','Nama & Alamat Pekerjaan Ayah');
+        $sheetStyle->setCellValue('BJ2','Penghasilan Perbulan Ayah');
+        $sheetStyle->setCellValue('BK2','Email Ayah');
+        $sheetStyle->setCellValue('BL2','WhatsApp Ayah');
 
         // Ibu
-        $sheetStyle->setCellValue('BK2','Nik Ibu');
-        $sheetStyle->setCellValue('BL2','Nama Ibu');
-        $sheetStyle->setCellValue('BM2','TTL Ibu');
-        $sheetStyle->setCellValue('BN2','Status Ibu');
-        $sheetStyle->setCellValue('BO2','Tanggal Wafat Ibu');
-        $sheetStyle->setCellValue('BP2','Pendidikan Terakhir Ibu');
-        $sheetStyle->setCellValue('BQ2','Gelar Terakhir Ibu');
-        $sheetStyle->setCellValue('BR2','Pekerjaan Ibu');
-        $sheetStyle->setCellValue('BS2','Nama & Alamat Pekerjaan Ibu');
-        $sheetStyle->setCellValue('BT2','Penghasilan Perbulan Ibu');
-        $sheetStyle->setCellValue('BU2','Email Ibu');
-        $sheetStyle->setCellValue('BV2','WhatsApp Ibu');
+        $sheetStyle->setCellValue('BM2','Nik Ibu');
+        $sheetStyle->setCellValue('BN2','Nama Ibu');
+        $sheetStyle->setCellValue('BO2','TTL Ibu');
+        $sheetStyle->setCellValue('BP2','Status Ibu');
+        $sheetStyle->setCellValue('BQ2','Tanggal Wafat Ibu');
+        $sheetStyle->setCellValue('BR2','Pendidikan Terakhir Ibu');
+        $sheetStyle->setCellValue('BS2','Gelar Terakhir Ibu');
+        $sheetStyle->setCellValue('BT2','Pekerjaan Ibu');
+        $sheetStyle->setCellValue('BU2','Nama & Alamat Pekerjaan Ibu');
+        $sheetStyle->setCellValue('BV2','Penghasilan Perbulan Ibu');
+        $sheetStyle->setCellValue('BW2','Email Ibu');
+        $sheetStyle->setCellValue('BX2','WhatsApp Ibu');
 
         // Wali
-        $sheetStyle->setCellValue('BW2','Nama Wali');
-        $sheetStyle->setCellValue('BX2','TTL Wali');
-        $sheetStyle->setCellValue('BY2','Pendidikan Terakhir Wali');
-        $sheetStyle->setCellValue('BZ2','Gelar Terakhir Wali');
-        $sheetStyle->setCellValue('CA2','Pekerjaan Wali');
+        $sheetStyle->setCellValue('BY2','Nama Wali');
+        $sheetStyle->setCellValue('BZ2','TTL Wali');
+        $sheetStyle->setCellValue('CA2','Pendidikan Terakhir Wali');
+        $sheetStyle->setCellValue('CB2','Gelar Terakhir Wali');
+        $sheetStyle->setCellValue('CC2','Pekerjaan Wali');
+        $sheetStyle->setCellValue('CD2','Status Konfirmasi');
 
         if($jenis == "all"){
             // Query Get All Pendaftaran
@@ -219,95 +232,103 @@ class Csiswa extends CI_Controller{
 
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $no++);
             $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->noujian);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->nama);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->jenkel);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->tl.", ".$row->tgl_lahir); 
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat." No.".$row->no." ".$row->rt."/".$row->rw." ".$row->nama_kelurahan.", ".$row->nama_kecamatan.", ".$row->nama_kabupaten." - ".$row->nama_provinsi);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, "\n".$row->nik);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->nama);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->nama_panggil);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->jenkel);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->tl.", ".$row->tgl_lahir); 
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->alamat." No.".$row->no." ".$row->rt."/".$row->rw." ".$row->nama_kelurahan.", ".$row->nama_kecamatan.", ".$row->nama_kabupaten." - ".$row->nama_provinsi);
             if($row->jarak == TRUE){$jarak = $row->jarak." Km";}else{$jarak = " - ";}
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $jarak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $jarak);
             if($row->waktu == TRUE){$waktu = $row->waktu." Menit";}else{$waktu = " - ";}
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $waktu);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->transportasi);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row->hobi);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->cita);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row->short);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row->anak_ke);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row->kakak);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row->adik);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row->tiri);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row->angkat);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row->bahasa);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row->bb);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row->tb);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row->lk);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row->goldar);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row->penyakit);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row->rawat);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row->penyakit_timbul);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row->jenis);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row->npsn);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row->asal_sekolah);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row->alamat_asalsekolah);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row->lama_belajar);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row->kelas);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row->tanggal_pindah);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row->status_keluarga);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row->biaya_anak);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row->fisik);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row->mental);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row->kebiasaan);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row->alasan);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row->masalah);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row->keahlian_ortu);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, $row->pembinaan_anak);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $row->internet);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row->internet_anak);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $row->pantau);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row->teman);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row->kakak_sdit);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row->nama_kakak);
-            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row->email);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $waktu);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->transportasi);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row->hobi);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row->cita);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(15, $excel_row, $row->short);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(16, $excel_row, $row->anak_ke);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(17, $excel_row, $row->kakak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(18, $excel_row, $row->adik);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(19, $excel_row, $row->tiri);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(20, $excel_row, $row->angkat);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(21, $excel_row, $row->bahasa);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(22, $excel_row, $row->bb);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(23, $excel_row, $row->tb);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(24, $excel_row, $row->lk);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(25, $excel_row, $row->goldar);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(26, $excel_row, $row->penyakit);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(27, $excel_row, $row->rawat);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(28, $excel_row, $row->penyakit_timbul);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(29, $excel_row, $row->jenis);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(30, $excel_row, $row->npsn);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(31, $excel_row, $row->asal_sekolah);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(32, $excel_row, $row->alamat_asalsekolah);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(33, $excel_row, $row->lama_belajar);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(34, $excel_row, $row->kelas);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(35, $excel_row, $row->tanggal_pindah);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(36, $excel_row, $row->status_keluarga);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(37, $excel_row, $row->biaya_anak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(38, $excel_row, $row->fisik);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(39, $excel_row, $row->mental);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(40, $excel_row, $row->kebiasaan);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(41, $excel_row, $row->alasan);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(42, $excel_row, $row->masalah);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(43, $excel_row, $row->keahlian_ortu);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(44, $excel_row, $row->pembinaan_anak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(45, $excel_row, $row->internet);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(46, $excel_row, $row->internet_anak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(47, $excel_row, $row->pantau);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(48, $excel_row, $row->teman);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(49, $excel_row, $row->kakak_sdit);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, $row->nama_kakak);
+            $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $row->email);
 
             if($getAyah->num_rows() > 0){
                 $ayah = $getAyah->row();
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(50, $excel_row, $ayah->nik);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(51, $excel_row, $ayah->nama);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(52, $excel_row, $ayah->tl.", ".$ayah->tgl_lahir);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(53, $excel_row, $ayah->status);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(54, $excel_row, $ayah->tanggal_wafat);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(55, $excel_row, $ayah->tmpt);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(56, $excel_row, $ayah->pend);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(57, $excel_row, $ayah->gelar);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(58, $excel_row, $ayah->kerja);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(59, $excel_row, $ayah->alamat_pekerjaan);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(60, $excel_row, $ayah->hasil);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(61, $excel_row, $ayah->email);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(62, $excel_row, $ayah->wa);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(52, $excel_row, "\n".$ayah->nik);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(53, $excel_row, $ayah->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(54, $excel_row, $ayah->tl.", ".$ayah->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(55, $excel_row, $ayah->status);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(56, $excel_row, $ayah->tanggal_wafat);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(57, $excel_row, $ayah->tmpt);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(58, $excel_row, $ayah->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(59, $excel_row, $ayah->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(60, $excel_row, $ayah->kerja);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(61, $excel_row, $ayah->alamat_pekerjaan);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(62, $excel_row, $ayah->hasil);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(63, $excel_row, $ayah->email);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(64, $excel_row, $ayah->wa);
             }
 
             if($getIbu->num_rows() > 0){
                 $ibu = $getIbu->row();
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(63, $excel_row, $ibu->nik);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(64, $excel_row, $ibu->nama);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(65, $excel_row, $ibu->tl.", ".$ibu->tgl_lahir);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(66, $excel_row, $ibu->status);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(67, $excel_row, $ibu->tanggal_wafat);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(68, $excel_row, $ibu->pend);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(69, $excel_row, $ibu->gelar);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(70, $excel_row, $ibu->kerja);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(71, $excel_row, $ibu->alamat_pekerjaan);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(72, $excel_row, $ibu->hasil);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(73, $excel_row, $ibu->email);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(74, $excel_row, $ibu->wa);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(65, $excel_row, "\n".$ibu->nik);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(66, $excel_row, $ibu->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(67, $excel_row, $ibu->tl.", ".$ibu->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(68, $excel_row, $ibu->status);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(69, $excel_row, $ibu->tanggal_wafat);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(70, $excel_row, $ibu->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(71, $excel_row, $ibu->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(72, $excel_row, $ibu->kerja);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(73, $excel_row, $ibu->alamat_pekerjaan);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(74, $excel_row, $ibu->hasil);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(75, $excel_row, $ibu->email);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(76, $excel_row, $ibu->wa);
             }
 
             if($getWali->num_rows() > 0){
                 $wali = $getWali->row();
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(75, $excel_row, $wali->nama);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(76, $excel_row, $wali->tl.", ".$wali->tgl_lahir);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(77, $excel_row, $wali->pend);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(78, $excel_row, $wali->gelar);
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(79, $excel_row, $wali->kerja);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(77, $excel_row, $wali->nama);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(78, $excel_row, $wali->tl.", ".$wali->tgl_lahir);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(79, $excel_row, $wali->pend);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(80, $excel_row, $wali->gelar);
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(81, $excel_row, $wali->kerja);
+            }
+
+            if($row->konfirmasi == "done"){
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(82, $excel_row, "Sudah Konfirmasi");
+            }else{
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(82, $excel_row, "Belum Konfirmasi");
             }
             
             $excel_row++;

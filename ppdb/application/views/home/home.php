@@ -1,43 +1,30 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<?php if($slider->num_rows() > 0): ?>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
      <ol class="carousel-indicators">
-       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+       <?php 
+       $total = $slider->num_rows() - 1;
+       $range = range(0, $total);
+       foreach($range as $r){ ?>
+       <li data-target="#carouselExampleIndicators" data-slide-to="<?= $r ?>" class="<?php if($r==0){echo "active";} ?>"></li>
+       <?php } ?>
      </ol>
      <div class="carousel-inner">
-       <div class="carousel-item active">
-           <div class="page-header header-filter clear-filter info-filter" data-parallax="true" style="background-image: url('<?= base_url('') ?>/assets/home/img/slide/1.JPG');">
-             <div class="container">
-               <div class="row">
-                 <div class="col-md-6">
-                   <h1 class="title"><?= $jenjang ?></h1>
-                 </div>
-               </div>
-             </div>
-           </div>
-       </div>
-       <div class="carousel-item">
-           <div class="page-header header-filter clear-filter info-filter" data-parallax="true" style="background-image: url('<?= base_url('') ?>/assets/home/img/slide/2.JPG');">
-             <div class="container">
-               <div class="row">
-                 <div class="col-md-6">
-                   <h1 class="title"><?= $jenjang ?></h1>
-                 </div>
-               </div>
-             </div>
-           </div>
-       </div>
-       <div class="carousel-item">
-           <div class="page-header header-filter clear-filter info-filter" data-parallax="true" style="background-image: url('<?= base_url('') ?>/assets/home/img/slide/3.JPG');">
-             <div class="container">
-               <div class="row">
-                 <div class="col-md-6">
-                   <h1 class="title"><?= $jenjang ?></h1>
-                 </div>
-               </div>
-             </div>
-           </div>
-       </div>
+        <?php 
+        $no = 1;  
+        foreach($slider->result() as $row){ ?>
+        <div class="carousel-item <?php if($no == 1){echo "active";} ?>">
+            <div class="page-header header-filter clear-filter info-filter" data-parallax="true" style="background-image: url('<?= base_url('/assets/home/img/slide/'.$row->img) ?>');">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h1 class="title"><?= $nama ?></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <?php $no++; ?>
+        <?php } ?>
      </div>
      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,6 +35,7 @@
        <span class="sr-only">Next</span>
      </a>
    </div>
+  <?php endif; ?>
  
    <div class="main main-raised mt-5">
      <div class="section text-center rounded" style="background-image: url('<?= base_url('') ?>/assets/home/img/slide/8.JPG')">
