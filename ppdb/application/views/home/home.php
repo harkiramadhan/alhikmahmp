@@ -38,11 +38,14 @@
   <?php endif; ?>
  
    <div class="main main-raised mt-5">
-     <div class="section text-center rounded" style="background-image: url('<?= base_url('') ?>/assets/home/img/slide/8.JPG')">
-           <div class="features">
- 
-           </div>
-       </div>
+    <?php if($bg->num_rows() > 0):
+      $bgg = $bg->row();  
+    ?>
+     <div class="section text-center rounded" style="background-image: url('<?= base_url('/assets/home/img/bg/'.$bgg->img) ?>')">
+        <div class="features">
+        </div>
+      </div>
+    <?php endif; ?>
     <div class="container">
        <div class="section">
            <h2 class="title text-center">Berita</h2>
