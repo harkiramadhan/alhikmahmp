@@ -3,6 +3,7 @@ class Home extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('M_Sekolah');
+        $this->load->model('M_Berita');
     }
 
     private function sekolah(){
@@ -23,12 +24,12 @@ class Home extends CI_Controller{
     // AJAX
     function get_berita(){
         //  Get Berita Dari DB 
-        $getBerita = $this->db->get_where('berita', ['status'=>"published"]);
+        $getBerita = $this->M_Berita->get_AllBerita();
         ?>
         <?php if($getBerita->num_rows() > 0): ?>
             <?php 
                 foreach($getBerita->result() as $row){ 
-                $getLabel = 
+                $getLabel = $this->M_Berita->get_LabelByBerita($row->id);
             ?>
             <div class="col-md-4">
                 <div class="card card-plain card-blog">
@@ -42,7 +43,12 @@ class Home extends CI_Controller{
                         <h6 class="card-category text-info"></h6>
                         <h4 class="card-title">
                         <a href="#pablo"><?= $row->judul ?></a> <br>
-                        <span class="badge badge-info">Mutiara Hikmah</span>
+                        
+                        <?php if($getLabel->num_rows() > 0): ?>
+                            <?php foreach($getLabel->result() as $l){ ?>
+                                <span class="badge <?= $l->badge ?> mr-1"><?= $l->label ?></span>
+                            <?php } ?>
+                        <?php endif; ?>
                         </h4>
                         <p class="card-description">
                         <?= substr($row->konten, 0, 100) ?> . . .<a href="#pablo"> Read More </a>
