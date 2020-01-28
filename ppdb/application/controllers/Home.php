@@ -68,7 +68,7 @@ class Home extends CI_Controller{
     }
 
     function get_beritaTerbaru(){
-        $getBerita = $this->M_Berita->get_FiveBerita();
+        $getBerita = $this->M_Berita->get_ThreeBerita();
         ?>
         <?php if($getBerita->num_rows() > 0): ?>
             <?php 
