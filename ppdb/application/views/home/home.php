@@ -54,7 +54,7 @@
             <h2 class="title text-center mb-2 pb-2">Berita</h2>
             <br>
             <div class="row" id="listBerita">
-                
+
             </div>
             <div class="col-md-12 text-right">
                 <a href="#pablo"> Selengkapnya </a>
@@ -126,26 +126,8 @@
           <h4 class="card-title m-1">Berita Terbaru</h4>
         </div>
         <div class="card-body">
-          <div class="row">
-              <div class="col-md-12">
-                <div class="card card-plain card-blog p-2">
-                  <div class="card-header card-header-image">
-                    <a href="#pablo">
-                      <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/2.JPG">
-                    </a>
-                  <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/2.JPG&quot;); opacity: 1;"></div></div>
-                  <div class="card-body">
-                    <h6 class="card-category text-info"></h6>
-                    <h4 class="card-title">
-                      <a href="#pablo">Tarhib Ramadhan </a> <br>
-                      <span class="badge badge-info">Mutiara Hikmah</span>
-                    </h4>
-                    <p class="card-description">
-                    Tarhib Ramadhan.<a href="#pablo"> Read More </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <div class="row" id="beritaTerbaru">
+              
             </div>
         </div>
     </div>
