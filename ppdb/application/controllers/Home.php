@@ -26,7 +26,10 @@ class Home extends CI_Controller{
         $getBerita = $this->db->get_where('berita', ['status'=>"published"]);
         ?>
         <?php if($getBerita->num_rows() > 0): ?>
-            <?php foreach($getBerita->result() as $row){ ?>
+            <?php 
+                foreach($getBerita->result() as $row){ 
+                $getLabel = 
+            ?>
             <div class="col-md-4">
                 <div class="card card-plain card-blog">
                   <div class="card-header card-header-image">
