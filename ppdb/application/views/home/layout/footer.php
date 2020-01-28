@@ -47,6 +47,7 @@
        materialKit.initSliders();
      });
    </script>
+   <?php $this->load->view('home/ajax') ?>
  </body>
  
  </html>
