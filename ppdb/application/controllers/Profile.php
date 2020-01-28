@@ -15,7 +15,7 @@ class Profile extends CI_Controller{
         $var['kurikulum'] = $this->sekolah()->kurikulum;
 
         $this->load->view('home/layout/header');
-        $this->load->view('home/profile');
+        $this->load->view('home/profile', $var);
         $this->load->view('home/layout/footer');
     }
 }
