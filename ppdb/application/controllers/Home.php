@@ -86,7 +86,7 @@ class Home extends CI_Controller{
                         <h6 class="card-category text-info"></h6>
                         <h4 class="card-title">
                         <a href="#pablo"><?= $row->judul ?></a> <br>
-                        
+                        <p>Tanggal</p>
                         <?php if($getLabel->num_rows() > 0): ?>
                             <?php foreach($getLabel->result() as $l){ ?>
                                 <span class="badge <?= $l->badge ?> mr-1"><?= $l->label ?></span>
