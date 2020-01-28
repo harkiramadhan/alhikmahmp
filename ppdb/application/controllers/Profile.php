@@ -13,6 +13,7 @@ class Profile extends CI_Controller{
         $var['tujuan'] = $this->sekolah()->tujuan;
         $var['motto'] = $this->sekolah()->motto;
         $var['kurikulum'] = $this->sekolah()->kurikulum;
+        $var['logo'] = $this->sekolah()->logo;
 
         $this->load->view('home/layout/header');
         $this->load->view('home/profile', $var);
