@@ -5,8 +5,19 @@
 
     if($uri1 == ""):
 ?>
-<script>
 
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: '<?= site_url('home/get_berita') ?>',
+            beforeSend: function(){
+
+            },
+            success: function(html){
+                $('#listBerita').html(html);
+            }
+        });
+    });
 </script>
 
 <?php endif; ?>
