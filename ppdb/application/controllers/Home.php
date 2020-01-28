@@ -23,7 +23,6 @@ class Home extends CI_Controller{
 
     // AJAX
     function get_berita(){
-        //  Get Berita Dari DB 
         $getBerita = $this->M_Berita->get_AllBerita();
         ?>
         <?php if($getBerita->num_rows() > 0): ?>
@@ -68,27 +67,46 @@ class Home extends CI_Controller{
     }
 
     function get_beritaTerbaru(){
+        $getBerita = $this->M_Berita->get_FiveBerita();
         ?>
+        <?php if($getBerita->num_rows() > 0): ?>
+            <?php 
+                foreach($getBerita->result() as $row){ 
+                $getLabel = $this->M_Berita->get_LabelByBerita($row->id);
+            ?>
             <div class="col-md-12">
-                <div class="card card-plain card-blog p-2">
-                    <div class="card-header card-header-image">
-                        <a href="#pablo">
-                        <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/2.JPG">
-                        </a>
-                        <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/2.JPG&quot;); opacity: 1;"></div>
+                <div class="card card-plain card-blog">
+                  <div class="card-header card-header-image">
+                    <a href="#pablo">
+                        <img class="img img-raised" src="<?= base_url('/assets/home/img/content/'.$row->img) ?>">
+                    </a>
+                    <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('/assets/home/img/content/'.$row->img) ?>&quot;); opacity: 1;"></div>
                     </div>
                     <div class="card-body">
                         <h6 class="card-category text-info"></h6>
                         <h4 class="card-title">
-                        <a href="#pablo">Tarhib Ramadhan </a> <br>
-                        <span class="badge badge-info">Mutiara Hikmah</span>
+                        <a href="#pablo"><?= $row->judul ?></a> <br>
+                        
+                        <?php if($getLabel->num_rows() > 0): ?>
+                            <?php foreach($getLabel->result() as $l){ ?>
+                                <span class="badge <?= $l->badge ?> mr-1"><?= $l->label ?></span>
+                            <?php } ?>
+                        <?php endif; ?>
                         </h4>
                         <p class="card-description">
-                        Tarhib Ramadhan.<a href="#pablo"> Read More </a>
+                        <?= substr($row->konten, 0, 100) ?> . . .<a href="#pablo"> Read More </a>
                         </p>
                     </div>
                 </div>
             </div>
+            <?php } ?>
+        <?php else: ?>
+        <div class="col-md-12">
+            <div class="text-center">
+                <strong>Tidak Ada Berita Untuk Saat Ini</strong>
+            </div>
+        </div>
+        <?php endif; ?>
         <?php
     }
 

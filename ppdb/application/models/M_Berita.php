@@ -8,6 +8,15 @@ class M_Berita extends CI_Model{
         return $this->db->get();
     }
 
+    function get_FiveBerita(){
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->where(['status'=>"published"]);
+        $this->db->order_by('id', "DESC");
+        $this->db->limit(5);
+        return $this->db->get();
+    }
+
     function get_LabelByBerita($idberita){
         $this->db->select('label.*');
         $this->db->from('label_berita');
