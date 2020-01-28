@@ -73,6 +73,20 @@ class Home extends CI_Controller{
     }
 
     function get_gallery(){
-
+        ?>
+            <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-header card-header-image">
+                        <a href="#pablo">
+                        <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/2.JPG">
+                        </a>
+                    <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/2.JPG&quot;); opacity: 1;"></div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="category text-info">Tarhib Ramadhan</h6>
+                    </div>
+                </div>
+            </div>
+        <?php
     }
 }

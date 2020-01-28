@@ -38,7 +38,7 @@
 <?php endif; ?>
  
 <div class="row" style="width: 100%">
-  <div class="col-md-9"> 
+  <div class="col-md-9 ml-4 ml-md-0"> 
     <div class="main main-raised mt-5">
       <?php if($bg->num_rows() > 0):
         $bgg = $bg->row();  
@@ -68,47 +68,8 @@
               <div class="col-md-12">
                 <h2 class="title text-center mb-2 pb-2">Gallery</h2>
                 <br>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="card card-blog">
-                      <div class="card-header card-header-image">
-                        <a href="#pablo">
-                          <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/2.JPG">
-                        </a>
-                      <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/2.JPG&quot;); opacity: 1;"></div></div>
-                      <div class="card-body">
-                        <h6 class="category text-info">Tarhib Ramadhan</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card card-blog">
-                      <div class="card-header card-header-image">
-                        <a href="#pablo">
-                          <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/1.JPG">
-                        </a>
-                      <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/1.JPG&quot;); opacity: 1;"></div></div>
-                      <div class="card-body">
-                        <h6 class="category text-info">
-                          Gema Muharram 1441 H
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card card-blog">
-                      <div class="card-header card-header-image">
-                        <a href="#pablo">
-                          <img class="img img-raised" src="<?= base_url('') ?>/assets/home/img/slide/10.JPG">
-                        </a>
-                      <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('') ?>/assets/home/img/slide/10.JPG&quot;); opacity: 1;"></div></div>
-                      <div class="card-body">
-                        <h6 class="category text-info">
-                          MOSB , Mengenal Lingkungan Sekolah dan Tata Tertib Sekolah
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
+                <div class="row" id="listGallery">
+                  
                   <div class="col-md-12 text-right">
                       <a href="#pablo"> Selengkapnya </a>
                   </div>
@@ -120,7 +81,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3 mt-5">
+  <div class="col-md-3 ml-4 ml-md-0 mt-5">
     <div class="card">
         <div class="card-header card-header-info text-center">
           <h4 class="card-title m-1">Berita Terbaru</h4>

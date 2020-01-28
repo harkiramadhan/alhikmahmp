@@ -27,6 +27,15 @@
                 $('#beritaTerbaru').html(html);
             }
         });
+        $.ajax({
+            url: '<?= site_url('home/get_gallery') ?>',
+            beforeSend: function(){
+                $('#listGallery').html("<div class='col-xl-12 text-center'><img src='<?= $loader ?>'></div>");
+            },
+            success: function(html){
+                $('#listGallery').html(html);
+            }
+        });
     });
 </script>
 
