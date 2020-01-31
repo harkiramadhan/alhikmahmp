@@ -7,6 +7,9 @@ class Admin extends CI_Controller{
     function auth(){
         $username = $this->input->post('username', TRUE);
         $password = md5($this->input->post('password', TRUE));
+
+        echo $username; 
+        echo $password;
     }
 
     function logout(){
