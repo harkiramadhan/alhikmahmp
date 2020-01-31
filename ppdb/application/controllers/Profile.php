@@ -4,6 +4,7 @@ class Profile extends CI_Controller{
         parent::__construct();
         $this->load->model('M_Sekolah');
     }
+    
     private function sekolah(){
         $get = $this->db->get('sekolah');
         return $get->row();
