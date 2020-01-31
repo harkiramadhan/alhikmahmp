@@ -25,7 +25,7 @@ class Admin extends CI_Controller{
                 $this->session->set_userdata('email', $data->email);
                 $this->session->set_userdata('role', $data->role);
 
-                redirect('admin/dashboard');
+                redirect('backend/dashboard');
             }
             
         }else{
