@@ -17,11 +17,17 @@ class Admin extends CI_Controller{
         if($cek->num_rows() > 0){
             $data = $cek->row();
 
-            $this->session->set_userdata('masuk', TRUE);
-            $this->session->set_userdata('email', $data->email);
-            $this->session->set_userdata('role', $data->role);
+            if($data->status != "active"){
+                $this->session->set_flashdata('error', "User Tidak Aktif, Silahkan Hubungi Admin");
+                redirect($_SERVER['HTTP_REFERER']);
+            }else{
+                $this->session->set_userdata('masuk', TRUE);
+                $this->session->set_userdata('email', $data->email);
+                $this->session->set_userdata('role', $data->role);
 
-            redirect('dashboard');
+                $this->output->enable_profiler(TRUE);
+            }
+            
         }else{
             $this->session->set_flashdata('error', "Username Atau Password Salah");
             redirect($_SERVER['HTTP_REFERER']);
