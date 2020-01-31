@@ -23,41 +23,41 @@
                             <label for="">Jenjang Sekolah</label>
                             <select name="jenjang" id="" class="form-control form-control-alternative form-control-sm">
                                 <option value="">- Pilih Jenjang -</option>
-                                <option value="TK">TK</option>
-                                <option value="SD">SD</option>
-                                <option value="SMP">SMP</option>
-                                <option value="SMA">SMA</option>
+                                <option value="TK" <?php if($sekolah->jenjang == "TK"){echo "selected";} ?>>TK</option>
+                                <option value="SD" <?php if($sekolah->jenjang == "SD"){echo "selected";} ?>>SD</option>
+                                <option value="SMP" <?php if($sekolah->jenjang == "SMP"){echo "selected";} ?>>SMP</option>
+                                <option value="SMA" <?php if($sekolah->jenjang == "SMA"){echo "selected";} ?>>SMA</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="">Nama Sekolah</label>
-                            <input type="text" name="nama" id="" class="form-control form-control-alternative form-control-sm" placeholder="Nama Sekolah">
+                            <input type="text" name="nama" id="" class="form-control form-control-alternative form-control-sm" placeholder="Nama Sekolah" value="<?= $sekolah->nama ?>">
                         </div>
                         <div class="form-group">
                             <label for="">Sejarah Sekolah</label>
-                            <textarea name="sejarah" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Sejarah Sekolah"></textarea>
+                            <textarea name="sejarah" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Sejarah Sekolah"><?= $sekolah->sejarah ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Visi Sekolah</label>
-                            <textarea name="visi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Visi Sekolah"></textarea>
+                            <textarea name="visi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Visi Sekolah"><?= $sekolah->visi ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Misi Sekolah</label>
-                            <textarea name="misi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Misi Sekolah"></textarea>
+                            <textarea name="misi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Misi Sekolah"><?= $sekolah->misi ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6 mt-2">
                         <div class="form-group">
                             <label for="">Tujuan Sekolah</label>
-                            <textarea name="tujuan" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Tujuan Sekolah"></textarea>
+                            <textarea name="tujuan" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Tujuan Sekolah"><?= $sekolah->tujuan ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Motto Sekolah</label>
-                            <textarea name="motto" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Motto Sekolah"></textarea>
+                            <textarea name="motto" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Motto Sekolah"><?= $sekolah->motto ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Kurikulum Sekolah</label>
-                            <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"></textarea>
+                            <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"><?= $sekolah->kurikulum ?></textarea>
                         </div>
                     </div>
                 </div>

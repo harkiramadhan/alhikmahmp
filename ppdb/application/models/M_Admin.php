@@ -19,4 +19,10 @@ class M_Admin extends CI_Model{
         $this->db->from('admin');
         return $this->db->get();
     }
+
+    function get_dataSekolah(){
+        $this->db->select('*');
+        $this->db->from('sekolah');
+        return $this->db->get()->row();
+    }
 }
