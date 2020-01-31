@@ -16,6 +16,7 @@ class Dashboard extends CI_Controller{
         $data['nama'] = $this->session('email');
         $data['user'] = $this->M_Admin->get_AllUser()->num_rows();
         $data['berita'] = $this->M_Berita->get_AllBerita()->num_rows();
+        $data['label'] = $this->M_Berita->get_AllLabel()->num_rows();
 
         $this->load->view('admin/header', $data);
         $this->load->view('admin/dashboard');

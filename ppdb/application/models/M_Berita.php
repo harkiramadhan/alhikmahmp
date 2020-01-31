@@ -8,6 +8,12 @@ class M_Berita extends CI_Model{
         return $this->db->get();
     }
 
+    function get_AllLabel(){
+        $this->db->select('*');
+        $this->db->from('label');
+        return $this->db->get();
+    }
+
     function get_ThreeBerita(){
         $this->db->select('*');
         $this->db->from('berita');
