@@ -3,6 +3,7 @@ class Dashboard extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('M_Admin');
+        $this->load->model('M_Berita');
     }
 
     private function session($jenis){
@@ -13,7 +14,8 @@ class Dashboard extends CI_Controller{
     function index(){
         $data['title'] = "Dashboard Admin Al Hikmah";
         $data['nama'] = $this->session('email');
-        $data['user'] = $this->M_Admin->get_AllUser();
+        $data['user'] = $this->M_Admin->get_AllUser()->num_rows();
+        $data['berita'] = $this->M_Berita->get_AllBerita()->num_rows();
 
         $this->load->view('admin/header', $data);
         $this->load->view('admin/dashboard');
