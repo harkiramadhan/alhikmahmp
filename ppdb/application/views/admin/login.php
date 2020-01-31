@@ -124,13 +124,36 @@
                 <div class="container shape-container d-flex align-items-center py-lg mt-5 pt-5 mb-5 pb-5">
                     <div class="col px-0">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-6 text-center">
+                            <div class="col-lg-5 text-center">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="p-0 m-0">Login Admin</h5>
-                                    </div>
-                                    <div class="card-body bg-secondary">
-                                    
+                                    <div class="card-body">
+                                        <form action="" action="<?= site_url('admin/auth') ?>" method="POST">
+                                            <div class="form-group mb-3">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                                    </div>
+                                                    <input class="form-control" name="username" placeholder="Username" value="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                                    </div>
+                                                    <input class="form-control" id="pas" name="password" placeholder="Password" type="password" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="custom-control custom-control-alternative custom-checkbox">
+                                                <input class="custom-control-input" id="customCheckLogin" type="checkbox">
+                                                <label class="custom-control-label" for="customCheckLogin">
+                                                    <span class="text-muted">Lihat Password</span>
+                                                </label>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary mt-4">Sign in</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
