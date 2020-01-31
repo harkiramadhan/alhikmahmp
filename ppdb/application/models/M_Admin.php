@@ -13,4 +13,10 @@ class M_Admin extends CI_Model{
         $this->db->where(['email'=>$username, 'password'=>md5($password)]);
         return $this->db->get();
     }
+
+    function get_AllUser(){
+        $this->db->select('*');
+        $this->db->from('admin');
+        return $this->db->get();
+    }
 }
