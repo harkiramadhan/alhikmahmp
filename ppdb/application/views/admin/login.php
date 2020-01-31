@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Penerimaan Peserta Didik Baru - Al Hikmah</title>
+  <title>Login Admin - Al Hikmah</title>
   <!-- Favicon -->
   <link href="<?= base_url('') ?>assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -177,28 +177,6 @@
                     <div class="copyright">
                     &copy; 2019 <a href="https://alhikmahmp.sch.id" target="_blank">AL HIKMAH</a>.
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav nav-footer justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="#" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-                        <i class="fa fa-facebook-square"></i>
-                        <span class="nav-link-inner--text d-lg-none">Facebook</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://www.instagram.com/sdit.alhikmah/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                        <i class="fa fa-instagram"></i>
-                        <span class="nav-link-inner--text d-lg-none">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="https://www.youtube.com/channel/UCqOuYg6t0fi34z6nxBACQKw" target="_blank" data-toggle="tooltip" title="Subscribe us on Youtube">
-                        <i class="fa fa-youtube"></i>
-                        <span class="nav-link-inner--text d-lg-none">Youtube</span>
-                        </a>
-                    </li>
-                    </ul>
                 </div>
             </div>
         </div>
