@@ -41,6 +41,18 @@
                             <label for="">Misi Sekolah</label>
                             <textarea name="misi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Misi Sekolah"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="">Tujuan Sekolah</label>
+                            <textarea name="tujuan" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Tujuan Sekolah"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Motto Sekolah</label>
+                            <textarea name="motto" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Motto Sekolah"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Kurikulum Sekolah</label>
+                            <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"></textarea>
+                        </div>
                     </div>
                     <div class="col-md-6 mt-2">
                         
