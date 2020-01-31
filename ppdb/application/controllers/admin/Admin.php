@@ -11,7 +11,7 @@ class Admin extends CI_Controller{
 
     function auth(){
         $username = $this->input->post('username', TRUE);
-        $password = md5($this->input->post('password', TRUE));
+        $password = $this->input->post('password', TRUE);
 
         $cek = $this->M_Admin->cek_userAdmin($username, $password);
         if($cek->num_rows() > 0){
@@ -25,7 +25,7 @@ class Admin extends CI_Controller{
                 $this->session->set_userdata('email', $data->email);
                 $this->session->set_userdata('role', $data->role);
 
-                $this->output->enable_profiler(TRUE);
+                redirect('admin/dashboard');
             }
             
         }else{

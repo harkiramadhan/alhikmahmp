@@ -127,7 +127,7 @@
                             <div class="col-lg-5 text-center">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form action="<?= site_url('admin/auth') ?>" method="POST">
+                                        <form action="<?= site_url('admin/admin/auth') ?>" method="POST">
                                             <div class="form-group mb-3">
                                                 <div class="input-group input-group-alternative">
                                                     <div class="input-group-prepend">
