@@ -10,6 +10,11 @@ class Profile extends CI_Controller{
     }
 
     function index(){
+        $data['title'] = "Dashboard Admin Al Hikmah";
+        $data['nama'] = $this->session('email');
 
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/profile');
+        $this->load->view('admin/footer');
     }
 }
