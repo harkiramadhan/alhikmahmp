@@ -16,6 +16,10 @@
                 <div class="row container">
                     <div class="col-md-6 mt-2">
                         <div class="form-group">
+                            <label for="">Logo Sekolah</label>
+                            <input type="file" name="logo" id="" class="form-control form-control-alternative form-control-sm">
+                        </div>
+                        <div class="form-group">
                             <label for="">Jenjang Sekolah</label>
                             <select name="jenjang" id="" class="form-control form-control-alternative form-control-sm">
                                 <option value="">- Pilih Jenjang -</option>
@@ -41,6 +45,8 @@
                             <label for="">Misi Sekolah</label>
                             <textarea name="misi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Misi Sekolah"></textarea>
                         </div>
+                    </div>
+                    <div class="col-md-6 mt-2">
                         <div class="form-group">
                             <label for="">Tujuan Sekolah</label>
                             <textarea name="tujuan" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Tujuan Sekolah"></textarea>
@@ -53,9 +59,6 @@
                             <label for="">Kurikulum Sekolah</label>
                             <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"></textarea>
                         </div>
-                    </div>
-                    <div class="col-md-6 mt-2">
-                        
                     </div>
                 </div>
             </div>
