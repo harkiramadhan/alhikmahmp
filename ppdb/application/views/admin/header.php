@@ -83,12 +83,12 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "dashboard"){echo "active";} ?>" href="<?= site_url('backend/dashboard') ?>">
-                            <i class="ni ni-tv-2 text-default"></i> Dashboard
+                            <i class="fa fa-home text-default"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "profile"){echo "active";} ?>" href="<?= site_url('backend/profile') ?>">
-                            <i class="ni ni-tv-2 text-default"></i> Profile
+                            <i class="ni ni-single-02 text-default"></i> Profile
                         </a>
                     </li>
                 </ul>
