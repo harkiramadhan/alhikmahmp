@@ -93,6 +93,7 @@
                     </li>
                 </ul>
                 <hr class="my-2">
+                <small class="text-muted mb-2 mt-2">Berita</small>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "label"){echo "active";} ?>" href="<?= site_url('backend/label') ?>">
