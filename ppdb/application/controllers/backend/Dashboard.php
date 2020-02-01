@@ -5,6 +5,10 @@ class Dashboard extends CI_Controller{
         $this->load->model('M_Admin');
         $this->load->model('M_Berita');
         $this->load->model('M_Gallery');
+        if($this->session->userdata('masuk') != TRUE){
+            $url = base_url();
+            redirect($url);
+        }
     }
 
     private function session($jenis){

@@ -6,11 +6,8 @@
     </div>
 </div>
 <!-- Page content -->
-<div class="container-fluid mt--5">
+<div class="container-fluid mt--7">
     <div class="row">
-        <div class="col-lg-12 col-md-10">
-            <h1 class="text-white m-0"><strong>Profile</strong></h1>
-        </div>
         <div class="col-xl-12 mb-5 mb-xl-0 mt-5">
             <div class="row">
                 <form action="<?= site_url('profile/action') ?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8"></form>
