@@ -97,12 +97,12 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "label"){echo "active";} ?>" href="<?= site_url('backend/label') ?>">
-                            <i class="fa fa-home text-default"></i> Label
+                            <i class="ni ni-collection text-default"></i> Label
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "berita"){echo "active";} ?>" href="<?= site_url('backend/berita') ?>">
-                            <i class="fa fa-home text-default"></i> Berita
+                            <i class="ni ni-single-copy-04 text-default"></i> Berita
                         </a>
                     </li>
                 </ul>
