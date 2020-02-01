@@ -96,6 +96,11 @@
                 <small class="text-muted mb-2 mt-2">Berita</small>
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "page"){echo "active";} ?>" href="<?= site_url('backend/page') ?>">
+                            <i class="ni ni-folder-17 text-default"></i> Page
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "label"){echo "active";} ?>" href="<?= site_url('backend/label') ?>">
                             <i class="ni ni-collection text-default"></i> Label
                         </a>
