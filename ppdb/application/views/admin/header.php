@@ -107,6 +107,15 @@
                     </li>
                 </ul>
                 <hr class="my-2">
+                <small class="text-muted mb-2 mt-2">Gallery</small>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($this->uri->segment(1) == "backend" && $this->uri->segment(2) == "gallery"){echo "active";} ?>" href="<?= site_url('backend/gallery') ?>">
+                            <i class="ni ni-camera-compact text-default"></i> Gallery
+                        </a>
+                    </li>
+                </ul>
+                <hr class="my-2">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="<?= site_url('login/logout')?>">
