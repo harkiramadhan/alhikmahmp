@@ -13,6 +13,7 @@
         </div>
         <div class="col-xl-12 mb-5 mb-xl-0 mt-5">
             <div class="row">
+                <form action="<?= site_url('profile/action') ?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8"></form>
                 <div class="col-xl-8 order-xl-1 mt-2">
                     <div class="card shadow bg-secondary container">
                         <div class="row mt-5">
@@ -96,6 +97,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
