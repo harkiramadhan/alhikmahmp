@@ -59,6 +59,10 @@
                             <label for="">Kurikulum Sekolah</label>
                             <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"><?= $sekolah->kurikulum ?></textarea>
                         </div>
+                        <hr>
+                        <div class="col-md-12 text-right mb-5">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-4 mt-5 mb-xl-0 mb-4 order-xl-2">
