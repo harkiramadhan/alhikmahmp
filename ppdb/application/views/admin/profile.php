@@ -12,10 +12,10 @@
             <h1 class="text-white m-0"><strong>Profile</strong></h1>
         </div>
         <div class="col-xl-12 mb-5 mb-xl-0 mt-5">
-            <div class="card shadow bg-secondary">
-                <div class="row container">
-                    <div class="col-md-6 mt-2">
-                        <div class="form-group">
+            <div class="row">
+                <div class="col-xl-8 order-xl-1 mt-2">
+                    <div class="card shadow bg-secondary container">
+                        <div class="form-group mt-5">
                             <label for="">Logo Sekolah</label>
                             <input type="file" name="logo" id="" class="form-control form-control-alternative form-control-sm">
                         </div>
@@ -45,8 +45,6 @@
                             <label for="">Misi Sekolah</label>
                             <textarea name="misi" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Misi Sekolah"><?= $sekolah->misi ?></textarea>
                         </div>
-                    </div>
-                    <div class="col-md-6 mt-2">
                         <div class="form-group">
                             <label for="">Tujuan Sekolah</label>
                             <textarea name="tujuan" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Tujuan Sekolah"><?= $sekolah->tujuan ?></textarea>
@@ -58,6 +56,37 @@
                         <div class="form-group">
                             <label for="">Kurikulum Sekolah</label>
                             <textarea name="kurikulum" id="" cols="30" rows="10" class="form-control form-control-alternative form-control-sm" placeholder="Kurikulum Sekolah"><?= $sekolah->kurikulum ?></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 mt-5 mb-xl-0 mb-4 order-xl-2">
+                    <div class="card card-profile shadow">
+                        <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <?php if($sekolah->logo == TRUE): ?>
+                                    <img id="image-preview" alt="image preview" class="rounded-circle" src="<?= base_url('assets/home/img/'. $sekolah->logo) ?>">
+                                <?php else: ?>
+                                    <img id="image-preview" alt="image preview" class="rounded-circle">
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        </div>
+                        <div class="card-body pt-0 pt-md-4">
+                            <div class="row">
+                                <div class="col">
+                                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <label for="">Logo Sekolah</label>
+                                    <input type="file" multiple="multiple" name="img" class="form-control form-control-alternative form-control-sm" id="image-source" onchange="previewImage();">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
