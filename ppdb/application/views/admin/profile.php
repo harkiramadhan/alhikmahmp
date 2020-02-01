@@ -15,23 +15,25 @@
             <div class="row">
                 <div class="col-xl-8 order-xl-1 mt-2">
                     <div class="card shadow bg-secondary container">
-                        <div class="form-group mt-5">
-                            <label for="">Logo Sekolah</label>
-                            <input type="file" name="logo" id="" class="form-control form-control-alternative form-control-sm">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Jenjang Sekolah</label>
-                            <select name="jenjang" id="" class="form-control form-control-alternative form-control-sm">
-                                <option value="">- Pilih Jenjang -</option>
-                                <option value="TK" <?php if($sekolah->jenjang == "TK"){echo "selected";} ?>>TK</option>
-                                <option value="SD" <?php if($sekolah->jenjang == "SD"){echo "selected";} ?>>SD</option>
-                                <option value="SMP" <?php if($sekolah->jenjang == "SMP"){echo "selected";} ?>>SMP</option>
-                                <option value="SMA" <?php if($sekolah->jenjang == "SMA"){echo "selected";} ?>>SMA</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Nama Sekolah</label>
-                            <input type="text" name="nama" id="" class="form-control form-control-alternative form-control-sm" placeholder="Nama Sekolah" value="<?= $sekolah->nama ?>">
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jenjang Sekolah</label>
+                                    <select name="jenjang" id="" class="form-control form-control-alternative form-control-sm">
+                                        <option value="">- Pilih Jenjang -</option>
+                                        <option value="TK" <?php if($sekolah->jenjang == "TK"){echo "selected";} ?>>TK</option>
+                                        <option value="SD" <?php if($sekolah->jenjang == "SD"){echo "selected";} ?>>SD</option>
+                                        <option value="SMP" <?php if($sekolah->jenjang == "SMP"){echo "selected";} ?>>SMP</option>
+                                        <option value="SMA" <?php if($sekolah->jenjang == "SMA"){echo "selected";} ?>>SMA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nama Sekolah</label>
+                                    <input type="text" name="nama" id="" class="form-control form-control-alternative form-control-sm" placeholder="Nama Sekolah" value="<?= $sekolah->nama ?>">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="">Sejarah Sekolah</label>
