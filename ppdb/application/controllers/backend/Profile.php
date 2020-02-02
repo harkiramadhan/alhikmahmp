@@ -26,6 +26,15 @@ class Profile extends CI_Controller{
 
     function action(){
         if($this->input->post('jenis') == "simpan"){
+            $config['upload_path']      = './assets/home/img/';  
+            $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
+            $config ['encrypt_name']    = TRUE;
+
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('img');
+            $upload_data    = $this->upload->data();
+            $img            = $upload_data['file_name'];
+
             $data = [
                 'jenjang' => $this->input->post('jenjang', TRUE),
                 'nama' => $this->input->post('nama', TRUE),
@@ -35,7 +44,7 @@ class Profile extends CI_Controller{
                 'tujuan' => $this->input->post('tujuan', TRUE),
                 'motto' => $this->input->post('motto', TRUE),
                 'kurikulum' => $this->input->post('kurikulum', TRUE),
-                'logo' => $this->input->post('logo', TRUE),
+                'logo' => $img,
                 'instagram' => $this->input->post('instagram', TRUE),
                 'youtube' => $this->input->post('youtube', TRUE),
                 'facebook' => $this->input->post('facebook', TRUE),
