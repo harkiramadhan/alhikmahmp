@@ -58,7 +58,8 @@
                                         </button>
                                     </div>
                                     <form action="<?= site_url('backend/label/simpan') ?>" method="POST">
-                                    <input type="hidden" name="jenis" value="tambah">
+                                    <input type="hidden" name="jenis" value="edit">
+                                    <input type="hidden" name="id" value="<?= $row->id ?>">
                                     <div class="modal-body bg-secondary">
                                         <div class="col-xl-12 text-center">
                                             <span class="badge badge-pill badge-default">Default</span>
