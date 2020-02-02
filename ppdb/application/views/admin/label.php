@@ -31,9 +31,16 @@
                       </tr>
                     </thead>
                     <tbody class="myTable">
+                        <?php
+                        $no = 1;
+                        foreach($label as $row){ ?>
                         <tr>
-                        
+                            <td><?= $no++ ?></td>
+                            <td><?= $row->badge ?></td>
+                            <td><?= $row->label ?></td>
+                            <td></td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                   </table>
                 </div>
