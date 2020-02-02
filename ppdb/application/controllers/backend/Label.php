@@ -38,6 +38,19 @@ class Label extends CI_Controller{
                 $this->session->set_flashdata('sukses', "Label Berhasil Di Tambahkan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "edit"){
+            $id = $this->input->post('id', TRUE);
+            $data = [
+                'badge' => $this->input->post('badge', TRUE),
+                'label' => $this->input->post('label', TRUE),
+            ];
+            $this->db->where('id', $id);
+            $this->db->update('label', $data);
+
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('sukses', "Label Berhasil Di Edit");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 }
