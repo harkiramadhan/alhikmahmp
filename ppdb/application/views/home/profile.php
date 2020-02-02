@@ -83,7 +83,7 @@
         <div class="tab-pane text-center gallery" id="motto">
             <div class="description text-left text-capitalize">
                 <p class="text-center" style="color: black;">
-                    <b><?= $moto ?></b>             
+                    <b><?= $motto ?></b>             
                 </p>
             </div>
         </div>
