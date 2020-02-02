@@ -24,7 +24,7 @@
                   </div>
                 </div>
                 <div class="table-responsive">
-                  <table class="table align-items-center table-flush">
+                  <table class="table align-items-center table-flush table-sm">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col" width="10">No</th>
