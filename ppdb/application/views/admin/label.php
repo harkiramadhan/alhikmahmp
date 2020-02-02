@@ -6,7 +6,7 @@
     </div>
 </div>
 <!-- Page content -->
-<div class="container-fluid mt--5">
+<div class="container-fluid mt--3">
     <div class="row">
         <div class="col">
           <div class="card shadow">
@@ -41,7 +41,10 @@
                             <td><?= $no++ ?></td>
                             <td> <span class="badge <?= $row->badge ?> mr-1"><?= $row->badge ?></span></td>
                             <td><?= $row->label ?></td>
-                            <td></td>
+                            <td class="btn-group">
+                                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit_<?= $row->id ?>">Edit</button>
+                                <button class="btn btn-sm btn-warning ml-1" data-toggle="modal" data-target="#delete_<?= $row->id ?>">Hapus</button>
+                            </td>
                         </tr>
                         <?php } ?>
                     </tbody>

@@ -33,10 +33,10 @@ class Label extends CI_Controller{
                 'label' => $this->input->post('label', TRUE),
             ];
             $this->db->insert('label', $data);
-            
+
             if($this->db->affected_rows() > 0){
                 $this->session->set_flashdata('sukses', "Label Berhasil Di Tambahkan");
-                redirect('ppdb');
+                redirect($_SERVER['HTTP_REFERER']);
             }
         }
     }
