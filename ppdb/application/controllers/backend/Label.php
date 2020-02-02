@@ -51,6 +51,15 @@ class Label extends CI_Controller{
                 $this->session->set_flashdata('sukses', "Label Berhasil Di Edit");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "hapus"){
+            $id = $this->input->post('id', TRUE);
+            $this->db->where('id', $id);
+            $this->db->delete('label');
+
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('sukses', "Label Berhasil Di Hapus");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 }

@@ -96,6 +96,39 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal Delete Label -->
+                        <div class="modal fade" id="delete_<?= $row->id ?>" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+                            <div class="modal-dialog modal-danger modal-dialog-centered modal-10" role="document">
+                                <div class="modal-content bg-gradient-danger">
+                                    
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="modal-title-notification">Hapus <?= $row->label ?></h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="modal-body">
+                                        <div class="py-3 text-center">
+                                            <i class="ni ni-bell-55 ni-3x"></i>
+                                            <h4 class="heading mt-4">Apakah Anda Yakin Menghapus Label!</h4>
+                                            <p><strong><?= $row->label ?></strong>.</p>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <form action="<?= site_url('backend/label/simpan') ?>" method="post">
+                                    <input type="hidden" name="id" value="<?= $row->id ?>">
+                                    <input type="hidden" name="jenis" value="hapus"> 
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-white" data-dismiss="modal">Tutup</button>
+                                        <button type="submit" class="btn btn-sm btn-link text-white ml-auto">Lanjutkan</button> 
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <?php } ?>
                     </tbody>
                   </table>
