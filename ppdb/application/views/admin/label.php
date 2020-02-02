@@ -15,11 +15,11 @@
               <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                 <div class="col card-header d-md-inline-block bg-transparent border-0">
                   <div class="row align-items-center">
-                    <div class="col-10">
+                    <div class="col-xl-10 mt-2">
                       <h3 class="mb-0">Daftar Label </h3> 
                     </div>
-                    <div class="col-2">
-                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#tambah">Tambah Label</button>
+                    <div class="col-xl-2 mt-2">
+                        <button class="btn btn-sm btn-success btn-block" data-toggle="modal" data-target="#tambah">Tambah Label</button>
                     </div>
                   </div>
                 </div>
