@@ -24,4 +24,20 @@ class Label extends CI_Controller{
         $this->load->view('admin/label');
         $this->load->view('admin/footer');
     }
+
+    function simpan(){
+        $jenis = $this->input->post('jenis', TRUE);
+        if($jenis == "tambah"){
+            $data = [
+                'badge' => $this->input->post('badge', TRUE),
+                'label' => $this->input->post('label', TRUE),
+            ];
+            $this->db->insert('label', $data);
+            
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('sukses', "Label Berhasil Di Tambahkan");
+                redirect('ppdb');
+            }
+        }
+    }
 }
