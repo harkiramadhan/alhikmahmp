@@ -86,6 +86,10 @@
                         <option value="badge-warning">Warning</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="">Label</label>
+                    <input type="text" name="label" id="" class="form-control form-control-alternative form-control-sm" placeholder="Label">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
