@@ -58,14 +58,28 @@ class Berita extends CI_Controller{
 
                 $data = [
                     'judul' => $this->input->post('judul', TRUE),
-                    'statud' => $this->input->post('status', TRUE),
+                    'status' => $this->input->post('status', TRUE),
                     'konten' => $this->input->post('konten', TRUE),
                     'img' => $img["file_name"]
                 ];
 
-                print_r($data);
+                $this->db->insert('berita', $data);
+                if($this->db->affected_rows() > 0){
+                    $idberita = $this->db->insert_id();
+                    $label = $this->input->post('idl[]', TRUE);
+                    foreach($label as $l){
+                        $dataLabel = [
+                            'id_berita' => $idberita,
+                            'id_label' => $l
+                        ];
+
+                        $this->db->insert('label_berita', $dataLabel);
+                    }
+
+                    $this->session->set_flashdata('sukses', "Berita Berhasil Di Tambahkan");
+                    redirect('backend/berita');
+                }
             }
-            $label = $this->input->post('idl[]', TRUE);
         }
     }
 
@@ -92,6 +106,7 @@ class Berita extends CI_Controller{
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-sm btn-danger">Hapus</button>
+                        <button class="btn btn-sm btn-info ml-1">Lihat</button>
                         <button class="btn btn-sm btn-primary ml-1">Detail</button>
                     </div>
                 </td>

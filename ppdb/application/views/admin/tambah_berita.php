@@ -40,7 +40,7 @@
                                 $noo=1;
                                 foreach($label->result() as $l){ ?>
                                 <div class="custom-control custom-control-inline custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="customCheck<?= $noo ?>" type="checkbox" value="<?= $l->id ?>" name="idl[]" required>
+                                    <input class="custom-control-input" id="customCheck<?= $noo ?>" type="checkbox" value="<?= $l->id ?>" name="idl[]">
                                     <label class="custom-control-label" for="customCheck<?= $noo ?>"><span class="badge <?= $l->badge ?> mr-1"><?= $l->label ?></span></label>
                                 </div>
                                 <?php 
