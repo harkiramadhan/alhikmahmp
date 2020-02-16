@@ -28,6 +28,10 @@
     <link href="<?= base_url('') ?>assets/inner/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" href="<?= base_url('') ?>assets/inner/css/argon.css?v=1.1.0" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  
+    <!-- Quill Custom CSS -->
+    <link type="text/css" href="<?= base_url('/assets/css/quill.css') ?>" rel="stylesheet">
 </head>
 
 <body>

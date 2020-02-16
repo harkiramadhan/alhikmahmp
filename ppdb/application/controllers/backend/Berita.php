@@ -35,6 +35,13 @@ class Berita extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
+    function action(){
+        $jenis = $this->input->post('jenis', TRUE);
+        if($jenis == "tambah"){
+            print_r($this->input->post());
+        }
+    }
+
     // // // AJAX // // //
     function table_list_berita(){
         $berita = $this->M_Berita->get_All()->result();

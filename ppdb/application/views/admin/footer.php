@@ -21,6 +21,7 @@
     <!-- Argon JS -->
     <script src="<?= base_url('') ?>assets/inner/js/argon.js?v=1.0.0"></script>
     <script src="<?= base_url('') ?>assets/inner/js/style.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <?php $this->load->view('admin/ajax'); ?>
 </body>
 

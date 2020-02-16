@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h2>Tambah Berita</h2>
                 </div>
-                <form action="<?= site_url('backend/berita/action') ?>" type="post" enctype="multipart/form-data">
+                <form action="<?= site_url('backend/berita/action') ?>" method="post" enctype="multipart/form-data" id="tambah_berita">
                 <input type="hidden" name="jenis" value="tambah"> 
                 <div class="card-body">
                     <div class="row">
@@ -55,14 +55,16 @@
                             <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>   
                         </div>
                         <div class="col-xl-12">
-                            
+                            <label for="">Berita</label>
+                            <div id="editorBerita" style="height: auto;">
+                            <textarea name="konten" style="display:none" id="desc_berita"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-md-12 text-right">
-                            <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+                            <button type="submit"  class="btn btn-sm btn-success">Simpan</button>
                         </div>
                     </div>
                 </div>
