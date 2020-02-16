@@ -2,6 +2,7 @@
     $uri1 = $this->uri->segment(1);
     $uri2 = $this->uri->segment(2);
     $uri3 = $this->uri->segment(3);
+    $uri4 = $this->uri->segment(4);
     $loader = base_url('assets/home/loader.gif');
 ?>
 
@@ -38,6 +39,30 @@
     });
     $("#tambah_berita").submit(function() {
         $("#desc_berita").val(quill.root.innerHTML);
+    });
+</script>
+
+<?php elseif($uri1 == "backend" && $uri2 == "berita" && $uri3 == "detail" && $uri4 != NULL): ?>
+<script>
+    var quill2 = new Quill('#editorBerita', {
+      modules: {
+        toolbar: [
+            [{ 'font': [] }],
+            [{ header: [1, 2, false] }],
+            ['bold', 'italic', 'underline'],
+            ['link', 'blockquote'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ 'align': [] }],
+        ]
+      },
+      placeholder: 'Tuliskan Berita . . .',
+      theme: 'snow'
+    });
+    <?php if($berita->konten != NULL): ?>
+      quill2.clipboard.dangerouslyPasteHTML('<?= $berita->konten ?>');
+    <?php endif; ?>
+    $("#tambah_berita").submit(function() {
+        $("#desc_berita").val(quill2.root.innerHTML);
     });
 </script>
 <?php endif; ?>
