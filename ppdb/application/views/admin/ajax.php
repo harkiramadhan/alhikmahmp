@@ -25,8 +25,12 @@
     var quill = new Quill('#editorBerita', {
       modules: {
         toolbar: [
+            [{ 'font': [] }],
             [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline']
+            ['bold', 'italic', 'underline'],
+            ['link', 'blockquote'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ 'align': [] }],
         ]
       },
       placeholder: 'Tuliskan Berita . . .',
