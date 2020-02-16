@@ -29,7 +29,7 @@
                                 <label for="">Status Berita <small class="text-warning">*</small></label>
                                 <select name="status" id="" class="form-control form-control-alternative form-control-sm" required>
                                     <option value="" selected disabled>- Pilih Status Berita -</option>
-                                    <option value="published" <?php if($berita->status == "publishedss"){echo "selected";} ?>>Published</option>
+                                    <option value="published" <?php if($berita->status == "published"){echo "selected";} ?>>Published</option>
                                     <option value="draft" <?php if($berita->status == "draft"){echo "selected";} ?>>Draft</option>
                                 </select>
                             </div>
