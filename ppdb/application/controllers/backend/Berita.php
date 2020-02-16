@@ -28,6 +28,7 @@ class Berita extends CI_Controller{
     function tambah(){
         $data['title'] = "Dashboard Admin Al Hikmah";
         $data['nama'] = $this->session('email');
+        $data['label'] = $this->M_Berita->get_AllLabel();
 
         $this->load->view('admin/header', $data);
         $this->load->view('admin/tambah_berita');
