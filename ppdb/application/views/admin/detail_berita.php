@@ -62,7 +62,11 @@
                             <label for="">Upload Gambar <small class="text-warning">*</small></label>
                             <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" required >
                             <label for="imageUpload" class="m-0"></label>
+                            <?php if($berita->img != NULL): ?>
+                            <img src="<?= base_url('upload/img/'.$berita->img) ?>" id="image-preview" class="rounded" alt="image preview" style="width:100%;"/>   
+                            <?php else: ?>
                             <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>   
+                            <?php endif; ?>
                         </div>
                         <div class="col-xl-12 mt-2">
                             <label for="">Konten Berita <small class="text-warning">*</small></label>
