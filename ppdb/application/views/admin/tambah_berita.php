@@ -54,7 +54,7 @@
                             <label for="imageUpload" class="m-0"></label>
                             <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>   
                         </div>
-                        <div class="col-xl-12">
+                        <div class="col-xl-12 mt-2">
                             <label for="">Konten Berita <small class="text-warning">*</small></label>
                             <div id="editorBerita" style="height: auto;"></div>
                             <textarea name="konten" style="display:none" id="desc_berita"></textarea>

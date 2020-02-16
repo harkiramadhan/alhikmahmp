@@ -38,7 +38,34 @@ class Berita extends CI_Controller{
     function action(){
         $jenis = $this->input->post('jenis', TRUE);
         if($jenis == "tambah"){
-            print_r($this->input->post());
+            
+            $config['upload_path']      = './upload/img';  
+            $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
+            $config ['encrypt_name']    = TRUE;
+            $this->load->library('upload', $config);  
+            if($this->upload->do_upload('img')){   
+                $img = $this->upload->data();  
+                $config['image_library']    = 'gd2';  
+                $config['source_image']     = './upload/img'.$img["file_name"];  
+                $config['create_thumb']     = FALSE;  
+                $config['maintain_ratio']   = FALSE;  
+                $config['quality']          = '60%';  
+                $config['width']            = 200;  
+                $config['height']           = 200;  
+                $config['new_image']        = './upload/img'.$img["file_name"];  
+                $this->load->library('image_lib', $config);  
+                $this->image_lib->resize(); 
+
+                $data = [
+                    'judul' => $this->input->post('judul', TRUE),
+                    'statud' => $this->input->post('status', TRUE),
+                    'konten' => $this->input->post('konten', TRUE),
+                    'img' => $img["file_name"]
+                ];
+
+                print_r($data);
+            }
+            $label = $this->input->post('idl[]', TRUE);
         }
     }
 
