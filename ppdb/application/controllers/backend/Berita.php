@@ -49,8 +49,7 @@ class Berita extends CI_Controller{
 
     function action(){
         $jenis = $this->input->post('jenis', TRUE);
-        if($jenis == "tambah"){
-            
+        if($jenis == "tambah"){   
             $config['upload_path']      = './upload/img';  
             $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
             $config ['encrypt_name']    = TRUE;
@@ -92,6 +91,8 @@ class Berita extends CI_Controller{
                     redirect('backend/berita');
                 }
             }
+        }elseif($jenis == "edit"){
+            
         }
     }
 
