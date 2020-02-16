@@ -17,7 +17,7 @@ class Berita extends CI_Controller{
     }
 
     function index(){
-        $data['title'] = "Dashboard Admin Al Hikmah";
+        $data['title'] = "Berita - Al Hikmah";
         $data['nama'] = $this->session('email');
 
         $this->load->view('admin/header', $data);
@@ -26,12 +26,24 @@ class Berita extends CI_Controller{
     }
 
     function tambah(){
-        $data['title'] = "Dashboard Admin Al Hikmah";
+        $data['title'] = "Tambah Berita - Al Hikmah";
         $data['nama'] = $this->session('email');
         $data['label'] = $this->M_Berita->get_AllLabel();
 
         $this->load->view('admin/header', $data);
         $this->load->view('admin/tambah_berita');
+        $this->load->view('admin/footer');
+    }
+
+    function detail($id){
+        $data['title'] = "Detail Berita - Al Hikmah";
+        $data['nama'] = $this->session('email');
+        $data['label'] = $this->M_Berita->get_AllLabel();
+
+        $data['berita'] = $this->M_Berita->get_byId($id)->row();
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/detail_berita');
         $this->load->view('admin/footer');
     }
 
@@ -106,8 +118,8 @@ class Berita extends CI_Controller{
                 <td>
                     <div class="btn-group">
                         <button class="btn btn-sm btn-danger">Hapus</button>
-                        <button class="btn btn-sm btn-info ml-1">Lihat</button>
-                        <button class="btn btn-sm btn-primary ml-1">Detail</button>
+                        <button class="btn btn-sm btn-primary ml-1">Lihat</button>
+                        <a href="<?= site_url('backend/berita/detail/'.$row->id) ?>" class="btn btn-sm btn-default ml-1">Edit</a>
                     </div>
                 </td>
             </tr>

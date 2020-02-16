@@ -37,4 +37,12 @@ class M_Berita extends CI_Model{
         $this->db->where(['label_berita.id_berita'=>$idberita]);
         return $this->db->get();
     }
+
+    function get_byId($idberita){
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->order_by('id', "DESC");
+        $this->db->where('id', $idberita);
+        return $this->db->get();
+    }
 }
