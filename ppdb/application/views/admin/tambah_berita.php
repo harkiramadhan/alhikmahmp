@@ -13,6 +13,8 @@
                 <div class="card-header">
                     <h2>Tambah Berita</h2>
                 </div>
+                <form action="<?= site_url('backend/berita/action') ?>" type="post">
+                <input type="hidden" name="jenis" value="tambah"> 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -38,7 +40,7 @@
                                 $noo=1;
                                 foreach($label->result() as $l){ ?>
                                 <div class="custom-control custom-control-inline custom-checkbox mb-3">
-                                    <input class="custom-control-input" id="customCheck<?= $noo ?>" type="checkbox">
+                                    <input class="custom-control-input" id="customCheck<?= $noo ?>" type="checkbox" value="<?= $l->id ?>" name="idl[]">
                                     <label class="custom-control-label" for="customCheck<?= $noo ?>"><span class="badge <?= $l->badge ?> mr-1"><?= $l->label ?></span></label>
                                 </div>
                                 <?php 
@@ -48,6 +50,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
