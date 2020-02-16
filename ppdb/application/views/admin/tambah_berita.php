@@ -9,7 +9,7 @@
 <div class="container-fluid mt--3">
     <div class="row">
         <div class="col-xl-12">
-            <div class="card shadow">
+            <div class="card bg-secondary shadow">
                 <div class="card-header">
                     <h2>Tambah Berita</h2>
                 </div>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-xl-12">
                             <label for="">Label Berita</label>
-                            <div class="col-md-12 text-center m-1">
+                            <div class="col-md-12 m-1">
                                  <?php 
                                 $noo=1;
                                 foreach($label->result() as $l){ ?>
@@ -47,6 +47,9 @@
                                 $noo++;
                                 } ?>
                             </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <label for="">Upload Gambar</label>
                         </div>
                     </div>
                 </div>
