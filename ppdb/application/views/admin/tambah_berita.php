@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-xl-12">
                             <label for="">Berita</label>
-                            <div id="editorBerita" style="height: auto;">
+                            <div id="editorBerita" style="height: auto;"></div>
                             <textarea name="konten" style="display:none" id="desc_berita"></textarea>
                         </div>
                     </div>
