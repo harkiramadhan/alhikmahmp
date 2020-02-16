@@ -1,5 +1,12 @@
 <?php
 class M_Berita extends CI_Model{
+    function get_All(){
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->order_by('id', "DESC");
+        return $this->db->get();
+    }
+
     function get_AllBerita(){
         $this->db->select('*');
         $this->db->from('berita');

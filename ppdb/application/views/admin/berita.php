@@ -19,7 +19,7 @@
                       <h3 class="mb-0">Daftar Berita </h3> 
                     </div>
                     <div class="col-xl-2 mt-2">
-                        <button class="btn btn-sm btn-success btn-block" data-toggle="modal" data-target="#tambah">Tambah Berita</button>
+                        <a href="<?= site_url('backend/berita/tambah') ?>" class="btn btn-sm btn-success btn-block">Tambah Berita</a>
                     </div>
                   </div>
                 </div>
@@ -27,16 +27,15 @@
                   <table class="table align-items-center table-flush table-sm">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col" width="10">No</th>
+                        <th scope="col" width="5px">No</th>
                         <th scope="col">Label</th>
                         <th scope="col" class="col-12">Judul Berita</th>
+                        <th scope="col">Status</th>
                         <th scope="col" class="text-center">Aksi</th>
                       </tr>
                     </thead>
-                    <tbody class="myTable">
-                        <tr>
-                            
-                        </tr>
+                    <tbody id="list_berita">
+                    
                     </tbody>
                   </table>
                 </div>
@@ -45,52 +44,3 @@
           </div>
         </div>
       </div>
-
-    <!-- Modal Tambah Label-->
-    <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Label</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="<?= site_url('backend/label/simpan') ?>" method="POST">
-                <input type="hidden" name="jenis" value="tambah">
-                <div class="modal-body bg-secondary">
-                    <div class="col-xl-12 text-center">
-                        <span class="badge badge-pill badge-default">Default</span>
-                        <span class="badge badge-pill badge-primary">Primary</span>
-                        <span class="badge badge-pill badge-secondary">Secondary</span>
-                        <span class="badge badge-pill badge-info">Info</span>
-                        <span class="badge badge-pill badge-success">Success</span>
-                        <span class="badge badge-pill badge-danger">Danger</span>
-                        <span class="badge badge-pill badge-warning">Warning</span>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="">Badge</label>
-                        <select name="badge" id="" class="form-control form-control-sm form-control-alternative">
-                            <option value="">- Pilih Badge -</option>
-                            <option value="badge-default">Default</option>
-                            <option value="badge-primary">Primary</option>
-                            <option value="badge-secondary">Secondary</option>
-                            <option value="badge-info">Info</option>
-                            <option value="badge-success">Success</option>
-                            <option value="badge-danger">Danger</option>
-                            <option value="badge-warning">Warning</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Label</label>
-                        <input type="text" name="label" id="" class="form-control form-control-alternative form-control-sm" placeholder="Label">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>

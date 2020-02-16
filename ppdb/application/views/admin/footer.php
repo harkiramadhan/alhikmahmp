@@ -21,7 +21,7 @@
     <!-- Argon JS -->
     <script src="<?= base_url('') ?>assets/inner/js/argon.js?v=1.0.0"></script>
     <script src="<?= base_url('') ?>assets/inner/js/style.js"></script>
-
+    <?php $this->load->view('admin/ajax'); ?>
 </body>
 
 </html>
