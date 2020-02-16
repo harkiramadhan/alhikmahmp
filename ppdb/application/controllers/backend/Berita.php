@@ -92,7 +92,15 @@ class Berita extends CI_Controller{
                 }
             }
         }elseif($jenis == "edit"){
-            
+
+        }elseif($jenis == "delete"){
+            $idberita = $this->input->post('idberita', TRUE);
+            $this->db->where('id', $idberita);
+            $this->db->delete('berita');
+            if($this->db->affected_rows() > 0){
+                $this->session->set_flashdata('sukses', "Berita Berhasil Di Hapus");
+                redirect('backend/berita');
+            }
         }
     }
 
