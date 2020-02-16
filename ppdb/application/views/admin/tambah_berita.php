@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h2>Tambah Berita</h2>
                 </div>
-                <form action="<?= site_url('backend/berita/action') ?>" type="post">
+                <form action="<?= site_url('backend/berita/action') ?>" type="post" enctype="multipart/form-data">
                 <input type="hidden" name="jenis" value="tambah"> 
                 <div class="card-body">
                     <div class="row">
@@ -50,6 +50,12 @@
                         </div>
                         <div class="col-xl-12">
                             <label for="">Upload Gambar</label>
+                            <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" >
+                            <label for="imageUpload" class="m-0"></label>
+                            <img id="image-preview" class="rounded d-none" alt="image preview" style="width:100%;"/>   
+                        </div>
+                        <div class="col-xl-12">
+                            
                         </div>
                     </div>
                 </div>
