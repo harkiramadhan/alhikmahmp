@@ -44,3 +44,9 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="modalLihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg isi" role="document">
+              
+          </div>
+      </div>
