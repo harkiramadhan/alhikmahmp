@@ -225,6 +225,10 @@ class Gallery extends CI_Controller{
                                 </div>
                             </div>
                         </div>
+                        <hr class="my-4">
+                        <div class="row list_gallery">
+                            <?php $this->list_gambar_gallery($idgallery) ?>
+                        </div>
                     </div>
                     <div class="modal-footer text-right">
                         <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Tutup</button>
@@ -337,8 +341,7 @@ class Gallery extends CI_Controller{
         <?php
     }
 
-    function list_gambar_gallery(){
-        $idgallery = $this->input->post('idgallery', TRUE);
+    function list_gambar_gallery($idgallery){
         $detailGallery = $this->M_Gallery->get_detailById($idgallery);
         if($detailGallery->num_rows() > 0){
         foreach($detailGallery->result() as $dg){
