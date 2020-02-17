@@ -215,7 +215,7 @@ class Gallery extends CI_Controller{
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Thumbnails</label>
-                                    <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source2" onchange="previewImage2();" accept=".png, .jpg, .jpeg" required >
+                                    <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source2" onchange="previewImage2();" accept=".png, .jpg, .jpeg" >
                                     <label for="imageUpload2" class="m-0"></label>
                                     <?php if($gallery->img == TRUE): ?>
                                     <img id="image-preview2" class="rounded" alt="image preview2" style="width:100%;" src="<?= base_url('./assets/home/img/content/' . $gallery->img) ?>" />  
@@ -226,7 +226,14 @@ class Gallery extends CI_Controller{
                             </div>
                         </div>
                         <hr class="my-4">
-                        <div class="row list_gallery">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group pb-0 mb-0">
+                                    <label class="pb-0 mb-0" for="">Foto Gallery <b><?= $gallery->judul ?></b></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row list_gallery mt-0 pt-0">
                             <?php $this->list_gambar_gallery($idgallery) ?>
                         </div>
                     </div>
