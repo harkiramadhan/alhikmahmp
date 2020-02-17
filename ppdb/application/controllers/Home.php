@@ -103,7 +103,7 @@ class Home extends CI_Controller{
     }
 
     function get_gallery(){
-        $getGallery = $this->M_Gallery->get_AllGallery();
+        $getGallery = $this->M_Gallery->get_threeGallery();
         ?>
             <?php if($getGallery->num_rows() > 0): ?>
             <?php foreach($getGallery->result() as $row){ ?>
@@ -111,7 +111,7 @@ class Home extends CI_Controller{
                 <div class="card card-blog">
                     <div class="card-header card-header-image">
                         <a href="#pablo">
-                        <img class="img img-raised" src="<?= base_url('upload/gallery/'.$row->img) ?>">
+                        <img class="img img-raised" src="<?= base_url('./assets/home/img/content/'.$row->img) ?>">
                         </a>
                     <div class="colored-shadow" style="background-image: url(&quot;<?= base_url('upload/gallery/'.$row->img) ?>&quot;); opacity: 1;"></div>
                     </div>

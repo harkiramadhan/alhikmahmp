@@ -60,8 +60,8 @@ class Gallery extends CI_Controller{
             }
         }elseif($jenis == "delete"){
             $idgallery = $this->input->post('idgallery', TRUE);
-            $getDetail = $this->M_Gallery->get_detailById();
-            $get = $this->M_Gallery()->get_byId($idgallery);
+            $getDetail = $this->M_Gallery->get_detailById($idgallery);
+            $get = $this->M_Gallery->get_byId($idgallery);
             if($getDetail->num_rows() > 0){
                 foreach($getDetail->result() as $d){
                     unlink("./assets/home/img/content/".$d->img);
@@ -71,8 +71,9 @@ class Gallery extends CI_Controller{
             }
 
             if($get->num_rows() > 0){
-                unlink("./assets/home/img/content/".$get->row()->id);
-                $this->db->where('id', $get->row()->id);
+                $gal = $get->row();
+                unlink("./assets/home/img/content/".$gal->img);
+                $this->db->where('id', $gal->id);
                 $this->db->delete('gallery');
             }
 
@@ -108,7 +109,7 @@ class Gallery extends CI_Controller{
                             </div>
                         </div>
                         <form action="<?= site_url('backend/gallery/action') ?>" method="post">
-                        <input type="hidden" name="idberita" value="<?= $idgallery ?>">
+                        <input type="hidden" name="idgallery" value="<?= $idgallery ?>">
                         <input type="hidden" name="jenis" value="delete">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-sm btn-link text-white" data-dismiss="modal">Tutup</button> 
