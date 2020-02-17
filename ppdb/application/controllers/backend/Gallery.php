@@ -36,6 +36,7 @@ class Gallery extends CI_Controller{
 
     function action(){
         $jenis = $this->input->post('jenis', TRUE);
+        $idgallery = $this->input->post('idgallery', TRUE);
         if($jenis == "tambah"){
             $config['upload_path']      = './assets/home/img/content';  
             $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
@@ -123,6 +124,56 @@ class Gallery extends CI_Controller{
                 $this->session->set_flashdata('error', "Gambar Gagal Di Tambahkan");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "update"){
+            $config['upload_path']      = './assets/home/img/content';  
+            $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
+            $config ['encrypt_name']    = TRUE;
+            $this->load->library('upload', $config);  
+            if($this->upload->do_upload('img')){   
+
+                $cek = $this->M_Gallery->get_byId($idgallery);
+                if($cek->num_rows() > 0){
+                    $gambar = $cek->row();
+                    unlink("./assets/home/img/content/".$gambar->img);
+                }
+
+                $img = $this->upload->data();  
+                $config['image_library']    = 'gd2';  
+                $config['source_image']     = './assets/home/img/content/'.$img["file_name"];  
+                $config['create_thumb']     = FALSE;  
+                $config['maintain_ratio']   = TRUE;  
+                $config['quality']          = '80%';  
+                $config['width']            = 1000;  
+                $config['new_image']        = './assets/home/img/content/'.$img["file_name"];  
+                $this->load->library('image_lib', $config);  
+                $this->image_lib->resize(); 
+
+                $data = [
+                    'judul' => $this->input->post('judul', TRUE),
+                    'status' => $this->input->post('status', TRUE),
+                    'img' => $img["file_name"]
+                ];
+
+                $this->db->where('id', $idgallery);
+                $this->db->update('gallery', $data);
+                if($this->db->affected_rows() > 0){
+                    $this->session->set_flashdata('sukses', "Berita Berhasil Di Edit");
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }else{
+                $data = [
+                    'judul' => $this->input->post('judul', TRUE),
+                    'status' => $this->input->post('status', TRUE)
+                ];
+
+                $this->db->where('id', $idgallery);
+                $this->db->update('gallery', $data);
+
+                if($this->db->affected_rows() > 0){
+                    $this->session->set_flashdata('sukses', "Berita Berhasil Di Edit");
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
         }
     }
 
@@ -131,7 +182,57 @@ class Gallery extends CI_Controller{
         $idgallery = $this->input->post('idgallery', TRUE);
         $get = $this->M_Gallery->get_byId($idgallery);
         if($jenis == "show"){
-
+            $gallery = $get->row();
+            ?>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Detail Gallery <strong><?= $gallery->judul ?></strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= site_url('backend/gallery/action') ?>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="idgallery" value="<?= $gallery->id ?>">
+                    <input type="hidden" name="jenis" value="update">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Judul Gallery</label>
+                                    <input type="text" name="judul" id="" class="form-control form-control-alternative form-control-sm" value="<?= $gallery->judul ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Status Gallery</label>
+                                    <select name="status" id="" class="form-control form-control-alternative form-control-sm">
+                                        <option value="">- Pilih Status -</option>
+                                        <option value="published" <?php if($gallery->status == "published"){echo "selected";} ?>>Published</option>
+                                        <option value="draft" <?php if($gallery->status == "draft"){echo "selected";} ?>>Draft</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Thumbnails</label>
+                                    <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source2" onchange="previewImage2();" accept=".png, .jpg, .jpeg" required >
+                                    <label for="imageUpload2" class="m-0"></label>
+                                    <?php if($gallery->img == TRUE): ?>
+                                    <img id="image-preview2" class="rounded" alt="image preview2" style="width:100%;" src="<?= base_url('./assets/home/img/content/' . $gallery->img) ?>" />  
+                                    <?php else: ?>
+                                    <img id="image-preview2" class="rounded d-none" alt="image preview2" style="width:100%;"/>  
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer text-right">
+                        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                    </div>
+                    </form>
+                </div>
+            <?php
         }elseif($jenis == "delete"){
             if($get->num_rows() > 0){
                 $gallery = $get->row();
@@ -187,8 +288,8 @@ class Gallery extends CI_Controller{
                     <td><?= $row->status ?></td>
                     <td>
                         <div class="btn-group">
-                            <a href="<?= site_url('backend/gallery/detail/'.$row->id) ?>" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-default ml-1 lihat_<?= $row->id ?>" id="<?= $row->id ?>">Lihat</button>
+                            <button class="btn btn-sm btn-primary lihat_<?= $row->id ?>" id="<?= $row->id ?>">Edit</button>
+                            <a href="<?= site_url('backend/gallery/detail/'.$row->id) ?>" class="btn btn-sm btn-default ml-1">Lihat</a>
                             <button class="btn btn-sm btn-danger  ml-1 hapus_<?= $row->id ?>" id="<?= $row->id ?>">Hapus</button>
                         </div>
                     </td>
