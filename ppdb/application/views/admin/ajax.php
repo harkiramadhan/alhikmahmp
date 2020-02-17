@@ -65,4 +65,20 @@
         $("#desc_berita").val(quill2.root.innerHTML);
     });
 </script>
+
+<?php elseif($uri1 == "backend" && $uri2 == "gallery" && $uri3 == NULL): ?>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            url: '<?= site_url('backend/gallery/table_list_gallery') ?>',
+            beforeSend: function(){
+                $('#list_gallery').html("<div class='col-xl-12 text-center'><img src='<?= $loader ?>'></div>");
+            },
+            success: function(html){
+                $('#list_gallery').html(html);
+            }
+        });
+    }); 
+</script>
+
 <?php endif; ?>

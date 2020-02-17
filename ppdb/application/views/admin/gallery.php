@@ -30,7 +30,7 @@
                         <th scope="col" width="5px">No</th>
                         <th scope="col" class="col-12">Judul Gallery</th>
                         <th scope="col">Jumlah Foto</th>
-                        <th scope="col">Status</th>
+                        <th scope="col" class="text-center">Status</th>
                         <th scope="col" class="text-center">Aksi</th>
                       </tr>
                     </thead>
