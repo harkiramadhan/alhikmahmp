@@ -83,6 +83,44 @@ class Gallery extends CI_Controller{
         }
     }
 
+    function modal(){
+        $jenis = $this->input->post('type', TRUE);
+        $idgallery = $this->input->post('idgallery', TRUE);
+        $get = $this->M_Gallery->get_byId($idgallery);
+        if($jenis == "show"){
+
+        }elseif($jenis == "delete"){
+            if($get->num_rows() > 0){
+                $gallery = $get->row();
+                ?>
+                    <div class="modal-content bg-gradient-danger">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="modal-title-notification">Hapus Gallery <?= $gallery->judul ?></h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="py-3 text-center">
+                                <i class="ni ni-bell-55 ni-3x"></i>
+                                <h4 class="heading mt-4">Apakah Anda Yakin Menghapus Semua Foto Gallery</h4>
+                                <p><?= $gallery->judul ?></p>
+                            </div>
+                        </div>
+                        <form action="<?= site_url('backend/gallery/action') ?>" method="post">
+                        <input type="hidden" name="idberita" value="<?= $idgallery ?>">
+                        <input type="hidden" name="jenis" value="delete">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-link text-white" data-dismiss="modal">Tutup</button> 
+                            <button type="submit" class="btn btn-sm btn-white ml-auto">Ya, Lanjutkan</button>
+                        </div>
+                        </form>
+                    </div>
+                <?php
+            }
+        }
+    }
+
     // // // AJAX // // //
     function table_list_gallery(){
         $gallery = $this->M_Gallery->get_All()->result();
