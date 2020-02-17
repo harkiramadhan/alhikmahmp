@@ -266,7 +266,34 @@ class Berita extends CI_Controller{
             <?php
             endif;
         }elseif($jenis == "delete"){
-
+            if($get->num_rows() > 0):
+            $berita = $get->row();
+            ?>
+                <div class="modal-content bg-gradient-danger">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modal-title-notification">Hapus Berita <?= $berita->judul ?></h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="py-3 text-center">
+                            <i class="ni ni-bell-55 ni-3x"></i>
+                            <h4 class="heading mt-4">Apakah Anda Yakin Menghapus Berita</h4>
+                            <p><?= $berita->judul ?></p>
+                        </div>
+                    </div>
+                    <form action="<?= site_url('backend/berita/action') ?>" type="post">
+                    <input type="hidden" name="idberita" value="<?= $idberita ?>">
+                    <input type="hidden" name="jenis" value="delete">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-link text-white" data-dismiss="modal">Tutup</button> 
+                        <button type="button" class="btn btn-sm btn-white ml-auto" type="submit">Ya, Lanjutkan</button>
+                    </div>
+                    </form>
+                </div>
+            <?php endif; ?>
+            <?php
         }
     }
 
@@ -294,7 +321,7 @@ class Berita extends CI_Controller{
                     <div class="btn-group">
                         <a href="<?= site_url('backend/berita/detail/'.$row->id) ?>" class="btn btn-sm btn-primary">Edit</a>
                         <button class="btn btn-sm btn-default ml-1 lihat_<?= $row->id ?>" id="<?= $row->id ?>">Lihat</button>
-                        <button class="btn btn-sm btn-danger  ml-1">Hapus</button>
+                        <button class="btn btn-sm btn-danger  ml-1 hapus_<?= $row->id ?>" id="<?= $row->id ?>">Hapus</button>
                     </div>
                 </td>
             </tr>
@@ -316,6 +343,22 @@ class Berita extends CI_Controller{
                             },
                             success: function(html){
                                 $('.isi').html(html);
+                            }
+                        });
+                    });
+                    $(".hapus_<?= $row->id ?>").click(function(){
+                        var idberita = this.id;
+                        var type = 'delete';
+                        $.ajax({
+                            url: '<?= site_url('backend/berita/modal') ?>',
+                            type: 'post',
+                            data: {idberita : idberita, type : type},
+                            beforeSend: function(){
+                                $('#modalDelete').modal('show');
+                                $('.isiDelete').html("<div class='col-xl-12 text-center'><img src='<?= $loader ?>'></div>");
+                            },
+                            success: function(html){
+                                $('.isiDelete').html(html);
                             }
                         });
                     });
