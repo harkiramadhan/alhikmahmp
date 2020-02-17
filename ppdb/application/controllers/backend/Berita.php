@@ -200,11 +200,19 @@ class Berita extends CI_Controller{
                 <td>
                     <div class="btn-group">
                         <a href="<?= site_url('backend/berita/detail/'.$row->id) ?>" class="btn btn-sm btn-primary">Edit</a>
-                        <button class="btn btn-sm btn-default ml-1">Lihat</button>
+                        <button class="btn btn-sm btn-default ml-1 lihat_<?= $row->id ?>" id="<?= $row->id ?>">Lihat</button>
                         <button class="btn btn-sm btn-danger  ml-1">Hapus</button>
                     </div>
                 </td>
             </tr>
+            <script>
+                $(document).ready(function(){
+                    $(".lihat_<?= $row->id ?>").click(function(){
+                        var idberita = this.id;
+                        alert(idberita);
+                    });
+                });
+            </script>
             <?php } ?>
         <?php
     }
