@@ -50,20 +50,20 @@ class Berita extends CI_Controller{
     function action(){
         $jenis = $this->input->post('jenis', TRUE);
         if($jenis == "tambah"){   
-            $config['upload_path']      = './upload/img';  
+            $config['upload_path']      = '.assets/home/img/content';  
             $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
             $config ['encrypt_name']    = TRUE;
             $this->load->library('upload', $config);  
             if($this->upload->do_upload('img')){   
                 $img = $this->upload->data();  
                 $config['image_library']    = 'gd2';  
-                $config['source_image']     = './upload/img'.$img["file_name"];  
+                $config['source_image']     = '.assets/home/img/content'.$img["file_name"];  
                 $config['create_thumb']     = FALSE;  
                 $config['maintain_ratio']   = FALSE;  
                 $config['quality']          = '60%';  
                 $config['width']            = 200;  
                 $config['height']           = 200;  
-                $config['new_image']        = './upload/img'.$img["file_name"];  
+                $config['new_image']        = '.assets/home/img/content'.$img["file_name"];  
                 $this->load->library('image_lib', $config);  
                 $this->image_lib->resize(); 
 
@@ -126,9 +126,9 @@ class Berita extends CI_Controller{
                 <td><?= $row->status ?></td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-sm btn-danger">Hapus</button>
-                        <button class="btn btn-sm btn-primary ml-1">Lihat</button>
-                        <a href="<?= site_url('backend/berita/detail/'.$row->id) ?>" class="btn btn-sm btn-default ml-1">Edit</a>
+                        <a href="<?= site_url('backend/berita/detail/'.$row->id) ?>" class="btn btn-sm btn-primary">Edit</a>
+                        <button class="btn btn-sm btn-default ml-1">Lihat</button>
+                        <button class="btn btn-sm btn-danger  ml-1">Hapus</button>
                     </div>
                 </td>
             </tr>
