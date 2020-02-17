@@ -24,13 +24,13 @@ class Gallery extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
-    function detail($id){
+    function detail($idgallery){
         $data['title'] = "Detail Gallery - Al Hikmah";
         $data['nama'] = $this->session('email');
-        $data['gallery'] = $this->M_Gallery->get_byId($idgallery);
+        $data['gallery'] = $this->M_Gallery->get_byId($idgallery)->row();
 
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/gallery');
+        $this->load->view('admin/detail_gallery');
         $this->load->view('admin/footer');
     }
 
