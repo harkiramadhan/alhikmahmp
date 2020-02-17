@@ -168,6 +168,8 @@ class Berita extends CI_Controller{
             }
         }elseif($jenis == "delete"){
             $idberita = $this->input->post('idberita', TRUE);
+            $get = $this->M_Berita->get_byId($idberita)->row();
+            unlink("./assets/home/img/content/".$get->img);
             $this->db->where('id', $idberita);
             $this->db->delete('berita');
             if($this->db->affected_rows() > 0){
@@ -283,12 +285,12 @@ class Berita extends CI_Controller{
                             <p><?= $berita->judul ?></p>
                         </div>
                     </div>
-                    <form action="<?= site_url('backend/berita/action') ?>" type="post">
+                    <form action="<?= site_url('backend/berita/action') ?>" method="post">
                     <input type="hidden" name="idberita" value="<?= $idberita ?>">
                     <input type="hidden" name="jenis" value="delete">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-link text-white" data-dismiss="modal">Tutup</button> 
-                        <button type="button" class="btn btn-sm btn-white ml-auto" type="submit">Ya, Lanjutkan</button>
+                        <button type="submit" class="btn btn-sm btn-white ml-auto">Ya, Lanjutkan</button>
                     </div>
                     </form>
                 </div>
