@@ -199,13 +199,13 @@ class Berita extends CI_Controller{
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group focused">
-                                    <label for="">Judul Berita <small class="text-warning">*</small></label>
+                                    <label for="">Judul Berita</label>
                                     <input type="text" name="judul" id="" class="form-control form-control-alternative form-control-sm" value="<?= $berita->judul ?>" required="">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group focused">
-                                    <label for="">Status Berita <small class="text-warning">*</small></label>
+                                    <label for="">Status Berita</label>
                                     <select name="status" id="" class="form-control form-control-alternative form-control-sm" required="">
                                         <option value="" selected="" disabled="">- Pilih Status Berita -</option>
                                         <option value="published" <?php if($berita->status == "published"){echo "selected";} ?>>Published</option>
