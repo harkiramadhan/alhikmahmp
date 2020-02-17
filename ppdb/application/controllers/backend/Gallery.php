@@ -15,6 +15,11 @@ class Gallery extends CI_Controller{
     }
 
     function index(){
+        $data['title'] = "Gallery - Al Hikmah";
+        $data['nama'] = $this->session('email');
 
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/gallery');
+        $this->load->view('admin/footer');
     }
 }
