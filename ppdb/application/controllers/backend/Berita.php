@@ -92,7 +92,82 @@ class Berita extends CI_Controller{
                 }
             }
         }elseif($jenis == "edit"){
+            $idberita = $this->input->post('idberita', TRUE);
+            
+            $config['upload_path']      = '.assets/home/img/content';  
+            $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
+            $config ['encrypt_name']    = TRUE;
+            $this->load->library('upload', $config);  
+            if($this->upload->do_upload('img')){   
+                $cek = $this->db->get_where('berita', ['id'=>$idberita]);
 
+                $img = $this->upload->data();  
+                $config['image_library']    = 'gd2';  
+                $config['source_image']     = '.assets/home/img/content'.$img["file_name"];  
+                $config['create_thumb']     = FALSE;  
+                $config['maintain_ratio']   = FALSE;  
+                $config['quality']          = '60%';  
+                $config['width']            = 200;  
+                $config['height']           = 200;  
+                $config['new_image']        = '.assets/home/img/content'.$img["file_name"];  
+                $this->load->library('image_lib', $config);  
+                $this->image_lib->resize(); 
+
+                unlink(".assets/home/img/content/$cek->img");
+
+                $data = [
+                    'judul' => $this->input->post('judul', TRUE),
+                    'status' => $this->input->post('status', TRUE),
+                    'konten' => $this->input->post('konten', TRUE),
+                    'img' => $img["file_name"]
+                ];
+
+                $this->db->where('id', $idberita);
+                $this->db->update('berita', $data);
+                
+                $this->db->where('id_berita', $idberita);
+                $this->db->delete('label_berita');
+                
+                $label = $this->input->post('idl[]', TRUE);
+                foreach($label as $l){
+                    $dataLabel = [
+                        'id_berita' => $idberita,
+                        'id_label' => $l
+                    ];
+
+                    $this->db->insert('label_berita', $dataLabel);
+                }
+
+                $this->session->set_flashdata('sukses', "Berita Berhasil Di Edit");
+                redirect('backend/berita');
+
+            }else{
+                $data = [
+                    'judul' => $this->input->post('judul', TRUE),
+                    'status' => $this->input->post('status', TRUE),
+                    'konten' => $this->input->post('konten', TRUE)
+                ];
+                
+                $this->db->where('id', $idberita);
+                $this->db->update('berita', $data);
+                
+                $this->db->where('id_berita', $idberita);
+                $this->db->delete('label_berita');
+                
+                $label = $this->input->post('idl[]', TRUE);
+                foreach($label as $l){
+                    $dataLabel = [
+                        'id_berita' => $idberita,
+                        'id_label' => $l
+                    ];
+
+                    $this->db->insert('label_berita', $dataLabel);
+                }
+
+                $this->session->set_flashdata('sukses', "Berita Berhasil Di Edit");
+                redirect('backend/berita');
+                
+            }
         }elseif($jenis == "delete"){
             $idberita = $this->input->post('idberita', TRUE);
             $this->db->where('id', $idberita);

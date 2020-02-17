@@ -60,7 +60,7 @@
                         </div>
                         <div class="col-xl-12">
                             <label for="">Upload Gambar <small class="text-warning">*</small></label>
-                            <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" required >
+                            <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source" onchange="previewImage();" accept=".png, .jpg, .jpeg" >
                             <label for="imageUpload" class="m-0"></label>
                             <?php if($berita->img != NULL): ?>
                             <img src="<?= base_url('assets/home/img/content/'.$berita->img) ?>" id="image-preview" class="rounded" alt="image preview" style="width:100%;"/>   
