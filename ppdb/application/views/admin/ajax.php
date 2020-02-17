@@ -81,4 +81,22 @@
     }); 
 </script>
 
+<?php elseif($uri1 == "backend" && $uri2 == "gallery" && $uri3 == "detail" && $uri4 != NULL): ?>
+    <script>
+    $(document).ready(function(){
+        var idgallery = '<?= $uri4 ?>';
+        $.ajax({
+            url: '<?= site_url('backend/gallery/list_gambar_gallery') ?>',
+            type: 'POST',
+            data: {idgallery : idgallery},
+            beforeSend: function(){
+                $('.list_gallery').html("<div class='col-xl-12 text-center'><img src='<?= $loader ?>'></div>");
+            },
+            success: function(html){
+                $('.list_gallery').html(html);
+            }
+        });
+    }); 
+</script>
+
 <?php endif; ?>

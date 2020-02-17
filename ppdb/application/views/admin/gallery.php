@@ -45,7 +45,7 @@
         </div>
       </div>
 
-    <!-- Modal Tambah Label-->
+    <!-- Modal Tambah Gallery-->
     <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -90,11 +90,11 @@
         </div>
     </div>
 
-      <div class="modal fade" id="modalLihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg isi" role="document">
-              
-          </div>
-      </div>
+    <div class="modal fade" id="modalLihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg isi" role="document">
+            
+        </div>
+    </div>
 
       <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
         <div class="modal-dialog modal-danger modal-dialog-centered modal-10 isiDelete" role="document">

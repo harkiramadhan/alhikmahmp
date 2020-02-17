@@ -40,7 +40,40 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-                
-            </div>
         </div>   
+        <div class="row list_gallery">
+            
+        </div>
+
+        <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Foto Gallery</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= site_url('backend/gallery/action') ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="jenis" value="tambah_gallery">
+                    <input type="hidden" name="id_gallery" value="<?= $gallery->id ?>">
+                    <div class="modal-body bg-secondary">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Upload Gambar Untuk Gallery - <?= $gallery->judul ?></label>
+                                    <input class="btn btn-sm btn-outline-primary btn-block" type="file" name="img" id="image-source2" onchange="previewImage2();" accept=".png, .jpg, .jpeg" required >
+                                    <label for="imageUpload2" class="m-0"></label>
+                                    <img id="image-preview2" class="rounded d-none" alt="image preview2" style="width:100%;"/>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>

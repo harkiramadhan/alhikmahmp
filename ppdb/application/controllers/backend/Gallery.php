@@ -91,6 +91,38 @@ class Gallery extends CI_Controller{
                 $this->session->set_flashdata('sukses', "Berita Berhasil Di Hapus");
                 redirect($_SERVER['HTTP_REFERER']);
             }
+        }elseif($jenis == "tambah_gallery"){
+            $idgallery = $this->input->post('id_gallery', TRUE);
+            $config['upload_path']      = './assets/home/img/content';  
+            $config['allowed_types']    = 'jpg|jpeg|png|gif'; 
+            $config ['encrypt_name']    = TRUE;
+            $this->load->library('upload', $config);  
+            if($this->upload->do_upload('img')){   
+                $img = $this->upload->data();  
+                $config['image_library']    = 'gd2';  
+                $config['source_image']     = './assets/home/img/content/'.$img["file_name"];  
+                $config['create_thumb']     = FALSE;  
+                $config['maintain_ratio']   = TRUE;  
+                $config['quality']          = '80%';  
+                $config['width']            = 1000;  
+                $config['new_image']        = './assets/home/img/content/'.$img["file_name"];  
+                $this->load->library('image_lib', $config);  
+                $this->image_lib->resize(); 
+
+                $data = [
+                    'id_gallery' => $idgallery,
+                    'img' => $img["file_name"]
+                ];
+
+                $this->db->insert('gallery_detail', $data);
+                if($this->db->affected_rows() > 0){
+                    $this->session->set_flashdata('sukses', "Gambar Berhasil Di Tambahkan");
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }else{
+                $this->session->set_flashdata('error', "Gambar Gagal Di Tambahkan");
+                redirect($_SERVER['HTTP_REFERER']);
+            }
         }
     }
 
@@ -202,5 +234,18 @@ class Gallery extends CI_Controller{
             </script>
             <?php } ?>
         <?php
+    }
+
+    function list_gambar_gallery(){
+        $idgallery = $this->input->post('idgallery', TRUE);
+        $detailGallery = $this->M_Gallery->get_detailById($idgallery);
+        if($detailGallery->num_rows() > 0){
+        foreach($detailGallery->result() as $dg){
+        ?>
+            <div class="col-md-4 mt-3">
+                <img id="image-preview" class="rounded" style="height: 100%; width: 100%" alt="image preview" src="<?= base_url('./assets/home/img/content/' . $dg->img) ?>">
+            </div>
+        <?php
+        }}
     }
 }
