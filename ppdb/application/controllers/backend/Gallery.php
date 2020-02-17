@@ -24,6 +24,16 @@ class Gallery extends CI_Controller{
         $this->load->view('admin/footer');
     }
 
+    function detail($id){
+        $data['title'] = "Detail Gallery - Al Hikmah";
+        $data['nama'] = $this->session('email');
+        $data['gallery'] = $this->M_Gallery->get_byId($idgallery);
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/gallery');
+        $this->load->view('admin/footer');
+    }
+
     function action(){
         $jenis = $this->input->post('jenis', TRUE);
         if($jenis == "tambah"){
