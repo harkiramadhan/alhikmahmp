@@ -368,13 +368,7 @@ class Csiswa extends CI_Controller{
 
     // // //  AJAX // // //
     function list(){
-        // Datatables Variables
-        $draw = intval($this->input->get("draw"));
-        $start = intval($this->input->get("start"));
-        $length = intval($this->input->get("length"));
-
         $get    = $this->M_Csiswa->get_allCsiswa();
-        $data   = array();
         $no     = 1;
         $base   = site_url('csiswa/proses/');
 
@@ -382,66 +376,72 @@ class Csiswa extends CI_Controller{
 
             if($row->konfirmasi == "done"){
                 $status = "<div class='text-center'><span class='badge badge-success'>Sudah Konfirmasi</span></div>";
-                $action = "
-                    <div class='text-center'><button class='btn btn-sm btn-warning btn-block can_$row->id' id='$row->id'>Cancel</button></div>
-                    <script>
-                        $('.can_$row->id').click(function(){
-                            var id = this.id;
-                            var process = 'cancel';
-                            var nama = '$row->nama';
-                            $.ajax({
-                                url: '$base',
-                                type: 'post',
-                                data: {id : id, process : process, nama : nama},
-                                success:function(response){
-                                    alert(response);
-                                    $('#csiswa').DataTable().ajax.reload();
-                                }
-                            });
-                        });
-                    </script>
-                    ";
             }else{
                 $status = "<div class='text-center'><span class='badge badge-warning'>Belum Konfirmasi</span></div>";
-                $action = "
-                    <div class='text-center'><button class='btn btn-sm btn-success btn-block conf_$row->id' id='$row->id'>Konfirmasi</button></div>
-                    <script>
-                        $('.conf_$row->id').click(function(){
-                            var id = this.id;
-                            var process = 'conf';
-                            var nama = '$row->nama';
-                            $.ajax({
-                                url: '$base',
-                                type: 'post',
-                                data: {id : id, process : process, nama : nama},
-                                success:function(response){
-                                    alert(response);
-                                    $('#csiswa').DataTable().ajax.reload();
-                                }
-                            });
-                        });
-                    </script>
-                    ";
             }
 
-            $data[] = [
-                $no++,
-                $row->noujian,
-                "<strong>".$row->nama."</strong>",
-                $row->jenkel,
-                $row->asal_sekolah,
-                $status,
-                $action
-            ];
+            ?>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $row->noujian ?></td>
+                    <td><strong><?= $row->nama ?></strong></td>
+                    <td><?= $row->jenkel ?></td>
+                    <td><?= $row->asal_sekolah ?></td>
+                    <td><?= $status ?></td>
+                    <td>
+                        <div class="btn-group">
+                            <?php if($row->konfirmasi == "done"): ?>
+                                <button class='btn btn-sm btn-warning btn-block can_<?= $row->id ?>' id='<?= $row->id ?>'>Cancel</button>
+                                <script>
+                                    $('.can_<?= $row->id ?>').click(function(){
+                                        var id = this.id;
+                                        var process = 'cancel';
+                                        var nama = '<?= $row->nama ?>';
+                                        $.ajax({
+                                            url: '<?= $base ?>',
+                                            type: 'post',
+                                            data: {id : id, process : process, nama : nama},
+                                            success:function(response){
+                                                alert(response);
+                                                location.reload();
+                                            }
+                                        });
+                                    });
+                                </script>
+                            <?php else: ?>
+                                <button class='btn btn-sm btn-success btn-block conf_<?= $row->id ?>' id='<?= $row->id ?>'>Konfirmasi</button>
+                                <script>
+                                    $('.conf_<?= $row->id ?>').click(function(){
+                                        var id = this.id;
+                                        var process = 'conf';
+                                        var nama = '<?= $row->nama ?>';
+                                        $.ajax({
+                                            url: '<?= $base ?>',
+                                            type: 'post',
+                                            data: {id : id, process : process, nama : nama},
+                                            success:function(response){
+                                                alert(response);
+                                                location.reload();
+                                            }
+                                        });
+                                    });
+                                </script>
+                            <?php endif; ?>
+                            <div class="dropdown">
+                                <a class="btn btn-sm btn-icon-only text-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-160px, 31px, 0px);">
+                                    <a class="dropdown-item" href="">Foto</a>
+                                    <a class="dropdown-item" href="#">Akta</a>
+                                    <a class="dropdown-item" href="#">KK</a>
+                                    <a class="dropdown-item" href="#">KTP</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            <?php
         }
-
-        $output = [
-            "draw"              => $draw,
-            "recordsTotal"      => $get->num_rows(),
-            "recordsFiltered"   => $get->num_rows(),
-            "data"              => $data
-        ];
-        echo json_encode($output);
-        exit();
     }
 }
