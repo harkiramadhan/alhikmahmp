@@ -373,6 +373,10 @@ class Csiswa extends CI_Controller{
         $base   = site_url('csiswa/proses/');
 
         foreach($get->result() as $row){
+            $foto = $this->db->get_where('cdocument', ['idcsiswa'=> $row->id, 'jenis'=> "anak"]);
+            $ktp = $this->db->get_where('cdocument', ['idcsiswa'=> $row->id, 'jenis'=> "ktp"]);
+            $akta = $this->db->get_where('cdocument', ['idcsiswa'=> $row->id, 'jenis'=> "akta"]);
+            $kk = $this->db->get_where('cdocument', ['idcsiswa'=> $row->id, 'jenis'=> "kk"]);
 
             if($row->konfirmasi == "done"){
                 $status = "<div class='text-center'><span class='badge badge-success'>Sudah Konfirmasi</span></div>";
@@ -428,14 +432,34 @@ class Csiswa extends CI_Controller{
                                 </script>
                             <?php endif; ?>
                             <div class="dropdown">
-                                <a class="btn btn-sm btn-icon-only text-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-sm btn-icon-only text-default" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-download"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-160px, 31px, 0px);">
-                                    <a class="dropdown-item" href="">Foto</a>
-                                    <a class="dropdown-item" href="#">Akta</a>
-                                    <a class="dropdown-item" href="#">KK</a>
-                                    <a class="dropdown-item" href="#">KTP</a>
+                                    <?php if($foto->num_rows() > 0){
+                                        $po = $foto->row();
+                                        ?>
+                                            <a class="dropdown-item" href="<?= base_url('upload/img/'.$po->img) ?>">Foto - <?= $row->nama ?></a>
+                                        <?php
+                                    } ?>
+                                    <?php if($akta->num_rows() > 0){
+                                        $ak = $akta->row();
+                                        ?>
+                                            <a class="dropdown-item" href="<?= base_url('upload/img/'.$ak->img) ?>">Akta - <?= $row->nama ?></a>
+                                        <?php
+                                    } ?>
+                                    <?php if($kk->num_rows() > 0){
+                                        $k = $kk->row();
+                                        ?>
+                                            <a class="dropdown-item" href="<?= base_url('upload/img/'.$k->img) ?>">KK - <?= $row->nama ?></a>
+                                        <?php
+                                    } ?>
+                                    <?php if($ktp->num_rows() > 0){
+                                        $kt = $ktp->row();
+                                        ?>
+                                            <a class="dropdown-item" href="<?= base_url('upload/img/'.$kt->img) ?>">KTP - <?= $row->nama ?></a>
+                                        <?php
+                                    } ?>
                                 </div>
                             </div>
                         </div>
